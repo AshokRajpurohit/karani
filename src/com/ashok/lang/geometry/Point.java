@@ -9,8 +9,16 @@ public class Point {
         this.y = y;
     }
 
+    public int hashCode() {
+        int x_value = (int) (x % 10000) + (int) (10000 * (x - (int) x));
+        int y_value = (int) (y % 10000) + (int) (10000 * (y - (int) y));
+
+        return x_value ^ y_value;
+    }
+
     /**
      * Returns new point exactly with same co-ordinates.
+     *
      * @return new Point
      */
     public final Point clone() {
@@ -20,6 +28,7 @@ public class Point {
     /**
      * Compares this Point with the specified Object for equality.
      * returns true if point p is same as the point.
+     *
      * @param p
      * @return
      */
@@ -30,7 +39,7 @@ public class Point {
         if (!(x instanceof Point))
             return false;
 
-        Point xPoint = (Point)x;
+        Point xPoint = (Point) x;
         return this.x == xPoint.x && this.y == xPoint.y;
     }
 
@@ -40,7 +49,7 @@ public class Point {
 
     public final static double distance(Point a, Point b) {
         return Math.sqrt((a.y - b.y) * (a.y - b.y) +
-                         (a.x - b.x) * (a.x - b.x));
+                (a.x - b.x) * (a.x - b.x));
     }
 
     /**
@@ -48,6 +57,7 @@ public class Point {
      * if orientation is anticlockwise it returns 1.
      * if it is clockwise, returns -1.
      * if all three points are collinear, returns 0.
+     *
      * @param a
      * @param b
      * @param c
@@ -68,6 +78,7 @@ public class Point {
 
     /**
      * returns true if three points a, b and c are collinear.
+     *
      * @param a
      * @param b
      * @param c

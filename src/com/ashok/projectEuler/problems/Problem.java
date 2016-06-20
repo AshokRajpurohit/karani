@@ -3,6 +3,7 @@ package com.ashok.projecteuler.problems;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.physics.ZeroGravityPoints;
 
 import java.io.IOException;
 
@@ -31,6 +32,6 @@ public class Problem {
     }
 
     public void solve() throws IOException {
-        P066.solve();
+        ZeroGravityPoints.solve();
     }
 }
