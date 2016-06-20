@@ -1,4 +1,4 @@
-package com.ashok.projectEuler.problems;
+package com.ashok.projecteuler.problems;
 
 
 public class P038 {

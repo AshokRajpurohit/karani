@@ -1,4 +1,4 @@
-package com.ashok.projectEuler.problems;
+package com.ashok.projecteuler.problems;
 
 
 import com.ashok.lang.inputs.InputReader;
@@ -31,15 +31,6 @@ public class Problem {
     }
 
     public void solve() throws IOException {
-        boolean cont = true;
-        long sum = 0;
-        while (cont) {
-            //            cont = false;
-            //            long v = in.readLong();
-            //            sum += v;
-            //            out.println(v + ", " + sum);
-            out.println(P001.solve(in.readInt() - 1, in.readInt(), in.readInt()));
-            out.flush();
-        }
+        P066.solve();
     }
 }
