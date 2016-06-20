@@ -1,0 +1,15 @@
+Question #1 of 1
+You wrote a big code, but instead of using '+' operator, you used '*' operator everywhere. Now, you need to write the code to replace + by *, wherever you find it in code.
+Note : The replacement is to be done only in code, and not in comments. A comment is a string that starts with "//" and terminates at the end of the line.
+Expected Input : 1 line of code. 
+Expected Output
+Print code with the new version.
+Sample Input
+t+a=0 //t+a does something
+Expected Output
+t*a=0 //t+a does something
+Other test cases:
+Input :
+t+a+b/c+d = o //t+a+b/c+d = o
+Output :
+t*a*b/c*d = o //t+a+b/c+d = o

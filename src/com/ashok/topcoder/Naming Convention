@@ -1,0 +1,8 @@
+File Name has three parts.
+    SRM + SRM No. (like 670)
+    + D (stands for Division) + Division No. (1 or 2)
+    + Level (One, Two and Three as A, B and C)
+
+for Example program file name for
+Single Round Match 670 Round 1 - Division II, Level One
+Should be SRM670R1D2A

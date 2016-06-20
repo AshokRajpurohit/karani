@@ -1,0 +1,9 @@
+The Naming Convention is 
+SRM + Contest No + R + Round No (I, II) + D + Division No (I, II)
+    + Level (A, B, C)
+for example Name for the following problem
+  Single Round Match 657 Round 1 - Division II, Level One
+is
+    SRM657RIDIIA
+
+The template file is Ashok.java.
