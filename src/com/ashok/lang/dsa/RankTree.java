@@ -6,7 +6,7 @@ package com.ashok.lang.dsa;
  * or greater than this. I am using AVL tree to height balance it and for
  * optimum performance.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class RankTree {

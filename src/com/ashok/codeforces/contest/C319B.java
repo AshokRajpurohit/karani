@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  * Modulo Sum
  * http://codeforces.com/contest/577/problem/B
  *
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  */
 
 public class C319B {

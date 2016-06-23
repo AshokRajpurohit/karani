@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * Problem: Witch - the great and powerful
  * https://www.hackerearth.com/makemytrip-java-hiring-challenge/algorithm/witch-the-great-and-powerful-17/
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class MakeMyTripB {

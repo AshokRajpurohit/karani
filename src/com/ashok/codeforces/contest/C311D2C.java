@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Arthur and Table
  * http://codeforces.com/contest/557/problem/C
  * Incomplete and may be incorrect

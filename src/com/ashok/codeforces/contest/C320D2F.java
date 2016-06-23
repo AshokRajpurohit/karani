@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  * Problem:
  * problem Link:
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C320D2F {

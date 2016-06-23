@@ -11,7 +11,7 @@ import java.util.HashSet;
  * Problem: Navi's Party
  * Challenge: Lucid Technologies Java Hiring Challenge
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class LucidNaviParty {

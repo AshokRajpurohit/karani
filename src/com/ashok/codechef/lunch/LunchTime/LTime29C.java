@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Save the nature
  * https://www.codechef.com/LTIME29/problems/SVNTR
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class LTime29C {

@@ -11,7 +11,7 @@ import java.util.Arrays;
  * problem: World Cup Team Formation
  * https://www.hackerrank.com/contests/worldcup/challenges/world-cup-team-formation
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class WorldCupA {

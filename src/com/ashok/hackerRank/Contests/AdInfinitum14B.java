@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Simple One
  * https://www.hackerrank.com/contests/infinitum14/challenges/simple-one
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class AdInfinitum14B {

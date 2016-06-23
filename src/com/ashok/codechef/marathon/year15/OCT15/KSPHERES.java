@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: KSPHERES
  * https://www.codechef.com/OCT15/problems/KSPHERES
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class KSPHERES {

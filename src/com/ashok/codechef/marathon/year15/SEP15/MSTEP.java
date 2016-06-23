@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Count Steps in Matrix
  * https://www.codechef.com/SEPT15/problems/MSTEP
  */

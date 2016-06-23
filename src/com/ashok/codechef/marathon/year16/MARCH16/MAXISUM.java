@@ -24,7 +24,7 @@ import java.io.PrintWriter;
  *
  * whichever brings the max value we choose that.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class MAXISUM {

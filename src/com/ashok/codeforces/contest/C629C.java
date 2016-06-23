@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Problem:  Famil Door and Brackets
  * problem Link: http://codeforces.com/contest/629/problem/C
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C629C {

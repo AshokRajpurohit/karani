@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: https://www.hackerearth.com/may-easy-challenge-15/algorithm/panda-and-numbers/
  */
 

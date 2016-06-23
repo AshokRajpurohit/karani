@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * Problem: Urban Ladder Hiring Challenge | Numerical Armageddon Round 1
  * https://www.hackerearth.com/urban-ladder-coding-challenge/algorithm/numerical-armageddon-round-1-1/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class UrbanLadderA {

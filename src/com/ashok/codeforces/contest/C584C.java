@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  * Problem: Marina and Vasya
  * problem Link:
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C584C {

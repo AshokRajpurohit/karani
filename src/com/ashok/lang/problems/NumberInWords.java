@@ -11,7 +11,7 @@ import java.io.IOException;
  *
  * Example: 123 is One Hundred Twenty Three.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class NumberInWords {
     private static Output out;

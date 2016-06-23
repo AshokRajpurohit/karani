@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Lovely Couple
  * Challenge: TehcMojo Java Hiring Challenge Feb 16
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class TechMojoLovelyCouple {

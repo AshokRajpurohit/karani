@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class Main {

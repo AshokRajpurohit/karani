@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and Array and K
  * https://www.codechef.com/JUNE16/problems/CHEFARK
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFARK {

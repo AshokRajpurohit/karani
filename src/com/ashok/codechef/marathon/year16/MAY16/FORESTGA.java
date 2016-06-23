@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Forest Gathering
  * https://www.codechef.com/MAY16/problems/FORESTGA
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class FORESTGA {

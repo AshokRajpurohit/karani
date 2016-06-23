@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: DigIT
  * https://www.hackerearth.com/june-clash-15/algorithm/digit/
  */

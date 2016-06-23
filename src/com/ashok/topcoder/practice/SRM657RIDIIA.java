@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link:
  *  http://community.topcoder.com/stat?c=problem_statement&pm=13773&rd=16417
  */

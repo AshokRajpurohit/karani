@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * my Date/Calender Class in future.
  * I will explain the concept later.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Count Fridays the 13-th
  * https://www.hackerrank.com/contests/w17/challenges/count-fridays-the-13-th
  */

@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef And Binary Operation
  * https://www.codechef.com/JUNE16/problems/BINOP
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class BinaryOperation {

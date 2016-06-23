@@ -14,7 +14,7 @@ import java.util.Random;
  *
  * Using Sparse Tree Algorithm for 2D matrix.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHSQARR {

@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Max Subarray GCD
  * https://www.codechef.com/IPC15P1A/problems/GCDMAX1
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class GCDMAX1 {

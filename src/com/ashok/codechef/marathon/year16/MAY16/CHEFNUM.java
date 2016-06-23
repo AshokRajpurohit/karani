@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and Amazingness of Numbers
  * https://www.codechef.com/MAY16/problems/CHEFNUM
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFNUM {

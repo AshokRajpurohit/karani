@@ -11,7 +11,7 @@ import java.util.Arrays;
  * Problem: Making a String
  * problem Link: http://codeforces.com/contest/624/problem/B
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class ATM_MakingString {

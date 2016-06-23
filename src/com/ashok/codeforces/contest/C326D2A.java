@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Problem: Duff and Meat
  * problem Link: http://codeforces.com/contest/588/problem/0
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C326D2A {

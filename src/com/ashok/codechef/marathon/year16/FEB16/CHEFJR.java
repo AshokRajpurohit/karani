@@ -15,7 +15,7 @@ import java.util.LinkedList;
  * Problem: Chef and Job and Rest
  * https://www.codechef.com/FEB16/problems/CHEFJR
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFJR {

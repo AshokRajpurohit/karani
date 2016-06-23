@@ -2,7 +2,7 @@ package com.ashok.hackerearth.Practice;
 import java.io.*;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: https://www.hackerearth.com/tracks/pledge-2015-hard/chandan-and-balanced-strings/
  */
 

@@ -12,7 +12,7 @@ import java.math.BigInteger;
  * Problem: Number of Paths in a Grid
  * https://www.codechef.com/IPC15P2B/problems/PATHS
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class PATHS {

@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Devu and a light discussion
  * https://www.codechef.com/FEB16/problems/DEVLDISC
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class DEVLDISC {

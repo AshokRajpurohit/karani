@@ -12,7 +12,7 @@ import java.util.Map;
  * Problem: Anagrams Revisited
  * https://www.hackerearth.com/problem/algorithm/anagrams-revisited-26/description/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class AnagramsRevisited {

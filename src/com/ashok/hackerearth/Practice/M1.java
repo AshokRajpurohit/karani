@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link:
  *    https://www.hackerearth.com/tracks/pledge-2015-medium/substring-queries/
  */

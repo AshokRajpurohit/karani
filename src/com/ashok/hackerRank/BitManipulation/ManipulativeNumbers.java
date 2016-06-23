@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Manipulative Numbers
  * https://www.hackerrank.com/challenges/manipulative-numbers
  */

@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Challenge: IBEXI (A Sapiens Company) Java Hiring Challenge
  * Date: 12|03|2016
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class IBEXI_B {

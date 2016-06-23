@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * Problem: Chandu and Primes
  * Challenge: Spini Java Hiring Challenge
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class SpiniChanduPrime {

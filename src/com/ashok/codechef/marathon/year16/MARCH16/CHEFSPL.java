@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef And Special Dishes
  * https://www.codechef.com/MARCH16/problems/CHEFSPL
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFSPL {

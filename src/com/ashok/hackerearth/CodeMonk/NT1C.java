@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: The Confused Monk
  * https://www.hackerearth.com/code-monk-number-theory-i/algorithm/the-confused-monk/
  */

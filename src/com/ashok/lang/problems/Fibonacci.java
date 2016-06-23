@@ -11,7 +11,7 @@ import java.io.IOException;
  * Problem Name: Fibonacci Series
  * Link: Standard Problem
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class Fibonacci {
     private static Output out;

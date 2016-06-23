@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: The Love-Letter Mystery
  * https://www.hackerrank.com/challenges/the-love-letter-mystery
  */

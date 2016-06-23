@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Fibonacci Modified
  * https://www.hackerrank.com/challenges/fibonacci-modified
  */

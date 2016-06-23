@@ -3,7 +3,7 @@ package com.ashok.lang.main;
 /**
  * Programming Challenge Questions
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class ProChal {

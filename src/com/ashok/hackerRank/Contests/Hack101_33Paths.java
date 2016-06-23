@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Intersecting Paths
  * https://www.hackerrank.com/contests/101hack33/challenges/intersecting-paths
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class Hack101_33Paths {

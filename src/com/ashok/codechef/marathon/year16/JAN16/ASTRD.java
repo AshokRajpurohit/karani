@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Asteroids
  * https://www.codechef.com/JAN16/problems/ASTRD
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class ASTRD {

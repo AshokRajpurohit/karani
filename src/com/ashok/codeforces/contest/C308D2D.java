@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Vanya and Triangles
  * Solution is incorrect.
  * http://codeforces.com/contest/552/problem/D

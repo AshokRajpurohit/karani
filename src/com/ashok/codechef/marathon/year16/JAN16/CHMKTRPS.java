@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and Making Triples
  * https://www.codechef.com/JAN16/problems/CHMKTRPS
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHMKTRPS {

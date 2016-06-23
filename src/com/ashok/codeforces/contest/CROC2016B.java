@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Problem: Processing Queries
  * problem Link: http://codeforces.com/contest/644/problem/B
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class CROC2016B {

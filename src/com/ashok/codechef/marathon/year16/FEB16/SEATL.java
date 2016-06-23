@@ -14,7 +14,7 @@ import java.util.LinkedList;
  * Problem: Sereja and Two Lines
  * https://www.codechef.com/FEB16/problems/SEATL
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class SEATL {

@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Geometric Progression
  * Link: http://codeforces.com/contest/567/problem/C
  */

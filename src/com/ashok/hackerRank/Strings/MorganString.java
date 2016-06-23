@@ -4,7 +4,7 @@ package com.ashok.hackerRank.Strings;
 import java.io.*;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Morgan and a String
  * https://www.hackerrank.com/challenges/morgan-and-a-string
  */

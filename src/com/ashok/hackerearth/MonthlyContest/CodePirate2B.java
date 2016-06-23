@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: https://www.hackerearth.com/codepirates2/algorithm/shelock-holmes-and-you-1/
  */
 

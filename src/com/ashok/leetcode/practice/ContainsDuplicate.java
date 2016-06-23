@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Problem Name: Contains Duplicate
  * Link: https://leetcode.com/problems/contains-duplicate/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class ContainsDuplicate {
     private static Output out;

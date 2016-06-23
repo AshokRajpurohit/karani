@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 /**
  * Problem: Sum of palindromic numbers
  * https://www.codechef.com/LTIME28/problems/SPALNUM
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class SEPA {

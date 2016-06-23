@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Himanshu and Luck
  * Challenge: Symantec Women Hiring Challenge
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class SymantecWomenHimanshuAndLuck {

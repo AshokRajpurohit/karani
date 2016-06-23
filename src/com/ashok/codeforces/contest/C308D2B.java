@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: Vanya and Books
  * http://codeforces.com/contest/552/problem/B
  */

@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Bear and Blocks
  * http://codeforces.com/contest/574/problem/D
  */

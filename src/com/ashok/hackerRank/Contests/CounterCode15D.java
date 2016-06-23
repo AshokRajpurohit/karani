@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Counter Code 2015 | Poisonous Plants
  * https://www.hackerrank.com/contests/countercode/challenges/poisonous-plants
  */

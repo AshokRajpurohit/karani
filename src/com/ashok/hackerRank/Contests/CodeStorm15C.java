@@ -11,7 +11,7 @@ import java.util.Arrays;
  * Problem: Counting Triangles
  * https://www.hackerrank.com/contests/codestorm/challenges/ilia
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class CodeStorm15C {

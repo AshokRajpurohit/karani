@@ -13,7 +13,7 @@ import java.io.PrintWriter;
  * You can see that in this solution, literally I have created all the
  * possible strings. Not a nice solution to go through.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class DEVGOSTR {

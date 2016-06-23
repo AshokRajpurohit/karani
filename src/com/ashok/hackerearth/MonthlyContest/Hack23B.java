@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: https://www.hackerrank.com/contests/101hack23/challenges/devu-and-minimizing-runs-of-a-sequence
  */
 

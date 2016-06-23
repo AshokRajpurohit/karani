@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 /**
  * Problem:
  *
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  */
 
 class INS16H {

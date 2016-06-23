@@ -12,7 +12,7 @@ import java.util.Random;
  * Problem: Rupsa and Equilateral Triangle
  * https://www.codechef.com/OCT15/problems/ADTRI
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class ADTRI {

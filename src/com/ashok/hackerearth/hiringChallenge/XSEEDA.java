@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  * problem: Akash and too many assignments
  * problem Link: HackerEarth Hiring Challenge | XSEED Hiring Challenge
  */

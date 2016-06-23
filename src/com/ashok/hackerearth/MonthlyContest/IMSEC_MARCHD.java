@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit  ashok1113@hotmail.com
+ * @author Ashok Rajpurohit  ashok1113@hotmail.com
  * problem Link:  https://www.hackerearth.com/imsec-march-challenge/algorithm/sonu-and-monu/
  */
 

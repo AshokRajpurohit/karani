@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit  ashok1113@gmail.com
+ * @author Ashok Rajpurohit  ashok1113@gmail.com
  * problem Link:  http://www.codechef.com/problems/CSEQ
  * problem Link:  http://www.codechef.com/APRIL15/problems/CSEQ
  */

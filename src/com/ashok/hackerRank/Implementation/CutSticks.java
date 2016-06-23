@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Cut the Sticks
  * https://www.hackerrank.com/challenges/cut-the-sticks
  */

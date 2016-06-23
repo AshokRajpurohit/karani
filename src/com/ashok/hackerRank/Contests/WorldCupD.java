@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * problem: Bishop War
  * https://www.hackerrank.com/contests/worldcup/challenges/bishop-war
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class WorldCupD {

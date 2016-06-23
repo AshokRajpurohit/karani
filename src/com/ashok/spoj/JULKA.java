@@ -10,7 +10,7 @@ import java.math.BigInteger;
  * Problem: JULKA
  * http://www.spoj.com/problems/JULKA/
  *
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  */
 
 public class JULKA {

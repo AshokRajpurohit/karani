@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and collection of stamps
  * https://www.codechef.com/NOV15/problems/CHSTAMP
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHSTAMP {

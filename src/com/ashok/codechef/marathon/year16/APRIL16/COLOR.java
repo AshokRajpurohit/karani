@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef And Coloring
  * https://www.codechef.com/APRIL16/problems/COLOR
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class COLOR {

@@ -13,7 +13,7 @@ import java.util.List;
  * Problem: Parity tree
  * https://www.codechef.com/MARCH16/problems/PARITREE
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class PARITREE {

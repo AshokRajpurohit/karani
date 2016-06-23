@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: McAfee Challenge | Scheduling War
  * <p>
  * Prateek and Chintu are working on different projects both with equal priority.

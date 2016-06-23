@@ -38,7 +38,7 @@ import java.util.LinkedList;
  * Now let's say power of A in number is na, B is nb, C is nc and so on.
  * So the base b's power in number is min(na / a, nb / b, nc / c, ...)
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class Zeroes {

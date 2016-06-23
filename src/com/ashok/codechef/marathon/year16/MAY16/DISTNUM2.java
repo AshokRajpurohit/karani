@@ -12,7 +12,7 @@ import java.util.HashMap;
  * Problem: Easy Queries
  * https://www.codechef.com/MAY16/problems/DISTNUM2
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class DISTNUM2 {

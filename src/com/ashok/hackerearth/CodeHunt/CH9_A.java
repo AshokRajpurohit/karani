@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 
 /**
- * @author: Harshvardhan Rajpurohit
+ * @author Harshvardhan Rajpurohit
  * problem: Clock Mania
  * https://www.hackerearth.com/code_hunt_90-2/algorithm/clock-mania/
  */

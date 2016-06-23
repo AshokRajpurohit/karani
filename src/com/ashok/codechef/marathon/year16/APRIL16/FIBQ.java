@@ -52,7 +52,7 @@ import java.io.PrintWriter;
  * https://github.com/AshokRajpurohit/JavaAlgorithms/blob/master/Language/Common/src/Code/Algorithms/Matrix.java
  * https://github.com/AshokRajpurohit/JavaAlgorithms/blob/master/Language/Common/src/Problems/Fibonacci.java
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class FIBQ {

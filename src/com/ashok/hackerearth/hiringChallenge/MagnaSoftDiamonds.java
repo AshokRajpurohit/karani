@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * Problem: Diamonds
  * https://www.hackerearth.com/magnasoft-java-hiring-challenge/problems/1d8578bec6f84f80b9dce405c6dd2c8d/
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class MagnaSoftDiamonds {

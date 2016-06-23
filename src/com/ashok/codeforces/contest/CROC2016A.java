@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Problem: Parliament of Berland
  * problem Link: http://codeforces.com/contest/644/problem/A
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class CROC2016A {

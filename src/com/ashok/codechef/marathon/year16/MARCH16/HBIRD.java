@@ -14,7 +14,7 @@ import java.util.Map;
  * Problem: Chef And Hungry Birds
  * https://www.codechef.com/MARCH16/problems/HBIRD
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class HBIRD {

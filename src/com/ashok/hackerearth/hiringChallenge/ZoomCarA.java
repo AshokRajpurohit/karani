@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit ashok1113
+ * @author Ashok Rajpurohit ashok1113
  * problem: Course of Study
  * https://www.hackerearth.com/zoomcar-hiring-challenge/problems/c64c11909745cf74458fe1e4f96d32b2/
  */

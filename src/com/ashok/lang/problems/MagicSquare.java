@@ -10,7 +10,7 @@ import java.util.LinkedList;
  * Given a set of numbers, find how many ways there
  * are to build the Magic Square using these numbers
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class MagicSquare {

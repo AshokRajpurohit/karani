@@ -10,7 +10,7 @@ import java.util.LinkedList;
  * Problem: File Short
  * HackerRank Challenge
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class HackerRankChallengeB {

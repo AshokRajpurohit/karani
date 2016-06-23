@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Polynomial and its roots
  * https://www.hackerrank.com/contests/infinitum12/challenges/polynomial-and-its-roots
  */

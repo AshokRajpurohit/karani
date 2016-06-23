@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Chef and insomnia
  * https://www.codechef.com/AUG15/problems/CHINSM
  */

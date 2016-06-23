@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit ashok1113
+ * @author Ashok Rajpurohit ashok1113
  *  problem: Connect Points
  *  http://www.codechef.com/JUNE15/problems/CONPOIN
  */

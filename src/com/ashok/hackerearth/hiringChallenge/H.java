@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: Mcafee April Challenge | Xsquare And Palindromes Insertion
  * <p>
  * Xsquare likes strings a lot but much more, he likes palindromic strings.

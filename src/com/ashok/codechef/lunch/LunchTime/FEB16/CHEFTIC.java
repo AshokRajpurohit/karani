@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and Tic-Tac-Toe
  * https://www.codechef.com/LTIME33/problems/CHEFTIC
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFTIC {

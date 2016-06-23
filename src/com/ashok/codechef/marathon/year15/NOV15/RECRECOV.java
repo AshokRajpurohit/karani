@@ -13,7 +13,7 @@ import java.util.LinkedList;
  * Problem: Receipt Recovery
  * https://www.codechef.com/NOV15/problems/RECRECOV
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class RECRECOV {

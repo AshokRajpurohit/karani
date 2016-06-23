@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Table coloring
  * https://www.hackerearth.com/june-clash-15/approximate/table-coloring/
  */

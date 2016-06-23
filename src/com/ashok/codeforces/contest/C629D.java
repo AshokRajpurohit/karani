@@ -14,7 +14,7 @@ import java.util.TreeSet;
  * Problem:  Babaei and Birthday Cake
  * problem Link: http://codeforces.com/contest/629/problem/D
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C629D {

@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Cross the River
  */
 

@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * Problem: Kevin plays a game
  * Link: https://www.hackerearth.com/october-clash-15/approximate/kevin-plays-a-game/
  *
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  */
 
 public class OCT15B {

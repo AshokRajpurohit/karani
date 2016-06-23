@@ -30,7 +30,7 @@ import java.io.PrintWriter;
  *
  * Conclusion: I need to work more to explain it :)
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class EGRCAKE {

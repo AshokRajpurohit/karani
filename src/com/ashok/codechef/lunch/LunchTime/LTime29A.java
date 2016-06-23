@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: LTIME29 | emitL
  * https://www.codechef.com/LTIME29/problems/EMITL
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class LTime29A {

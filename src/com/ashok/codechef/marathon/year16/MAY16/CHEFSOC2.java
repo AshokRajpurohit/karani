@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and Big Soccer
  * https://www.codechef.com/MAY16/problems/CHEFSOC2
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFSOC2 {

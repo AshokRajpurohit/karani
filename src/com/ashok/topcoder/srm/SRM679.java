@@ -16,7 +16,7 @@ import java.util.Arrays;
  * Contest ID:
  * Link:
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class SRM679 {
     private static Output out;

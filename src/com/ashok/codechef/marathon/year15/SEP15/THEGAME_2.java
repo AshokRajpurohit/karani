@@ -12,7 +12,7 @@ import java.util.Random;
  * problem: Filling the maze
  * https://www.codechef.com/SEPT15/problems/THEGAME
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class THEGAME_2 {

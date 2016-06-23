@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Navi and beer
  * Challenge: Symantec Women Hiring Challenge
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class SymantecWomenNaviAndBeer {

@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 
 /**
  * Grid Coloring
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class HackerRankB {

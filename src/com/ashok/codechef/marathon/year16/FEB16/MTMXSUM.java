@@ -47,7 +47,7 @@ import java.io.PrintWriter;
  * straight forward and you can see my solution.
  *
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class MTMXSUM {

@@ -9,7 +9,7 @@ import java.io.IOException;
  * Problem Name:
  * Link:
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class Noor {
     private static Output out;

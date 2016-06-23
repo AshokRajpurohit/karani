@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: https://www.hackerearth.com/druva-hiring-challenge-2015/problems/57f4853af7da20933d97abca5ddba804/
  * Submission Link: https://www.hackerearth.com/submission/1591388/
  */

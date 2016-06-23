@@ -12,7 +12,7 @@ import java.util.Random;
  * Problem: Jump mission
  * https://www.codechef.com/OCT15/problems/JUMP
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class JUMP {
@@ -33,23 +33,6 @@ class JUMP {
         out.close();
     }
 
-    private static long[] gen_rand(int n) {
-        Random random = new Random();
-        long[] ar = new long[n];
-        for (int i = 0; i < n; i++)
-            ar[i] = random.nextInt();
-
-        return ar;
-    }
-
-    private static long[] genSorted(int n) {
-        long[] ar = new long[n];
-        for (int i = 0; i < n; i++)
-            ar[i] = i;
-
-        return ar;
-    }
-
     public void solve() throws IOException {
         InputReader in = new InputReader();
 
@@ -58,11 +41,6 @@ class JUMP {
         P = in.readLongArray(N);
         A = in.readLongArray(N);
         H = in.readLongArray(N);
-
-        //        N = in.readInt();
-        //        P = genSorted(N);
-        //        H = genSorted(N);
-        //        A = gen_rand(N);
 
         E = new long[N];
         for (int i = 0; i < N; i++)

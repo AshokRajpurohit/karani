@@ -12,7 +12,7 @@ import java.util.LinkedList;
  * Contest ID: SRM 680 DIV 2
  * Link: https://community.topcoder.com/stat?c=round_overview&rd=16650
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class SRM680 {
     private static Output out;

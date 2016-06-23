@@ -10,7 +10,7 @@ import java.io.IOException;
  * Problem Name: Nim Game
  * Link: https://leetcode.com/problems/nim-game/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class NimGame {
     private static Output out;

@@ -16,7 +16,7 @@ import java.util.Random;
  * Problem: Amazing Experiment
  * https://www.codechef.com/APRIL16/problems/AMAEXPER
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class AMAEXPER {
@@ -68,8 +68,8 @@ class AMAEXPER {
             int[] from = new int[n - 1], to = new int[n - 1], weight =
                 new int[n - 1];
 
-            //            int[] from = gen_rand(n - 1, 1, n), to =
-            //                gen_rand(n - 1, 1, n), weight = gen_rand(n - 1, 1, 10000);
+            //            int[] from = generateRandomIntegerArray(n - 1, 1, n), to =
+            //                generateRandomIntegerArray(n - 1, 1, n), weight = generateRandomIntegerArray(n - 1, 1, 10000);
 
             for (int i = 0; i < n - 1; i++) {
                 from[i] = in.readInt();

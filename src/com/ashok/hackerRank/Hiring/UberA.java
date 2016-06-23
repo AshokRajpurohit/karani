@@ -10,7 +10,7 @@ import java.util.Arrays;
 /**
  * Problem: Count Greater Numbers
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class UberA {

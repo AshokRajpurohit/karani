@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Problem: Kevin doesn't like his array
  * Link: https://www.hackerearth.com/october-clash-15/algorithm/kevin-doesnt-like-his-array/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class OCT15A {

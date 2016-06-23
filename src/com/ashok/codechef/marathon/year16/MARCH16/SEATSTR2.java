@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Sereja and Two Strings 2
  * https://www.codechef.com/MARCH16/problems/SEATSTR2
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class SEATSTR2 {

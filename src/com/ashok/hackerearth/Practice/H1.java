@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 /**
  *  Work in Progress -----**----->< :)
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link:
  *      https://www.hackerearth.com/tracks/pledge-2015-hard/comrades-iii/
  */

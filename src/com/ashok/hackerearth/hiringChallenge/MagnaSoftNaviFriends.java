@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * Problem: Navi and his friend
  * https://www.hackerearth.com/magnasoft-java-hiring-challenge/problems/07dad81f71c0467386e215b2d1c547c6/
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class MagnaSoftNaviFriends {

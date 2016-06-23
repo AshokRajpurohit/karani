@@ -6,15 +6,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 
-import java.util.Random;
-
 /**
  * Problem: LCM equation
  * https://www.codechef.com/OCT15/problems/LOTERY
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-
 class LOTERY {
 
     private static PrintWriter out;
@@ -40,24 +37,9 @@ class LOTERY {
             factPrime[i] = factPrime[i] * factPrime[i - 1] % mod;
     }
 
-    private static int[] getPowArray(int p, int[] ar) {
-        for (int i = 0; i <= M; i++)
-            ar[i] = 1;
-
-        int temp = p;
-        while (temp <= M) {
-            for (int i = temp; i <= M; i += temp)
-                ar[i] *= p;
-
-            temp *= p;
-        }
-
-        return ar;
-    }
-
     public static int[] gen_prime(int n) {
         boolean[] ar = new boolean[n + 1];
-        int root = (int)Math.sqrt(n);
+        int root = (int) Math.sqrt(n);
 
         for (int i = 2; i <= root; i++) {
             while (ar[i])
@@ -101,15 +83,6 @@ class LOTERY {
         return res;
     }
 
-    private static int[] gen_rand(int n) {
-        Random random = new Random();
-        int[] ar = new int[n];
-        for (int i = 0; i < n; i++)
-            ar[i] = random.nextInt(M);
-
-        return ar;
-    }
-
     public static void main(String[] args) throws IOException {
         OutputStream outputStream = System.out;
         in = System.in;
@@ -132,8 +105,6 @@ class LOTERY {
 
         C = in.readIntArray(t - 1);
         D = in.readIntArray(t - 1);
-        //        C = gen_rand(t - 1);
-        //        D = gen_rand(t - 1);
 
         format();
 
@@ -163,7 +134,7 @@ class LOTERY {
         }
 
 
-        int root = (int)Math.sqrt(b);
+        int root = (int) Math.sqrt(b);
         long res = 1;
         int i = 0;
 
@@ -180,7 +151,7 @@ class LOTERY {
             i--;
 
         return (res * factPrime[b] % mod) *
-            pow(factPrime[prime[i] - 1], mod - 2) % mod;
+                pow(factPrime[prime[i] - 1], mod - 2) % mod;
 
         //        return res;
     }
@@ -282,8 +253,8 @@ class LOTERY {
     }
 
     private static void reset(int index) {
-        N = 1 + (int)((Answer * A + C[index]) % M);
-        K = 1 + (int)((Answer * B + D[index]) % N);
+        N = 1 + (int) ((Answer * A + C[index]) % M);
+        K = 1 + (int) ((Answer * B + D[index]) % N);
     }
 
     final static class InputReader {

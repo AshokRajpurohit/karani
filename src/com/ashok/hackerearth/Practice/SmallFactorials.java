@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: https://www.hackerearth.com/problem/algorithm/small-factorials/;
  */
 

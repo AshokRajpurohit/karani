@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Problem: Bob and BST Permutations
  * https://www.codechef.com/IPC15P1B/problems/ZIGZAGTR
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class ZIGZAGTR {

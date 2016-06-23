@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.Random;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Nikitosh and xor
  * https://www.codechef.com/SEPT15/problems/REBXOR
  */

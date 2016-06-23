@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Most Distant
  * https://www.hackerrank.com/contests/infinitum14/challenges/most-distant
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class AdInfinitum14A {

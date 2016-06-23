@@ -10,7 +10,7 @@ import java.io.IOException;
  * Problem Name: Word Pattern
  * Link: https://leetcode.com/problems/word-pattern/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class WordPattern {
     private static Output out;

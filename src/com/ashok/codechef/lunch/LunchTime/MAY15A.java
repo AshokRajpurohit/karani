@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Devu and Grapes
  * http://www.codechef.com/LTIME24/problems/DEVUGRAP
  */

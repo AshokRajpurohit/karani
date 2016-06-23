@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Problem: Misha and Gym
  * https://www.codechef.com/OCT15/problems/MGCHGYM
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class MGCHGYM {

@@ -10,7 +10,7 @@ import java.util.Comparator;
 
 /**
  * Problem: Binary and Decimal
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class HackerRankA {

@@ -14,7 +14,7 @@ import java.util.LinkedList;
 /**
  * Problem: Sereja and Salesman
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class SEAKAM {

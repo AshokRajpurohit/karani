@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Terrible vectors
  * https://www.codechef.com/SEPT15/problems/TERVEC
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class TERVEC {

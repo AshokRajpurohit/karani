@@ -48,7 +48,7 @@ import java.io.IOException;
  * Please see Higher Algebra by H. S. Hall & S. R. Knight or
  * Higher Algebra by Bernard and Child.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * @see Power
  * @see Matrix
  */

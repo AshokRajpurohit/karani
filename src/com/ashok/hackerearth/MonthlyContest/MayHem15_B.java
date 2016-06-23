@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Recursive Sums
  * https://www.hackerearth.com/may-hem-15/algorithm/recursive-sums/
  */

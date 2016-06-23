@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Laddu
  * https://www.codechef.com/MAY16/problems/LADDU
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class LADDU {

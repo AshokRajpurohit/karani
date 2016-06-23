@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  * Problem: Duff in Beach
  * problem Link: http://codeforces.com/contest/588/problem/D
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C326D2D {

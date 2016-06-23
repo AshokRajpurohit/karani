@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Save Quantumland
  * https://www.hackerrank.com/contests/codestorm/challenges/save-quantumland
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class CodeStorm15B {

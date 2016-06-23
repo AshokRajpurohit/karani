@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Problem: K - Arrays
  * Challenge: Druva Developer Hiring Challenge
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class Druva16Jan16B {

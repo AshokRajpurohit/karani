@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Play with Roses
  * https://www.codechef.com/LOCMAR16/problems/ROSES
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class ROSES {

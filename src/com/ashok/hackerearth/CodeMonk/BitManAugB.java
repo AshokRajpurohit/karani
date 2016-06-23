@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Monk and his Friend
  * https://www.hackerearth.com/code-monk-bit-manipulation/algorithm/monk-and-his-friend/
  */

@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Problem: Wizards' Duel
  * problem Link: http://codeforces.com/contest/591/problem/0
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C591A {

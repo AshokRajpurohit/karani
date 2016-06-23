@@ -11,7 +11,7 @@ import java.util.LinkedList;
 /**
  * Problem: Sereja and GCD 2
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class SEAGCD2 {

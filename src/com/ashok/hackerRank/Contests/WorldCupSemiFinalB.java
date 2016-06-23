@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Lauren And Inversions
  * https://www.hackerrank.com/contests/worldcupsemifinals/challenges/lauren-and-inversions
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class WorldCupSemiFinalB {

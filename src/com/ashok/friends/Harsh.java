@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * This class is to solve Harshvardhan's problems (programming only ;) )
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class Harsh {
     private static Output out;

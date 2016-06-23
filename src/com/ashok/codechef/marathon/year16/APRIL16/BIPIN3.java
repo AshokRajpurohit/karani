@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Help Watson Escape
  * https://www.codechef.com/APRIL16/problems/BIPIN3
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class BIPIN3 {

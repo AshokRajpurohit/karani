@@ -13,7 +13,7 @@ import java.util.LinkedList;
  * Problem: Chef and cities
  * https://www.codechef.com/JUNE16/problems/FRJUMP
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class FRJUMP {

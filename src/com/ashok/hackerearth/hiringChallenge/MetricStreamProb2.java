@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem Link:https://www.hackerearth.com/metricstream-java-hiring-challenge/problems/83ae267e25193eb30e92f4950567b794/
  * problem No 2.
  */

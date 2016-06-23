@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link:
  */
 

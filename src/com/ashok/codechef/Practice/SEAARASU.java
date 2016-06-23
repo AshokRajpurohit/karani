@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Sereja and Array and Subtracting
  * https://www.codechef.com/problems/SEAARASU
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class SEAARASU {

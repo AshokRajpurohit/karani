@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Manasa and Stones
  * https://www.hackerrank.com/challenges/manasa-and-stones
  * 
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class ManasaStones {

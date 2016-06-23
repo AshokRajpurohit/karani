@@ -11,7 +11,7 @@ import java.util.Arrays;
 /**
  * Problem: Chef and Time Machine
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFTMA {

@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * Problem: Easy Strong Permutation
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class NationalInstrumentB {

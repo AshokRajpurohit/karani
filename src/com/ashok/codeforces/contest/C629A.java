@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Problem:  Far Relative￯﾿ﾯ￯ﾾ﾿￯ﾾﾽs Birthday Cake
  * problem Link: http://codeforces.com/contest/629/problem/A
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C629A {

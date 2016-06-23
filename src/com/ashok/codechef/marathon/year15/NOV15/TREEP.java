@@ -12,7 +12,7 @@ import java.util.LinkedList;
  * Problem: Period on tree
  * https://www.codechef.com/NOV15/problems/TREEP
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class TREEP {

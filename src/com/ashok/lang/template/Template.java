@@ -4,6 +4,7 @@ import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Problem Name:
@@ -12,19 +13,10 @@ import java.io.IOException;
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class Template {
-    private static Output out;
-    private static InputReader in;
+    private static Output out = new Output();
+    private static InputReader in = new InputReader();
 
     public static void main(String[] args) throws IOException {
-        in = new InputReader();
-        out = new Output();
-
-        //        String path =
-        //            "D:\\GitHub\\Competetions\\ProjectEuler\\Client\\src\\Problems\\", input =
-        //            "input_file.in", output = "output_file.out";
-        //        in = new InputReader(path + input);
-        //        out = new Output(path + output);
-
         Template a = new Template();
         try {
             a.solve();
@@ -36,7 +28,13 @@ public class Template {
 
     private void solve() throws IOException {
         while (true) {
-            // write code here, call function, whatever you do
+            int n = in.readInt();
+            int[] ar = in.readIntArray(n), copy = in.readIntArray(n);
+            Arrays.sort(ar);
+            Arrays.sort(copy);
+            out.print(ar);
+            out.print(copy);
+            out.flush();
         }
     }
 }

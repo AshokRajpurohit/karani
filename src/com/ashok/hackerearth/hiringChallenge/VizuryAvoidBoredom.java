@@ -11,7 +11,7 @@ import java.util.LinkedList;
  * Problem: Avoid boredom
  * Challenge: Vizury Code Hack
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class VizuryAvoidBoredom {

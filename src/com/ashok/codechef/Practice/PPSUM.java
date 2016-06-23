@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Puppy and Sum
  * https://www.codechef.com/problems/PPSUM/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class PPSUM {

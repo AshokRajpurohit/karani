@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Emma's Notebook
  * Link: https://www.hackerrank.com/contests/codestorm/challenges/emmas-notebook
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class CodeStorm15A {

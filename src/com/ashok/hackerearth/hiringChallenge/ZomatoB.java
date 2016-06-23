@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 /**
  * Problem: Zomato Hiring Challenge | 23-10-15 | Maximum occurrence
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class ZomatoB {

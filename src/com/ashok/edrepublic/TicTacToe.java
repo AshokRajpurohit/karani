@@ -16,7 +16,7 @@ import java.io.PrintWriter;
  * represent winning by player using O's and SECOND would represent winning
  * by player using X's.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class TicTacToe {

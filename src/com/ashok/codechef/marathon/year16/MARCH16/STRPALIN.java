@@ -19,7 +19,7 @@ import java.io.PrintWriter;
  *
  * So we just have to check if both the strings have one common character.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class STRPALIN {

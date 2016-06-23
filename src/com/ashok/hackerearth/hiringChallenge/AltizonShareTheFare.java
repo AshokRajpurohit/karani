@@ -11,7 +11,7 @@ import java.util.HashMap;
  * Problem: Share The Fare
  * Challenge: Altizon Hiring Challenge
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class AltizonShareTheFare {

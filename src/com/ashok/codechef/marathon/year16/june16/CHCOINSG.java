@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and Coins Game
  * https://www.codechef.com/JUNE16/problems/CHCOINSG
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHCOINSG {

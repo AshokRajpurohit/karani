@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 /**
  * Problem: WDTBAM
  * https://www.codechef.com/OCT15/problems/WDTBAM
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class WDTBAM {

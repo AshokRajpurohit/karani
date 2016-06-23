@@ -10,7 +10,7 @@ import java.io.IOException;
  * Contest ID: SRM 681 Round I
  * Link: https://community.topcoder.com/stat?c=round_overview&er=5&rd=16651
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class SRM681R1 {
     private static Output out;

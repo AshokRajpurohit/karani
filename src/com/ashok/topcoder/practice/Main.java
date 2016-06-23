@@ -13,7 +13,7 @@ import java.io.IOException;
  * Contest ID:
  * Link:
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class Main {
     private static Output out;

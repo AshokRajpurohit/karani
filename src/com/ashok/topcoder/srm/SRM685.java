@@ -10,7 +10,7 @@ import java.io.IOException;
  * Contest ID: SRM 685
  * Link: https://community.topcoder.com/stat?c=round_overview&rd=16689
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class SRM685 {
     private static Output out;

@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Monk's Choice of Numbers
  * https://www.hackerearth.com/code-monk-bit-manipulation/algorithm/monks-choice-of-numbers-1/
  */

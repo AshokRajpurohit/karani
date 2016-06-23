@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and Strange Operations
  * https://www.codechef.com/FEB16/problems/STROPR
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class STROPR {

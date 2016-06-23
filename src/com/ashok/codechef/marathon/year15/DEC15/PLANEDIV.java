@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Problem: Plane Division
  * https://www.codechef.com/DEC15/problems/PLANEDIV
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class PLANEDIV {

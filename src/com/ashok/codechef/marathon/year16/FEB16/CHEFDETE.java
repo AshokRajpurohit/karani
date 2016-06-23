@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef-Detective
  * https://www.codechef.com/FEB16/problems/CHEFDETE
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFDETE {

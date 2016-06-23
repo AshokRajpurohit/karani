@@ -21,8 +21,8 @@ import java.io.PrintWriter;
  * don't need to worry otherwise increment it and make it even (t + 1).
  * Now our final matrix should be pow(4, -t/2)[an, bn]. If t was odd then we
  * can multiply it with matrix else this is the answer.
- * @author: Deepak Kumar
- * @author: Ashok Rajpurohit
+ * @author Deepak Kumar
+ * @author Ashok Rajpurohit
  */
 
 class CODECRCK {

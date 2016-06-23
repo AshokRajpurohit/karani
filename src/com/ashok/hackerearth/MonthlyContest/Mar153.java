@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link:
  *      https://www.hackerearth.com/march-clash-15/approximate/putting-matrix-1/
  * Example galat h ismein.

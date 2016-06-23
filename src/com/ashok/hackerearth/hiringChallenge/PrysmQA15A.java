@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Problem: Navi and maths
  * https://www.hackerearth.com/prysm-hiring-challenge/problems/8fe5474e370c4f25a8c7be0907b86919/
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class PrysmQA15A {

@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * Problem: Grid Count
  * Challenge: Altizon
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class AltizonGridCount {

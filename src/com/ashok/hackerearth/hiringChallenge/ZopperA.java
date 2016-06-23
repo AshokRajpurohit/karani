@@ -41,7 +41,7 @@ import java.io.PrintWriter;
  */
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: https://www.hackerearth.com/zopper-hiring-challenge/problems/8ef87146cd0f997fe14a12ff8fad495c/
  */
 

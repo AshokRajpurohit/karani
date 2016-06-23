@@ -12,7 +12,7 @@ import java.util.LinkedList;
  * Problem: Crazy Tree 2
  * Code Your Way to IndiaHacks Conference
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class IndiaHacksCrazyTree2 {

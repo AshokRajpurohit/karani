@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit ashok1113
+ * @author Ashok Rajpurohit ashok1113
  *  problem Link: http://www.codechef.com/MAY15/problems/CHEFRP
  *
  *  find the minimum element and if it is less than 2 the answer is -1 as

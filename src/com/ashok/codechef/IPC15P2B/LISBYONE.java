@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Shil and LIS
  * https://www.codechef.com/IPC15P2B/problems/LISBYONE
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class LISBYONE {

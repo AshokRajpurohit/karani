@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: PALIN - The Next Palindrome
  * problem Link:  http://www.spoj.com/problems/PALIN/
  *

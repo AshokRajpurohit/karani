@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Weird Sum
  * https://www.codechef.com/FEB16/problems/WRDSUM
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class WRDSUM {

@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef And The Hiring Event
  * https://www.codechef.com/JUNE16/problems/CHEARMY
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEARMY {

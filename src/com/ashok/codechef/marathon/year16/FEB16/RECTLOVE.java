@@ -31,7 +31,7 @@ import java.io.PrintWriter;
  * Total number of rectangles in n x m matrix is C(n + 1, 2) * C(m + 1, 2).
  * C(n, r) is n! / (r! * (n - r)!)
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class RECTLOVE {

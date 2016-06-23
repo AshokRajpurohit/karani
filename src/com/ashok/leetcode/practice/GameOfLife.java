@@ -10,7 +10,7 @@ import java.io.IOException;
  * Problem Name: Game of Life
  * Link: https://leetcode.com/problems/game-of-life/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class GameOfLife {
     private static Output out;

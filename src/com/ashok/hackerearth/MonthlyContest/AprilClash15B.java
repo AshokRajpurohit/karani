@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit le
+ * @author Ashok Rajpurohit le
  * problem Link: https://www.hackerearth.com/april-clash-15/algorithm/frames-4/
  */
 

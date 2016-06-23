@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and the stones
  * https://www.codechef.com/DEC15/problems/CHEFST
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFST {

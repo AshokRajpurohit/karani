@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Devu and decorating birthday cake
  * http://www.codechef.com/COOK58/problems/REARRSTR
  */

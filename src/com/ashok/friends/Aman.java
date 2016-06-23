@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 /**
  * this class is to solve Aman Kashyap's problems.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class Aman {

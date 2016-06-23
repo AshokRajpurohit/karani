@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Sudoku Swap
  * https://www.hackerrank.com/contests/w15/challenges/sudoku-swap
  * (x1,y1) <-> (x2,y2)

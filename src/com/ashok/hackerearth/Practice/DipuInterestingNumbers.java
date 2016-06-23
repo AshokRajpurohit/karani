@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Dipu and Interesting Numbers
  * https://www.hackerearth.com/problem/algorithm/dipu-and-interesting-numbers-2/description/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class DipuInterestingNumbers {
 

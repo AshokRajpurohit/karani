@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  * Problem: Dima and Lisa
  * problem Link: http://codeforces.com/contest/584/problem/D
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C584D {

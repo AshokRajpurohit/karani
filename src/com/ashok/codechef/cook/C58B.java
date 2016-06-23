@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Devu, his friends and birthday gifts
  * http://www.codechef.com/COOK58/problems/DEVBDAY
  *

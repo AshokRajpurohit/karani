@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Challenge: April Circuits
  * https://www.hackerearth.com/april-circuits/algorithm/circ-bear-and-vowels-2/
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class BearVowel {

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Permutations divisible by 8 (Coding)
  *
  * You are given an integer N. Is there a permutation of that integer's digits

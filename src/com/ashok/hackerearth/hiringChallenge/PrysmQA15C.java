@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * Problem: Ashu and Prime Factors
  * https://www.hackerearth.com/prysm-qa-coding-test/problems/e4773b368150476c9de4dd9c7c37bae3/
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class PrysmQA15C {

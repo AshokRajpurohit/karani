@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 /**
  * Problem: Devu and Perfume
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class DEVPERF {

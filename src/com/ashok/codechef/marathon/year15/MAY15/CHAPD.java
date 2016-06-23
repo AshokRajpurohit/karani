@@ -18,7 +18,7 @@ import java.io.PrintWriter;
  *  as now there is no common factors in b and c.
  *  if b is 1 it means there was no uncommon prime factor.
  *
- *  @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ *  @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class CHAPD {

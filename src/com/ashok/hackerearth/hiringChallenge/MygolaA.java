@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * Problem: TShirtSelection
  * Challenge: Mygola(A MakeMyTrip Entity) Hiring Challenge
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class MygolaA {

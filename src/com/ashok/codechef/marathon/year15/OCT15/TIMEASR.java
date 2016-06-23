@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Problem: Time measure
  * https://www.codechef.com/OCT15/problems/TIMEASR
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class TIMEASR {

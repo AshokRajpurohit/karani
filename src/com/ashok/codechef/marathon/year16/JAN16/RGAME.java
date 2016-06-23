@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 /**
  * Problem: Rupsa and the Game
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class RGAME {

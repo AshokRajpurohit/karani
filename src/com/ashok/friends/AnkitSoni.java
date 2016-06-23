@@ -13,7 +13,7 @@ import java.util.Arrays;
  * Problem Name: Ankit Soni
  * Link: Office E-MAIL ID
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class AnkitSoni {
     private static Output out;

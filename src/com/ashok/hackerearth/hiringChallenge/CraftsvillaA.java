@@ -14,7 +14,7 @@ import java.util.Random;
  * which exactly contain two set bits upto a given number N.
  * 3 5 10 are lucky numbers where 7 14 are not.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CraftsvillaA {

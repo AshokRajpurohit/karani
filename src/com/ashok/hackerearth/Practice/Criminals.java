@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Problem: Criminals: Little Deepu and Little Kuldeep
  * https://www.hackerearth.com/problem/algorithm/criminals-little-deepu-and-little-kuldeep/
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class Criminals {

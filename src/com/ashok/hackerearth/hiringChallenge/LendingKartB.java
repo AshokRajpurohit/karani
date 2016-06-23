@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Daisy and the Password
  * Challenge: Lendingkart Java Hiring Challenge
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class LendingKartB {

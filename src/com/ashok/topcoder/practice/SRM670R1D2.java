@@ -17,7 +17,7 @@ import java.util.HashSet;
  * Contest ID:
  * Link:
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class SRM670R1D2 {
     private static Output out;

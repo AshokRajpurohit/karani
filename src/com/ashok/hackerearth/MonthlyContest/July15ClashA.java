@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Sabotage
  * problem Link: https://www.hackerearth.com/july-clash-15/algorithm/sabotage-1/
  */

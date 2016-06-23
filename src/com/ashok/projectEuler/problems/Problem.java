@@ -38,7 +38,7 @@ public class Problem {
         while (true) {
             int n = in.readInt();
             long time = System.currentTimeMillis();
-            int[] ar = Generators.gen_rand(in.readInt(), 10);
+            int[] ar = Generators.generateRandomIntegerArray(in.readInt(), 10);
             out.print(ar);
             out.println(P074.maximumAmount(ar, in.readInt()));
             out.println(System.currentTimeMillis() - time);

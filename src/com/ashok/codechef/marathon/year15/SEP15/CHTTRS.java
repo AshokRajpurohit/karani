@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * problem: Chef and Chetris
  * Link: https://www.codechef.com/SEPT15/problems/CHTTRS
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class CHTTRS {

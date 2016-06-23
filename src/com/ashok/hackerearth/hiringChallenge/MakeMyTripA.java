@@ -9,7 +9,7 @@ import java.util.LinkedList;
  * Problem: Connected Horses
  * Challenge: Make My Trip Nov15
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class MakeMyTripA {

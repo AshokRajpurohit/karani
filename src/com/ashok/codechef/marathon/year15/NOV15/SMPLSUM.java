@@ -27,7 +27,7 @@ import java.io.PrintWriter;
  * sum(n) = sum(p * p) + p ^ 5 * (p - 1)
  * and so on.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class SMPLSUM {

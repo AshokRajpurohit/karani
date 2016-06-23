@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and Ballons
  * https://www.codechef.com/APRIL16/problems/CHBLLNS
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHBLLNS {

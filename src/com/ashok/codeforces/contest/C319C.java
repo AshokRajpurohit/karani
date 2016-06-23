@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  * problem: Vasya and Petya's Game
  * http://codeforces.com/contest/577/problem/C
  *
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  */
 
 public class C319C {

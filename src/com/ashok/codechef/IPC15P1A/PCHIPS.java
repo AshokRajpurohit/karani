@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Poker Chips
  * https://www.codechef.com/IPC15P1A/problems/PCHIPS
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class PCHIPS {

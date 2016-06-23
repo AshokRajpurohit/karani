@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Challenge: March 16
  * https://www.hackerearth.com/march-clash-16/algorithm/the-great-kian/
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class March16TheGreatKian {

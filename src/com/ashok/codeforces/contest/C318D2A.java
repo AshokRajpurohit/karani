@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Bear and Elections
  * http://codeforces.com/contest/574/problem/0
  */

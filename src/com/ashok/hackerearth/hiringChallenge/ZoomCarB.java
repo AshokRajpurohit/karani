@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit ashok1113
+ * @author Ashok Rajpurohit ashok1113
  * problem: Utkarsh and Jumps
  * https://www.hackerearth.com/zoomcar-hiring-challenge/problems/445fd9bd832f748b029dfbfb66665e30/
  */

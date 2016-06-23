@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Challenge: Accolite Java Hiring Challenge
  * Date: 20160227 (YYYYMMDD)
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class AccoliteCardGame {

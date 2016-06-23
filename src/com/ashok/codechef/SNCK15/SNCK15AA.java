@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem: Chefs and Voting for best friend
  * http://www.codechef.com/SNCK151A/problems/CHEFVOTE
  */

@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 
 /**
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  * problem: Range Sum
  * Challenge: Capillar Java Hiring Challenge
  */

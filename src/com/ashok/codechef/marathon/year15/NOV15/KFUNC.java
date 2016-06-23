@@ -30,7 +30,7 @@ import java.io.PrintWriter;
  * Oh, I forgot to tell you one property.
  * digitSum(a + 9) = digitSum(a). So it is cycle of 9 elements.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class KFUNC {

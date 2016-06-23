@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Devu and an Array
  * https://www.codechef.com/JUNE16/problems/DEVARRAY
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class DevArray {

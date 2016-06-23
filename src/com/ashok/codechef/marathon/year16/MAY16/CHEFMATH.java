@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Chef and math
  * https://www.codechef.com/MAY16/problems/CHEFMATH
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class CHEFMATH {

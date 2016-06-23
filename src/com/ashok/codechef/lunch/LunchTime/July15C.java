@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Puppy and game
  * https://www.codechef.com/LTIME26/problems/PUPPYGM
  */

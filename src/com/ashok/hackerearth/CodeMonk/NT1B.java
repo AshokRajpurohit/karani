@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Chandu and his Interns
  * https://www.hackerearth.com/code-monk-number-theory-i/algorithm/chandu-and-his-interns/
  */

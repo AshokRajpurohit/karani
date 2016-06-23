@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Count Subarrays
  * https://www.codechef.com/OCT15/problems/SUBINC
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class SUBINC {

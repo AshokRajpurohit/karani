@@ -1,5 +1,7 @@
 package com.ashok.lang.dsa;
 
+import java.util.Arrays;
+
 /**
  * This class is to support heap (and also priority queues) related functions,
  * i.e. heapsort, finding k maximum or minimum elements.
@@ -7,13 +9,20 @@ package com.ashok.lang.dsa;
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class Heap {
-    private Heap() {
-        super();
+    private int[] heap;
+    public final boolean min;
+    private int k = 0;
+    final static int DEFAULT_SIZE = 16;
+
+    public Heap() {
+        min = true;
+        heap = new int[DEFAULT_SIZE];
     }
 
-    private int[] heap;
-    private boolean min;
-    int k = 0;
+    public Heap(boolean min, int size) {
+        this.min = min;
+        heap = new int[size];
+    }
 
     public static int[] sort(int[] ar) {
         return sort(ar, true);
@@ -23,20 +32,16 @@ public class Heap {
      * This function sorts the given array using HeapSort algorithm.
      * for more details please refer "Introduction to Algorithms by CLRS".
      *
-     * @param ar the array to be sorted.
+     * @param ar  the array to be sorted.
      * @param min whether the min element should be first or last.
      * @return sorted array
      */
     public static int[] sort(int[] ar, boolean min) {
-        Heap h = new Heap();
-        h.heap = new int[ar.length];
-        h.min = min;
-
+        Heap h = new Heap(min, ar.length);
         for (int i = 0; i < ar.length; i++)
             h.add(ar[i]);
 
         h.sort();
-
         return h.heap;
     }
 
@@ -55,9 +60,7 @@ public class Heap {
     }
 
     public static int[] maxElements(int[] ar, int k) {
-        Heap h = new Heap();
-        h.heap = new int[k];
-        h.min = true;
+        Heap h = new Heap(true, k);
         for (int i = 0; i < k; i++)
             h.add(ar[i]);
 
@@ -72,9 +75,7 @@ public class Heap {
     }
 
     public static int[] minElements(int[] ar, int k) {
-        Heap h = new Heap();
-        h.heap = new int[k];
-        h.min = false;
+        Heap h = new Heap(false, k);
         for (int i = 0; i < k; i++)
             h.add(ar[i]);
 
@@ -105,10 +106,45 @@ public class Heap {
         }
     }
 
-    private void add(int n) {
+    public void add(int n) {
+        if (k == heap.length)
+            expandCapacity();
+
         heap[k] = n;
         reformatUp(k);
         k++;
+    }
+
+    public int[] getHeapArray() {
+        return Arrays.copyOf(heap, heap.length);
+    }
+
+    public void addAll(int[] ar) {
+        for (int e : ar)
+            add(e);
+    }
+
+    public int removeFirst() {
+        int value = heap[0];
+        k--;
+        heap[0] = heap[k];
+        reformatDown(0);
+
+        return value;
+    }
+
+    public void replaceFirst(int n) {
+        heap[0] = n;
+        reformatDown(0);
+    }
+
+    public int removeLast() {
+        k--;
+        return heap[k];
+    }
+
+    private void expandCapacity() {
+        heap = Arrays.copyOf(heap, heap.length * 2);
     }
 
     private void reformatUp(int index) {

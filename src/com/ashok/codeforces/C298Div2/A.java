@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  * problem Link: http://codeforces.com/contest/534/problem/A
  */
 

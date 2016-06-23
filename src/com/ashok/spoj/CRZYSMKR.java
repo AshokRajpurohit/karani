@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * 
  * INCOMPLETE
  *
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  */
 
 public class CRZYSMKR {

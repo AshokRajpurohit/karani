@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Fast squarer
  * https://www.codechef.com/LTIME29/problems/FSTSQ
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class LTime29B {

@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Challenge: TechMojo Java Challenge
  * Feb 16
  *
- * @author: Ashok Rajpurohit ashok1113@gmail.com
+ * @author Ashok Rajpurohit ashok1113@gmail.com
  */
 
 public class TechMojoMillyRank {

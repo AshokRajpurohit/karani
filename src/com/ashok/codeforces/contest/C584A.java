@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  * Problem: Olesya and Rodion
  * problem Link:
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C584A {

@@ -42,7 +42,7 @@ import java.io.PrintWriter;
  *
  * Now again it's upto you how you implement it.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 class MTMXSUM {

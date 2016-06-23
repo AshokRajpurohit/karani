@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 /**
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Chain of Doughnuts
  * https://www.codechef.com/SEPT15/problems/DONUTS
  */

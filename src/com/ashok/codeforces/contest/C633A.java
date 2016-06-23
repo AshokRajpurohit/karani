@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Problem: Ebony and Ivory
  * problem Link: http://codeforces.com/contest/633/problem/A
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C633A {

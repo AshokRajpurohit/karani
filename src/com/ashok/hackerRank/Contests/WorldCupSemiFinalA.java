@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Problem: Find Number
  * https://www.hackerrank.com/contests/worldcupsemifinals/challenges/find-number
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class WorldCupSemiFinalA {

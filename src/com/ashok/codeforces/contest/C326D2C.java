@@ -11,7 +11,7 @@ import java.util.Arrays;
  * Problem: Duff and Weight Lifting
  * problem Link: http://codeforces.com/contest/588/problem/C
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class C326D2C {

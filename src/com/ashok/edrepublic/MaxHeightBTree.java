@@ -2,7 +2,7 @@ package com.ashok.edrepublic;
 
 
 /**
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  *
  */
 public class MaxHeightBTree {

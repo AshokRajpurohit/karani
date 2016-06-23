@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 
 /**
  * problem:
- * @author: Ashok Rajpurohit
+ * @author Ashok Rajpurohit
  */
 
 public class C319A {
