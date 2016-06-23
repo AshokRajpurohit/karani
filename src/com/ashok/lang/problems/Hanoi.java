@@ -1,11 +1,10 @@
 package com.ashok.lang.problems;
 
-import com.ashok.lang.algorithms.Matrix;
-
-import com.ashok.lang.dsa.*;
+import com.ashok.lang.math.Matrix;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.lang.math.Power;
 
 import java.io.IOException;
 

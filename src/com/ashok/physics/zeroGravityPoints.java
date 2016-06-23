@@ -9,7 +9,7 @@ import java.util.LinkedList;
 /**
  * You are given set of objects (mass objects) with mass and their position.
  * All the objects lie on straight line. It is assumed that no two objects share
- * the position.
+ * the position. We have to find zero gravity points.
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
  */

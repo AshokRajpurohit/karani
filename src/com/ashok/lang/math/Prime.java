@@ -1,4 +1,6 @@
-package com.ashok.lang.dsa;
+package com.ashok.lang.math;
+
+import com.ashok.lang.dsa.MergeSort;
 
 import java.util.LinkedList;
 
@@ -6,38 +8,23 @@ import java.util.LinkedList;
  * This class implements functions related to prime numbers.
  * Work in progress.
  *
- * @author: Ashok Rajpurohit (ashok1113@gmail.com)
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class Prime {
     private Prime() {
-        super();
-    }
-
-    /**
-     * calculate factorials of numbers upto 20 and
-     * store into factorial array.
-     * edit: this factorial is useless now as my algo was incorrect
-     * see the last function primality.
-     * in this class only gen_prime(int n) is correct.
-     */
-    private static long[] factorial = new long[21];
-    static {
-        factorial[0] = 1;
-        for (int i = 1; i < 21; i++) {
-            factorial[i] = factorial[i - 1] * i;
-        }
     }
 
     /**
      * This function generates prime numbers upto given integer n and
      * returns the array of primes upto n (inclusive).
+     *
      * @param n prime numbers upto integer n
      * @return
      */
     public static int[] gen_prime(int n) {
         boolean[] ar = new boolean[n + 1];
-        int root = (int)Math.sqrt(n);
+        int root = (int) Math.sqrt(n);
 
         for (int i = 2; i <= root; i++) {
             while (ar[i])
@@ -67,7 +54,7 @@ public class Prime {
 
     public static int[] primes(int[] ar) {
         MergeSort.sort(ar);
-        int p = (int)Math.sqrt(ar[ar.length - 1]);
+        int p = (int) Math.sqrt(ar[ar.length - 1]);
         int[] primes = gen_prime(p);
         boolean[] primes_check = new boolean[ar.length];
         for (int i = 0; i < primes.length; i++) {
@@ -95,7 +82,7 @@ public class Prime {
      * Returns array of prime numbers in given range. start and end are inclusive.
      *
      * @param start start point of range
-     * @param end end of the range
+     * @param end   end of the range
      * @return array of primes number in the range
      */
     public static int[] primesInRange(int start, int end) {
@@ -103,7 +90,7 @@ public class Prime {
             return primesInRange(end, start);
 
         boolean[] ar = new boolean[end + 1 - start];
-        int p = (int)Math.sqrt(end);
+        int p = (int) Math.sqrt(end);
         int[] primes = gen_prime(p);
 
         for (int i = 0; i < primes.length; i++) {
@@ -138,10 +125,10 @@ public class Prime {
         if (start > end)
             return primesInRange(end, start);
 
-        int limit = (int)Math.sqrt(end) + 1;
+        int limit = (int) Math.sqrt(end) + 1;
         int[] primes = gen_prime(limit);
 
-        boolean[] check = new boolean[(int)(end - start + 1)];
+        boolean[] check = new boolean[(int) (end - start + 1)];
 
         for (int e : primes) {
             for (int i = 0; i < check.length; i++) {
@@ -167,6 +154,7 @@ public class Prime {
 
     /**
      * this function is now corrected.
+     *
      * @param n
      * @return returns true if n is prime else false
      */
@@ -180,7 +168,7 @@ public class Prime {
         if (n % 2 == 0 || n % 3 == 0)
             return false;
 
-        int p = (int)Math.sqrt(n);
+        int p = (int) Math.sqrt(n);
         boolean[] primes = new boolean[p + 1];
         primes[2] = true;
 

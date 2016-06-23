@@ -1,7 +1,7 @@
 package com.ashok.lang.graph;
 
 import com.ashok.lang.dsa.DisjointSet;
-import com.ashok.lang.dsa.FibonacciHeap;
+import com.ashok.lang.math.FibonacciHeap;
 
 import java.lang.reflect.Array;
 

@@ -1,4 +1,4 @@
-package com.ashok.lang.dsa;
+package com.ashok.lang.math;
 
 import java.util.LinkedList;
 
@@ -22,19 +22,19 @@ public class ModularArithmatic {
     }
 
     public static int gcd(int a, long b) {
-        return euclid(a, (int)(b % a));
+        return euclid(a, (int) (b % a));
     }
 
     public static int gcd(long a, int b) {
-        return euclid((int)(a % b), b);
+        return euclid((int) (a % b), b);
     }
 
     public static long gcd(long a, long b) {
         if (a < Integer.MAX_VALUE)
-            return euclid((int)a, (int)(b % a));
+            return euclid((int) a, (int) (b % a));
 
         if (b < Integer.MAX_VALUE)
-            return euclid((int)b, (int)(a % b));
+            return euclid((int) b, (int) (a % b));
 
         return bgcd(a, b);
     }
@@ -157,6 +157,7 @@ public class ModularArithmatic {
 
     /**
      * This method is now used only for inverse modulo calculation.
+     *
      * @param a
      * @param b
      * @return Greatest Commond Divisor of a and b
@@ -172,8 +173,8 @@ public class ModularArithmatic {
      * For more info please visit wikipedia article or refer
      * A Comprehensive Course in Number Theory by Alan Baker.
      *
-     * @param a
-     * @return
+     * @param a number for which coprime count is to be calculated.
+     * @return number of coprimes smaller than a.
      */
     public static int totient(int a) {
         LinkedList<Integer> factors = Prime.primeFactors(a);
@@ -184,5 +185,40 @@ public class ModularArithmatic {
         }
 
         return res;
+    }
+
+    /**
+     * Returns the array of coprime numbers for numbers 0 to n.
+     * Note that the array size is n + 1, so for number n, number
+     * of coprimes smaller than n will be phi[n].
+     *
+     * @param n number range for totient values to be calculated.
+     * @return array of integer with totient values.
+     */
+    public static int[] totientList(int n) {
+        boolean[] primes = new boolean[n + 1];
+        for (int i = 1; i <= n; i++)
+            primes[i] = true;
+
+        int[] phi = new int[n + 1];
+        phi[1] = 1;
+
+        for (int i = 2; i <= n; i++)
+            phi[i] = i;
+
+        for (int i = 2; i <= n; i++) {
+            if (!primes[i])
+                continue;
+
+            int num = i - 1;
+
+            for (int j = i; j <= n; j += i) {
+                primes[j] = false;
+
+                phi[j] = num * (phi[j] / i);
+            }
+        }
+
+        return phi;
     }
 }

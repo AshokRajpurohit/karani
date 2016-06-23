@@ -1,4 +1,4 @@
-package com.ashok.lang.dsa;
+package com.ashok.lang.math;
 
 /**
  * This class implements a faster method of division.

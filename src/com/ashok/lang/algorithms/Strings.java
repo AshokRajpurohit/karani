@@ -1,6 +1,6 @@
 package com.ashok.lang.algorithms;
 
-import com.ashok.lang.dsa.Power;
+import com.ashok.lang.math.Power;
 
 public class Strings {
     private static char[] upperToLowerCase = new char[256], lowerToUpperCase =

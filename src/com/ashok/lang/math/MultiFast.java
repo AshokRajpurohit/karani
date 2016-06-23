@@ -1,4 +1,4 @@
-package com.ashok.lang.dsa;
+package com.ashok.lang.math;
 
 /**
  * This is the fast multiplication implementation using binary operations

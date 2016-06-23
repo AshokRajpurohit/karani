@@ -1,4 +1,4 @@
-package com.ashok.lang.algorithms;
+package com.ashok.lang.math;
 
 /**
  * Matrix class is created specifically for matrix multiplication, addition etc.

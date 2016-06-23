@@ -1,4 +1,4 @@
-package com.ashok.lang.dsa;
+package com.ashok.lang.math;
 
 /**
  * This class is to calculate big powers with least number of
@@ -157,9 +157,9 @@ public class Power {
      * This function returns inverse modulo of a modulo mod.
      * it's based on Fermat's Little Theorom.
      * This function is now obsolete as We have better function implemented
-     * in {@link ModularArithmatic inverseModulo}.
+     * in {@link ModularArithmatic#inverseModulo}.
      * @param a
-     * @param mod mod should be a prime number.
+     * @param mod should be a prime number.
      * @return
      */
     public static long inverseModulo(long a, long mod) {

@@ -1,4 +1,4 @@
-package com.ashok.lang.dsa;
+package com.ashok.lang.math;
 
 import java.math.BigInteger;
 

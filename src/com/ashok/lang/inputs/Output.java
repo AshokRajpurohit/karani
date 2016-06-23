@@ -27,6 +27,21 @@ public class Output extends PrintWriter {
         super(new FileOutputStream(file));
     }
 
+    public void print(Object[] objects) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Object object : objects) {
+            sb.append(object.toString()).append(' ');
+        }
+
+        print(sb.toString());
+    }
+
+    public void println(Object[] objects) {
+        print(objects);
+        println();
+    }
+
     public void print(int[] ar) {
         StringBuilder sb = new StringBuilder(ar.length << 1);
         for (int e : ar)

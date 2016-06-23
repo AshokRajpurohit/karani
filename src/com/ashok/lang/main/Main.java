@@ -1,19 +1,12 @@
 package com.ashok.lang.main;
 
-import com.ashok.lang.algorithms.Strings;
-
-import com.ashok.lang.dsa.RandomStrings;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.lang.math.Numbers;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
-
 import java.io.StringWriter;
-
-import java.math.BigInteger;
-
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -29,61 +22,18 @@ public class Main {
     private static Output out = new Output();
     private static InputReader in = new InputReader();
     private static final String path =
-        "D:\\GitHub\\Language\\Language\\Common\\src\\Code\\Main\\";
+            "D:\\GitHub\\Language\\Language\\Common\\src\\Code\\Main\\";
 
     private static String line =
-        "---------------------------------------------------------------------";
+            "---------------------------------------------------------------------";
 
     public static void main(String[] args) throws IOException, Exception {
-        OutputStream outputStream = System.out;
-
         String input = "input_file.in", output = "output.txt";
-        //        FileInputStream fip = new FileInputStream(input);
-        //        FileOutputStream fop = new FileOutputStream(output);
-        //        in = fip;
-        //        out = new Output(path + output);
 
         Main a = new Main();
         a.solve();
         out.close();
     }
-
-    private static void hack() throws IOException, InterruptedException {
-        BigInteger bi = new BigInteger("1234");
-        RandomStrings random = new RandomStrings();
-        while (true) {
-            int t = in.readInt();
-            for (int i = 0; i < t; i++) {
-                out.println(random.nextBinaryString(random.nextInt(100) +
-                                                    100));
-                out.flush();
-            }
-        }
-    }
-    //
-    //    public enum Test {
-    //        A("Ashok"),
-    //        B("Braj"),
-    //        C("Chanakya");
-    //
-    //        final String param;
-    //
-    //        Test(String name) {
-    //            this.param = name;
-    //        }
-    //    }
-
-    //    static class MyEnum extends Enum<MyEnum> {
-    //        final String name;
-    //
-    //        MyEnum(String name) {
-    //            this.name = name;
-    //        }
-    //
-    //        public String toString() {
-    //            return name;
-    //        }
-    //    }
 
     static interface MySecondEnum {
         public String toString();
@@ -139,8 +89,6 @@ public class Main {
     }
 
     public void solve() throws IOException, Exception {
-        double d1 = 0.0, d2 = 0.000000000000;
-        System.out.println(d2 - d1);
         for (Table2 t : Table2.values())
             System.out.println(formQuery(t));
 
@@ -161,24 +109,9 @@ public class Main {
         System.out.println(formQuery(list));
         System.out.println(line);
 
-        Integer[] ar = new Integer[10];
-
-        for (int i = 0; i < 10; i++)
-            ar[i] = new Integer(i * i + 100);
-
-        List<Number> numList = new LinkedList<Number>();
-        for (Integer e : ar)
-            numList.add(e);
-
-
-        for (Test t : Test.values())
-            System.out.println(formQuery(t));
-
-        RandomStrings random = new RandomStrings();
-
         while (true) {
-            out.println(random.nextString123(in.readInt()));
-            out.println(Strings.dbColumnToVariable(in.read()));
+            int n = in.readInt();
+            out.println(Numbers.digitCounts(n) + ", " + Numbers.firstDigit(n));
             out.flush();
         }
     }
@@ -196,7 +129,7 @@ public class Main {
         public String getName() {
             implenter im = new implenter();
             im.getClass().getName();
-            
+
             return "ashok";
         }
 
@@ -217,7 +150,7 @@ public class Main {
 
     private static String formQuery(MySecondEnum column) {
         return "select " + column.secondName() + " from " +
-            column.getTableName();
+                column.getTableName();
     }
 
     final static class LoggingExceptions {

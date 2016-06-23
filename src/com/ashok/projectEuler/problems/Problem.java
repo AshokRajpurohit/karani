@@ -3,9 +3,10 @@ package com.ashok.projecteuler.problems;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
-import com.ashok.physics.ZeroGravityPoints;
+import com.ashok.lang.utils.Generators;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * @author Ashok Rajpurohit
@@ -32,6 +33,16 @@ public class Problem {
     }
 
     public void solve() throws IOException {
-        ZeroGravityPoints.solve();
+        HashMap<String, Integer> map = new HashMap<>();
+        map.containsKey("le");
+        while (true) {
+            int n = in.readInt();
+            long time = System.currentTimeMillis();
+            int[] ar = Generators.gen_rand(in.readInt(), 10);
+            out.print(ar);
+            out.println(P074.maximumAmount(ar, in.readInt()));
+            out.println(System.currentTimeMillis() - time);
+            out.flush();
+        }
     }
 }
