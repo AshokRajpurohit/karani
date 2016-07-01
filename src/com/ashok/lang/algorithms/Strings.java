@@ -21,6 +21,10 @@ public class Strings {
         }
     }
 
+    public static char upperTolower(char c) {
+        return upperToLowerCase[c];
+    }
+
     private Strings() {
         super();
     }

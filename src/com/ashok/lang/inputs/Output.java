@@ -2,7 +2,14 @@ package com.ashok.lang.inputs;
 
 import java.io.*;
 
+/**
+ * The {@code Output} class is to implement methods for various data types.
+ *
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
+ */
 public class Output extends PrintWriter {
+    public char seperator = ' ';
+
     public Output() {
         super(System.out);
     }
@@ -27,11 +34,25 @@ public class Output extends PrintWriter {
         super(new FileOutputStream(file));
     }
 
+    public void print(Iterable iterable) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Object object : iterable)
+            sb.append(object.toString()).append(seperator);
+
+        print(sb);
+    }
+
+    public void println(Iterable iterable) {
+        print(iterable);
+        println();
+    }
+
     public void print(Object[] objects) {
         StringBuilder sb = new StringBuilder();
 
         for (Object object : objects) {
-            sb.append(object.toString()).append(' ');
+            sb.append(object.toString()).append(seperator);
         }
 
         print(sb.toString());
@@ -45,7 +66,7 @@ public class Output extends PrintWriter {
     public void print(int[] ar) {
         StringBuilder sb = new StringBuilder(ar.length << 1);
         for (int e : ar)
-            sb.append(e).append(' ');
+            sb.append(e).append(seperator);
 
         println(sb.toString());
     }
@@ -58,7 +79,7 @@ public class Output extends PrintWriter {
     public void print(long[] ar) {
         StringBuilder sb = new StringBuilder(ar.length << 1);
         for (long e : ar)
-            sb.append(e).append(' ');
+            sb.append(e).append(seperator);
 
         println(sb.toString());
     }

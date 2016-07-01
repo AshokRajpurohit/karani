@@ -92,4 +92,8 @@ public class FileOperations {
         output.print(sb);
         output.close();
     }
+
+    public static String classNameToPath(String className) {
+        return className.replace('.', '\\');
+    }
 }

@@ -1,14 +1,14 @@
 package com.ashok.edrepublic;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
+ * Problem: Number of Right Triangles
+ *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
- * Number of Right Triangles
  */
 
 public class RightTriangles {
@@ -83,6 +83,7 @@ public class RightTriangles {
      * let's say the sides of a triangle are a, b and c in increasing order.
      * the sufficient condition for a triangle to be right angled is
      * a^2 + b^2 = c^2
+     *
      * @param x
      * @param y
      * @return
@@ -137,7 +138,7 @@ public class RightTriangles {
 
             for (;
                  buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                 '\n' || buffer[offset] == '\r'; ++offset) {
+                         '\n' || buffer[offset] == '\r'; ++offset) {
                 if (offset == bufferSize - 1) {
                     offset = -1;
                     bufferSize = in.read(buffer);
@@ -145,7 +146,7 @@ public class RightTriangles {
             }
             for (; offset < bufferSize; ++offset) {
                 if (buffer[offset] == ' ' || buffer[offset] == '\t' ||
-                    buffer[offset] == '\n' || buffer[offset] == '\r')
+                        buffer[offset] == '\n' || buffer[offset] == '\r')
                     break;
                 if (Character.isValidCodePoint(buffer[offset])) {
                     sb.appendCodePoint(buffer[offset]);
