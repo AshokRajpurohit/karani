@@ -57,6 +57,34 @@ public class SinglyLinkedList {
         return size == 0;
     }
 
+    /**
+     * Insert new Node before the current head and make this node as head
+     * and next node for this should be the older-head.
+     *
+     * @param value
+     */
+    public void addFirst(int value) {
+        // write code here.
+    }
+
+    public int getFirst() {
+        /**
+         * Return the value of first node, or head node.
+         */
+
+        return 4; // this is dummy. modify this return value.
+    }
+
+    /**
+     * Returns the last value in the list. This is the last value
+     * inserted in the list.
+     *
+     * @return last value in the list.
+     */
+    public int getLast() {
+        return tail.value;
+    }
+
     final static class Node {
         int value;
         Node next;
