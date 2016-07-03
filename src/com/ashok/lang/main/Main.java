@@ -1,16 +1,16 @@
 package com.ashok.lang.main;
 
+import com.ashok.lang.algorithms.Strings;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
-import com.ashok.lang.math.Numbers;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 import java.util.logging.Logger;
 
 /**
@@ -33,6 +33,8 @@ public class Main {
         Main a = new Main();
         a.solve();
         out.close();
+
+        Collection<Integer> c;
     }
 
     static interface MySecondEnum {
@@ -108,12 +110,34 @@ public class Main {
         System.out.println(line);
         System.out.println(formQuery(list));
         System.out.println(line);
+        out.println("lets test for current directory");
+        out.flush();
+        Path path = Paths.get("");
+        out.println(path.toString() + "\n" + path.toAbsolutePath() + "\n" + path.getParent());
+        out.println("class package for this is: " + this.getClass().getName() + "\t" + FileOperations.classNameToPath(this.getClass().getName()));
+        out.flush();
 
         while (true) {
-            int n = in.readInt();
-            out.println(Numbers.digitCounts(n) + ", " + Numbers.firstDigit(n));
+            out.println(Strings.dbColumnToVariable(in.read()));
+            in.readLine();
             out.flush();
         }
+
+//        String path = "D:\\UserConfig\\local\\jd\\conf\\";
+//        String name = "optimizer.log.2016-04-";
+//
+//        for (int i = 11; i <= 30; i++) {
+//            Output outputFile = new Output(path + name + i);
+//            outputFile.println(line);
+//            outputFile.flush();
+//            outputFile.close();
+//        }
+//
+//        while (true) {
+//            int n = in.readInt();
+//            out.println(Numbers.digitCounts(n) + ", " + Numbers.firstDigit(n));
+//            out.flush();
+//        }
     }
 
     final static class implenter implements Iterator, Comparator {
