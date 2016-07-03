@@ -46,6 +46,7 @@ public class SinglyLinkedList {
     }
 
     public int size() {
+        //sjsdahgjh
         return size;
     }
 
