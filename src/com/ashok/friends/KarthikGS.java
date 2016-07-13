@@ -21,7 +21,7 @@ public class KarthikGS {
             {Long.valueOf("1000000000000"), 1000000000, 1000000, 1000, 100};
 
     private final static String[] numbers =
-            {"T", "B", "M", "K", "Hundred"};
+            {"T", "B", "M", "K", "Hundreds"};
 
     private static final NumberFormat formatter = new DecimalFormat("#0.0");
 
@@ -52,6 +52,6 @@ public class KarthikGS {
             }
         }
 
-        return "Something is Wrong";
+        return String.valueOf(number);
     }
 }
