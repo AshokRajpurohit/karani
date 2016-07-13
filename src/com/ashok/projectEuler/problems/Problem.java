@@ -40,7 +40,6 @@ public class Problem {
             long time = System.currentTimeMillis();
             int[] ar = Generators.generateRandomIntegerArray(in.readInt(), 10);
             out.print(ar);
-            out.println(P074.maximumAmount(ar, in.readInt()));
             out.println(System.currentTimeMillis() - time);
             out.flush();
         }

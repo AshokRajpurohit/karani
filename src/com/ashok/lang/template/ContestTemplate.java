@@ -3,7 +3,6 @@ package com.ashok.lang.template;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.Arrays;
 
 /**
  * Problem Name:
@@ -24,12 +23,7 @@ public class ContestTemplate {
 
     private void solve() throws IOException {
         while (true) {
-            int n = in.readInt();
-            int[] ar = in.readIntArray(n), copy = in.readIntArray(n);
-            Arrays.sort(ar);
-            Arrays.sort(copy);
-            out.print(ar);
-            out.print(copy);
+            out.println(in.readLine());
             out.flush();
         }
     }
