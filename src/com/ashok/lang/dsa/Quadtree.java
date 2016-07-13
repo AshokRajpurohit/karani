@@ -20,6 +20,7 @@ package com.ashok.lang.dsa;
  *
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
+ * @see SparseTable2D
  */
 public class Quadtree {
     private static final int q1 = 0, q2 = 1, q3 = 2, q4 = 3;
