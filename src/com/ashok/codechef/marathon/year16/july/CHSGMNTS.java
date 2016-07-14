@@ -108,6 +108,18 @@ class CHSGMNTS {
         return prev;
     }
 
+    /**
+     * Returns the array containing the index of next equal element.
+     * At position i the value in the returned array is the position of
+     * next elemet which is equal to the element at index i in the original
+     * array.
+     * This method is customized version of
+     * {@link com.ashok.lang.utils.Utils#nextEqual(int[])}, since we have the
+     * sorted array, we can utilize the same.
+     *
+     * @param pairs
+     * @return
+     */
     public static int[] nextEquals(Pair[] pairs) {
         int n = pairs.length;
         int[] next = new int[n];
@@ -148,6 +160,10 @@ class CHSGMNTS {
         return true;
     }
 
+    /**
+     * The {@code Pair} class is to encapsulate the array element and it's
+     * index for sorting and keeping the original index together.
+     */
     final static class Pair implements Comparable<Pair> {
         int value, index;
 
@@ -165,6 +181,10 @@ class CHSGMNTS {
         }
     }
 
+    /**
+     * The {@code CustomArray} class is to merge array into the original
+     * multiple times with minimum time cost.
+     */
     final static class CustomArray {
         int[] ar;
         int start = 0, end = 0;
