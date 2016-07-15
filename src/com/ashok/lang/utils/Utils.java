@@ -151,6 +151,8 @@ public class Utils {
      * {1, 2, 3, 2, 1}
      * next equal elements indices should be
      * {4, 3, 5, 5, 5}
+     * <p>
+     * The parameter array doesn't need to be sorted.
      *
      * @param ar
      * @return
@@ -175,6 +177,21 @@ public class Utils {
         return res;
     }
 
+    /**
+     * Returns array of integer having index of previous equal element to it.
+     * If the element doesn't have any such element then the index for it
+     * would be -1 to indicate non-existance of any previous duplicate.
+     * <p>
+     * for array
+     * {1, 2, 3, 2, 1}
+     * previous equal elements indices should be
+     * {-1, -1, -1, 1, 0}
+     * <p>
+     * The parameter array doesn't need to be sorted.
+     *
+     * @param ar
+     * @return
+     */
     public static int[] previousEqual(int[] ar) {
         int[] res = getIndexArray(ar.length);
         Pair[] pairs = new Pair[ar.length];

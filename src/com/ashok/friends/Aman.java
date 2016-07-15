@@ -1,9 +1,10 @@
 package com.ashok.friends;
 
+import com.ashok.lang.inputs.InputReader;
+import com.ashok.lang.inputs.Output;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.util.Arrays;
 
 /**
  * this class is to solve Aman Kashyap's problems.
@@ -13,17 +14,82 @@ import java.io.PrintWriter;
 
 public class Aman {
 
-    private static PrintWriter out;
-    private static InputStream in;
+    private static Output out = new Output();
+    private static InputReader in = new InputReader();
 
     public static void main(String[] args) throws IOException {
-        OutputStream outputStream = System.out;
-        in = System.in;
-        out = new PrintWriter(outputStream);
-
         Aman a = new Aman();
         a.solve();
         out.close();
+    }
+
+    public void solve() throws IOException {
+        while (true) {
+            System.out.println(maximumAmount(in.readIntArray(in.readInt()),
+                    in.readLong()));
+        }
+    }
+
+    private static long maximumAmount(int[] a, long k) {
+        Arrays.sort(a);
+        int n = a.length;
+
+        if (k == 1)
+            return a[n - 1];
+
+        if (k == sum(a))
+            return sellAll(a);
+
+        int start = n - 1;
+        long res = 0;
+
+        while (k > 0) {
+            int lower = start > 0 ? a[start - 1] : 0;
+            long total = (a[start] - lower) * (n - start);
+
+            if (total <= k) {
+                k -= total;
+                res += (n - start) * calculate(lower + 1, a[start]);
+            } else {
+                long flips = k / (n - start);
+                long newLower = a[start] - flips;
+
+                res += (n - start) * calculate(newLower + 1, a[start]);
+                k -= (n - start) * (a[start] - newLower);
+                res += newLower * k;
+                k = 0;
+            }
+
+            start--;
+        }
+
+        return res;
+    }
+
+    private static long sum(int[] a) {
+        long res = 0;
+
+        for (int e : a)
+            res += e;
+
+        return res;
+    }
+
+    private static long sellAll(int[] ar) {
+        long res = 0;
+
+        for (int e : ar)
+            res += calculate(e);
+
+        return res;
+    }
+
+    private static long calculate(long a, long b) {
+        return calculate(b) - calculate(a - 1);
+    }
+
+    private static long calculate(long n) {
+        return (n * (n + 1)) >>> 1;
     }
 
     /**
@@ -32,6 +98,7 @@ public class Aman {
      * If he is in cafe and not using any computer than if he leaves
      * the availability of computers is still the same. If he leaves
      * nobody cares (at least I don't as he is not releaving computer.
+     *
      * @param computers number of computers in the cafe
      * @param customers customer string (come and go data)
      * @return number of customers without service.
@@ -62,6 +129,7 @@ public class Aman {
 
     /**
      * will write later.
+     *
      * @param s
      * @param n
      * @return
@@ -76,7 +144,7 @@ public class Aman {
             i++;
             int count = 0;
             while (i < s.length() && s.charAt(i) >= '0' &&
-                   s.charAt(i) <= '9') {
+                    s.charAt(i) <= '9') {
                 count = (count << 3) + (count << 1) + s.charAt(i) - '0';
                 i++;
             }
@@ -86,13 +154,6 @@ public class Aman {
                 return ch;
         }
         return 'L';
-    }
-
-    public void solve() throws IOException {
-        InputReader in = new InputReader();
-        while (true) {
-            System.out.println(compressor(in.read(), in.readInt()));
-        }
     }
 
     final static class Node {
@@ -208,8 +269,9 @@ public class Aman {
      * splits the array in two parts where average of first part is equal to
      * average of second part. If no such split possible it will make the
      * second part as null.
-     * @param ar    The array to be split.
-     * @return      array of two arrays (sub arrays of ar)
+     *
+     * @param ar The array to be split.
+     * @return array of two arrays (sub arrays of ar)
      */
     public static int[][] splitArray(int[] ar) {
         int[][] result = new int[2][];
@@ -248,72 +310,5 @@ public class Aman {
         result[0] = first;
         result[1] = second;
         return result;
-    }
-
-    final static class InputReader {
-        byte[] buffer = new byte[8192];
-        int offset = 0;
-        int bufferSize = 0;
-
-        public int readInt() throws IOException {
-            int number = 0;
-            int s = 1;
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-            if (bufferSize == -1)
-                throw new IOException("No new bytes");
-            for (; buffer[offset] < 0x30 || buffer[offset] == '-'; ++offset) {
-                if (buffer[offset] == '-')
-                    s = -1;
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (; offset < bufferSize && buffer[offset] > 0x2f; ++offset) {
-                number = (number << 3) + (number << 1) + buffer[offset] - 0x30;
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            ++offset;
-            return number * s;
-        }
-
-        public String read() throws IOException {
-            StringBuilder sb = new StringBuilder();
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-
-            if (bufferSize == -1 || bufferSize == 0)
-                throw new IOException("No new bytes");
-
-            for (;
-                 buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                 '\n' || buffer[offset] == '\r'; ++offset) {
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (; offset < bufferSize; ++offset) {
-                if (buffer[offset] == ' ' || buffer[offset] == '\t' ||
-                    buffer[offset] == '\n' || buffer[offset] == '\r')
-                    break;
-                if (Character.isValidCodePoint(buffer[offset])) {
-                    sb.appendCodePoint(buffer[offset]);
-                }
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            return sb.toString();
-        }
     }
 }

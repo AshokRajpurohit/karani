@@ -93,7 +93,7 @@ public class Ankit {
      * Let me remind you again that p <= q.
      * So calculate the maximum value possible for any value of p and q
      * in the array.
-     *
+     * <p>
      * Now let me explain the solution.
      * let's break the expression in this form:
      * (A[q] + q) + (A[p] - p)
@@ -163,7 +163,7 @@ public class Ankit {
      */
     private boolean isSafe(int[][] A, int row, int col, int value) {
         if (row < A.length && row >= 0 && col >= 0 && col < A[0].length &&
-            A[row][col] == value)
+                A[row][col] == value)
             return true;
         return false;
 
@@ -201,6 +201,7 @@ public class Ankit {
     /**
      * Don't pay attention to this.
      * This is binary searching in the sorted array.
+     *
      * @param A
      * @param X
      * @return
@@ -285,25 +286,57 @@ public class Ankit {
             return true;
         }
     }
-}
 
-    /* final class Test4 {
-        public static void main(String[] args) {
-            new Test4();
+    /**
+     * Problem for Hackerearth Hiring Challenge.
+     * Problem Name: Minimize the sum
+     */
+    final static class MinimizeSum {
+        public static int solve(int[] ar) {
+            int min = min(ar);
+            if (min >= 0)
+                return min;
+
+            int[] negativeSum = negativeSum(ar);
+            int[] negativeCount = negativeCount(ar);
+
+            for (int i = 0; i < ar.length; i++)
+                for (int j = i + 1; j < ar.length; j++) {
+                }
+
+            return 0;
         }
-        class Inner {
-            void test() {
-                if (Test4.this.flag)
-                    simple();
-            }
+
+        private static int[] negativeCount(int[] ar) {
+            int[] res = new int[ar.length];
+            if (ar[0] < 0)
+                res[0] = -1;
+
+            for (int i = 1; i < ar.length; i++)
+                res[i] = ar[i] <= 0 ? res[i - 1] + 1 : res[i - 1];
+
+            return res;
         }
-        
-        private boolean flag = true;
-        public void simple() {
-            System.out.println("Simple");
+
+        private static int[] negativeSum(int[] ar) {
+            int[] res = new int[ar.length];
+
+            if (ar[0] < 0)
+                res[0] = ar[0];
+
+            for (int i = 1; i < ar.length; i++)
+                res[i] = ar[i] < 0 ? res[i - 1] + ar[i] : res[i - 1];
+
+            return res;
         }
-        
-        public Test4() {
-            (new Inner()).test();
+
+        private static int min(int[] ar) {
+            int min = Integer.MAX_VALUE;
+
+            for (int e : ar)
+                min = Math.min(min, e);
+
+            return min;
         }
-    } */
+    }
+}

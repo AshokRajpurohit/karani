@@ -48,7 +48,7 @@ class CHSGMNTS {
             return 1L * n * (n + 1) * (n - 1) * (n + 2) / 24;
 
         int[] next = nextEquals(pairs), prev = previousEquals(pairs);
-        long total = 0, old = 0, current = 0;
+        long total = 0, current = 0;
 
         for (int a = 0; a < n - 1; a++) {
             CustomArray array = new CustomArray(n + 1 - a);
