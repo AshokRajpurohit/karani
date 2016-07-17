@@ -1,0 +1,6 @@
+Class Name has three parts
+Round ID, Problem ID and Year.
+
+Problem IDs are A, B, C, D, ...
+Round ID is R + Round Number. for example Round 1 is R1
+Year is in YY format, e.g. 2013 is 13
