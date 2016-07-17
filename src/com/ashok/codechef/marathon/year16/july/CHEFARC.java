@@ -11,7 +11,7 @@ import java.util.LinkedList;
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-class CHEFARC {
+public class CHEFARC {
     private static PrintWriter out = new PrintWriter(System.out);
     private static InputReader in = new InputReader();
     private static final char MOVABLE = '0';

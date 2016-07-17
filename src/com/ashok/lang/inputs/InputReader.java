@@ -28,6 +28,10 @@ public class InputReader {
         in.close();
     }
 
+    public String next() throws IOException {
+        return read();
+    }
+
     public boolean hasNext() throws IOException {
         if (offset == bufferSize) {
             offset = 0;

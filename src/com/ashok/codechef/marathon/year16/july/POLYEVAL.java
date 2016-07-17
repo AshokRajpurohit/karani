@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-class POLYEVAL {
+public class POLYEVAL {
     private static PrintWriter out = new PrintWriter(System.out);
     private static InputReader in = new InputReader();
     private static final int mod = 786433, bruteForce = 10000000;

@@ -1,16 +1,17 @@
 package com.ashok.lang.main;
 
-import com.ashok.lang.algorithms.Strings;
+import com.ashok.codechef.marathon.year16.july.CHSGMNTS;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.lang.utils.Generators;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -91,53 +92,15 @@ public class Main {
     }
 
     public void solve() throws IOException, Exception {
-        for (Table2 t : Table2.values())
-            System.out.println(formQuery(t));
-
-        System.out.println(line);
-
-        List<MySecondEnum> list = new LinkedList<MySecondEnum>();
-
-        for (Table2 t : Table2.values())
-            list.add(t);
-
-        for (MySecondEnum t : list)
-            System.out.println(formQuery(t));
-
-        System.out.println(Table2.name instanceof MySecondEnum);
-
-
-        System.out.println(line);
-        System.out.println(formQuery(list));
-        System.out.println(line);
-        out.println("lets test for current directory");
-        out.flush();
-        Path path = Paths.get("");
-        out.println(path.toString() + "\n" + path.toAbsolutePath() + "\n" + path.getParent());
-        out.println("class package for this is: " + this.getClass().getName() + "\t" + FileOperations.classNameToPath(this.getClass().getName()));
-        out.flush();
-
         while (true) {
-            out.println(Strings.dbColumnToVariable(in.read()));
-            in.readLine();
+            int[] ar = Generators.generateRandomIntegerArray(in.readInt(), 1, in.readInt
+                    ());
+
+            long time = System.currentTimeMillis();
+            out.println(CHSGMNTS.solve(ar.length, ar));
+            out.println("time: " + (System.currentTimeMillis() - time));
             out.flush();
         }
-
-//        String path = "D:\\UserConfig\\local\\jd\\conf\\";
-//        String name = "optimizer.log.2016-04-";
-//
-//        for (int i = 11; i <= 30; i++) {
-//            Output outputFile = new Output(path + name + i);
-//            outputFile.println(line);
-//            outputFile.flush();
-//            outputFile.close();
-//        }
-//
-//        while (true) {
-//            int n = in.readInt();
-//            out.println(Numbers.digitCounts(n) + ", " + Numbers.firstDigit(n));
-//            out.flush();
-//        }
     }
 
     final static class implenter implements Iterator, Comparator {

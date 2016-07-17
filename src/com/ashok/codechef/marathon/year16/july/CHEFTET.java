@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-class CHEFTET {
+public class CHEFTET {
     private static PrintWriter out = new PrintWriter(System.out);
     private static InputReader in = new InputReader();
 

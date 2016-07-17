@@ -11,7 +11,7 @@ import java.util.Arrays;
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-class CHSGMNTS {
+public class CHSGMNTS {
     private static PrintWriter out = new PrintWriter(System.out);
     private static InputReader in = new InputReader();
 
@@ -32,7 +32,7 @@ class CHSGMNTS {
         }
     }
 
-    private static long solve(int n, int[] ar) {
+    public static long solve(int n, int[] ar) {
         if (n == 1 || allEquals(ar))
             return 0;
 
