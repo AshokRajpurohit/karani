@@ -19,6 +19,15 @@ public class Generators {
         return ar;
     }
 
+    public static int[] generateRandomIntegerArray(int size) {
+        Random random = new Random();
+        int[] ar = new int[size];
+        for (int i = 0; i < size; i++)
+            ar[i] = random.nextInt();
+
+        return ar;
+    }
+
     public static int[] generateRandomIntegerArray(int size, int start, int end) {
         int mod = end + 1 - start;
         int[] res = generateRandomIntegerArray(size, mod);
