@@ -2,6 +2,7 @@ package com.ashok.friends;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.lang.utils.Generators;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -25,8 +26,44 @@ public class Aman {
 
     public void solve() throws IOException {
         while (true) {
-            System.out.println(maximumAmount(in.readIntArray(in.readInt()),
-                    in.readLong()));
+            int count = 0;
+            int size = in.readInt(), test = in.readInt();
+            long time = System.currentTimeMillis();
+
+            while (test > 0) {
+                test--;
+                int[] ar = Generators.generateRandomIntegerArray(size);
+                int[] br = Generators.generateRandomIntegerArray(size);
+                seggregateArrays(ar, br);
+
+                Arrays.sort(ar);
+                Arrays.sort(br);
+
+                if (ar[size - 1] > br[0])
+                    count++;
+            }
+
+            out.println("time: " + (System.currentTimeMillis() - time));
+            out.println(count);
+            out.flush();
+        }
+    }
+
+    private static void seggregateArrays(int[] a, int[] b) {
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        int ai = a.length - 1, bi = 0;
+
+        while (ai != -1 && bi != b.length) {
+            if (a[ai] > b[bi]) {
+                int temp = a[ai];
+                a[ai] = b[bi];
+                b[bi] = temp;
+                bi++;
+            }
+
+            ai--;
         }
     }
 
