@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 
 /**
- * Problem Name:
- * Link:
+ * Problem Name: Accessory Collection
+ * Link: https://www.hackerrank.com/challenges/accessory-collection
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
@@ -21,10 +21,52 @@ public class AccessoryCollection {
     }
 
     private static void solve() throws IOException {
-        while (true) {
-            out.println(in.readLine());
-            out.flush();
+        int t = in.readInt();
+        StringBuilder sb = new StringBuilder(t << 2);
+        String sad = "SAD\n";
+
+        while (t > 0) {
+            t--;
+
+            long result = process(in.readInt(), in.readInt(), in.readInt(), in.readInt());
+
+            if (result == 0)
+                sb.append(sad);
+            else
+                sb.append(result).append('\n');
         }
+
+        out.print(sb);
+    }
+
+    private static long bruteForce(int L, int A, int N, int D) {
+        return 0;
+    }
+
+    private static long process(int L, int A, int N, int D) {
+        if (A < D || L > 1L * N * D)
+            return 0;
+
+        if (D == 1) {
+            return 1L * A * L;
+        }
+
+        int n = (N - 1) / (D - 1);
+        int start = A - (L / n) + 1;
+        long res = n * sum(start, A);
+        int count = n * (L / n);
+        count = L - count;
+        int topAgain = count > D - 1 ? D - 1 : count;
+        res += sum(A - topAgain + 1, A);
+
+        count -= topAgain;
+
+        return res + 1L * count * (start - 1);
+    }
+
+    private static long sum(int start, int end) {
+        long res = 1L * (end - start + 1) * (0L + start + end);
+        return res >>> 1;
     }
 
     final static class InputReader {
@@ -67,149 +109,6 @@ public class AccessoryCollection {
             }
             ++offset;
             return number * s;
-        }
-
-        public int[] readIntArray(int n) throws IOException {
-            int[] ar = new int[n];
-            for (int i = 0; i < n; i++)
-                ar[i] = readInt();
-
-            return ar;
-        }
-
-        public long readLong() throws IOException {
-            long res = 0;
-            int s = 1;
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-            for (; buffer[offset] < 0x30 || buffer[offset] == '-'; ++offset) {
-                if (buffer[offset] == '-')
-                    s = -1;
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (; offset < bufferSize && buffer[offset] > 0x2f; ++offset) {
-                res = (res << 3) + (res << 1) + buffer[offset] - 0x30;
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            ++offset;
-            if (s == -1)
-                res = -res;
-            return res;
-        }
-
-        public long[] readLongArray(int n) throws IOException {
-            long[] ar = new long[n];
-
-            for (int i = 0; i < n; i++)
-                ar[i] = readLong();
-
-            return ar;
-        }
-
-        public String read() throws IOException {
-            StringBuilder sb = new StringBuilder();
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-
-            if (bufferSize == -1 || bufferSize == 0)
-                throw new IOException("No new bytes");
-
-            for (;
-                 buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                         '\n' || buffer[offset] == '\r'; ++offset) {
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (; offset < bufferSize; ++offset) {
-                if (buffer[offset] == ' ' || buffer[offset] == '\t' ||
-                        buffer[offset] == '\n' || buffer[offset] == '\r')
-                    break;
-                if (Character.isValidCodePoint(buffer[offset])) {
-                    sb.appendCodePoint(buffer[offset]);
-                }
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            return sb.toString();
-        }
-
-        public String readLine() throws IOException {
-            StringBuilder sb = new StringBuilder();
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-
-            if (bufferSize == -1 || bufferSize == 0)
-                throw new IOException("No new bytes");
-
-            for (;
-                 buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                         '\n' || buffer[offset] == '\r'; ++offset) {
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (; offset < bufferSize; ++offset) {
-                if (buffer[offset] == '\n' || buffer[offset] == '\r')
-                    break;
-                if (Character.isValidCodePoint(buffer[offset])) {
-                    sb.appendCodePoint(buffer[offset]);
-                }
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            return sb.toString();
-        }
-
-        public String read(int n) throws IOException {
-            StringBuilder sb = new StringBuilder(n);
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-
-            if (bufferSize == -1 || bufferSize == 0)
-                throw new IOException("No new bytes");
-
-            for (;
-                 buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                         '\n' || buffer[offset] == '\r'; ++offset) {
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (int i = 0; offset < bufferSize && i < n; ++offset) {
-                if (buffer[offset] == ' ' || buffer[offset] == '\t' ||
-                        buffer[offset] == '\n' || buffer[offset] == '\r')
-                    break;
-                if (Character.isValidCodePoint(buffer[offset])) {
-                    sb.appendCodePoint(buffer[offset]);
-                }
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            return sb.toString();
         }
     }
 }

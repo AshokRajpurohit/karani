@@ -3,10 +3,11 @@ package com.ashok.hackerRank.Greedy;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.Arrays;
 
 /**
- * Problem Name:
- * Link:
+ * Problem Name: Sherlock and MiniMax
+ * Link: https://www.hackerrank.com/challenges/sherlock-and-minimax
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
@@ -15,17 +16,61 @@ public class SherlockAndMiniMax {
     private static InputReader in = new InputReader();
 
     public static void main(String[] args) throws IOException {
-        SherlockAndMiniMax a = new SherlockAndMiniMax();
-        a.solve();
+        solve();
         in.close();
         out.close();
     }
 
-    private void solve() throws IOException {
-        while (true) {
-            out.println(in.readLine());
-            out.flush();
+    private static void solve() throws IOException {
+        int n = in.readInt();
+        int[] ar = in.readIntArray(n);
+        int p = in.readInt(), q = in.readInt();
+        out.println(process(n, ar, p, q));
+    }
+
+    private static int process(int n, int[] ar, int p, int q) {
+        Arrays.sort(ar);
+        int m = 0, max = 0;
+        int start = 0, end = 0;
+        if (p < ar[0]) {
+            start = p;
+            end = Math.min(ar[0], q);
+
+            m = start;
+            max = end - start;
         }
+
+        start = ar[0];
+        for (int i = 1; i < n && ar[i - 1] < q; i++) {
+            start = ar[i - 1];
+            end = ar[i];
+            int mid = (start + end) >>> 1;
+            int diff = (end - start) >>> 1;
+
+            if (mid < p) {
+                mid = p;
+            }
+
+            if (mid > q)
+                mid = q;
+
+            diff = Math.min(mid - start, end - mid);
+
+            if (diff > max) {
+                max = diff;
+                m = mid;
+            }
+        }
+
+        if (q > ar[n - 1]) {
+            int diff = q - ar[n - 1];
+            if (diff > max) {
+                m = q;
+                max = diff;
+            }
+        }
+
+        return m;
     }
 
     final static class InputReader {
@@ -76,141 +121,6 @@ public class SherlockAndMiniMax {
                 ar[i] = readInt();
 
             return ar;
-        }
-
-        public long readLong() throws IOException {
-            long res = 0;
-            int s = 1;
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-            for (; buffer[offset] < 0x30 || buffer[offset] == '-'; ++offset) {
-                if (buffer[offset] == '-')
-                    s = -1;
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (; offset < bufferSize && buffer[offset] > 0x2f; ++offset) {
-                res = (res << 3) + (res << 1) + buffer[offset] - 0x30;
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            ++offset;
-            if (s == -1)
-                res = -res;
-            return res;
-        }
-
-        public long[] readLongArray(int n) throws IOException {
-            long[] ar = new long[n];
-
-            for (int i = 0; i < n; i++)
-                ar[i] = readLong();
-
-            return ar;
-        }
-
-        public String read() throws IOException {
-            StringBuilder sb = new StringBuilder();
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-
-            if (bufferSize == -1 || bufferSize == 0)
-                throw new IOException("No new bytes");
-
-            for (;
-                 buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                         '\n' || buffer[offset] == '\r'; ++offset) {
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (; offset < bufferSize; ++offset) {
-                if (buffer[offset] == ' ' || buffer[offset] == '\t' ||
-                        buffer[offset] == '\n' || buffer[offset] == '\r')
-                    break;
-                if (Character.isValidCodePoint(buffer[offset])) {
-                    sb.appendCodePoint(buffer[offset]);
-                }
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            return sb.toString();
-        }
-
-        public String readLine() throws IOException {
-            StringBuilder sb = new StringBuilder();
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-
-            if (bufferSize == -1 || bufferSize == 0)
-                throw new IOException("No new bytes");
-
-            for (;
-                 buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                         '\n' || buffer[offset] == '\r'; ++offset) {
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (; offset < bufferSize; ++offset) {
-                if (buffer[offset] == '\n' || buffer[offset] == '\r')
-                    break;
-                if (Character.isValidCodePoint(buffer[offset])) {
-                    sb.appendCodePoint(buffer[offset]);
-                }
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            return sb.toString();
-        }
-
-        public String read(int n) throws IOException {
-            StringBuilder sb = new StringBuilder(n);
-            if (offset == bufferSize) {
-                offset = 0;
-                bufferSize = in.read(buffer);
-            }
-
-            if (bufferSize == -1 || bufferSize == 0)
-                throw new IOException("No new bytes");
-
-            for (;
-                 buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                         '\n' || buffer[offset] == '\r'; ++offset) {
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            for (int i = 0; offset < bufferSize && i < n; ++offset) {
-                if (buffer[offset] == ' ' || buffer[offset] == '\t' ||
-                        buffer[offset] == '\n' || buffer[offset] == '\r')
-                    break;
-                if (Character.isValidCodePoint(buffer[offset])) {
-                    sb.appendCodePoint(buffer[offset]);
-                }
-                if (offset == bufferSize - 1) {
-                    offset = -1;
-                    bufferSize = in.read(buffer);
-                }
-            }
-            return sb.toString();
         }
     }
 }

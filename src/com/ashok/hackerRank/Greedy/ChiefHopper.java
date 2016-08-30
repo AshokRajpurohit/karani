@@ -1,15 +1,15 @@
 package com.ashok.hackerRank.Greedy;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Chief Hopper
  * https://www.hackerrank.com/challenges/chief-hopper
+ *
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class ChiefHopper {
@@ -22,16 +22,16 @@ public class ChiefHopper {
         in = System.in;
         out = new PrintWriter(outputStream);
 
-        ChiefHopper a = new ChiefHopper();
-        a.solve();
+        solve();
         out.close();
     }
 
-    public void solve() throws IOException {
+    private static void solve() throws IOException {
         InputReader in = new InputReader();
         int n = in.readInt();
         int[] height = in.readIntArray(n);
         long max = 0;
+
         if (n == 1) {
             out.println((height[0] + 1) >>> 1);
             return;
@@ -40,29 +40,30 @@ public class ChiefHopper {
         for (int i = 0; i < n; i++)
             max = Math.max(max, height[i]);
 
-        if (max == 1) {
-            out.println(max);
-            return;
+        long start = 0, mid = max, end = max;
+        while (start != mid) {
+            if (possible(mid, height, max))
+                end = mid;
+            else
+                start = mid;
+
+            mid = (end + start) >>> 1;
         }
 
-        long min = 0, mid = (min + max) >>> 1;
-        while (min != mid) {
-            if (possible(mid, height))
-                max = mid;
-            else
-                min = mid;
-            mid = (max + min) >>> 1;
-        }
-        out.println(max);
+        if (possible(mid, height, max))
+            out.println(mid);
+        else
+            out.println(end);
     }
 
-    private static boolean possible(long energy, int[] height) {
-        for (int i = 0; i < height.length; i++) {
+    private static boolean possible(long energy, int[] height, long max) {
+        for (int i = 0; i < height.length && energy < max; i++) {
             energy += energy - height[i];
             if (energy < 0)
                 return false;
         }
-        return true;
+
+        return energy >= 0;
     }
 
     final static class InputReader {
