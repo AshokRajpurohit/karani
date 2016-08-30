@@ -49,6 +49,13 @@ public class Aman {
         }
     }
 
+    /**
+     * Populates first array with smaller elements and second with larger elements
+     * without using third array.
+     *
+     * @param a first array
+     * @param b second array
+     */
     private static void seggregateArrays(int[] a, int[] b) {
         Arrays.sort(a);
         Arrays.sort(b);
