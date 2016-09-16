@@ -15,15 +15,14 @@ public class ContestTemplate {
     private static InputReader in = new InputReader();
 
     public static void main(String[] args) throws IOException {
-        ContestTemplate a = new ContestTemplate();
-        a.solve();
+        solve();
         in.close();
         out.close();
     }
 
-    private void solve() throws IOException {
+    private static void solve() throws IOException {
         while (true) {
-            out.println(in.readLine());
+            out.println(in.readInt());
             out.flush();
         }
     }

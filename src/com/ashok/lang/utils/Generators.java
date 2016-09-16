@@ -48,4 +48,41 @@ public class Generators {
 
         return res;
     }
+
+    public static String generateRandomExpression(int length, char[] operators) {
+        StringBuilder sb = new StringBuilder(length * 10);
+        Random random = new Random();
+        int n = operators.length;
+
+        sb.append(Math.abs(random.nextLong()));
+        for (int i = 0; i < length; i++) {
+            sb.append(operators[random.nextInt(n)]);
+            sb.append(Math.abs(random.nextLong()));
+        }
+
+        return sb.toString();
+    }
+
+    public static String generateRandomExpression(int length, char[]
+            operators, long mod) {
+        StringBuilder sb = new StringBuilder(length * 10);
+        Random random = new Random();
+        int n = operators.length;
+
+        sb.append(Math.abs(random.nextLong()) % mod);
+        for (int i = 0; i < length; i++) {
+            char operator = operators[random.nextInt(n)];
+            sb.append(operator);
+
+            long num = Math.abs(random.nextLong() % mod);
+            if (operator == '/') {
+                while (num == 0)
+                    num = Math.abs(random.nextLong() % mod);
+            }
+
+            sb.append(num);
+        }
+
+        return sb.toString();
+    }
 }

@@ -55,6 +55,18 @@ public class Strings {
         return sb.toString();
     }
 
+    /*public static String longestCommonSubstring(String a, String b) {
+        char[] ar = a.toCharArray(), br = b.toCharArray();
+        int index = 0, length = 1;
+
+        for (int i = 0; i < a.length();) {
+            for (int j = 0; j < b.length(); j++) {
+                if (ar[i] != br[j])
+                    continue;
+            }
+        }
+    }*/
+
     /**
      * returns the length of Longest Common Subsequence of two strings a and b.
      * @param a

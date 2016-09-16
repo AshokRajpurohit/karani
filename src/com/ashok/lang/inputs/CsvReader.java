@@ -33,14 +33,14 @@ public class CsvReader extends InputReader {
         if (bufferSize == -1 || bufferSize == 0)
             throw new IOException("No new bytes");
 
-        for (; buffer[offset] == ','; ++offset) {
+        for (; buffer[offset] == ',' || buffer[offset] == '\n'; ++offset) {
             if (offset == bufferSize - 1) {
                 offset = -1;
                 bufferSize = in.read(buffer);
             }
         }
         for (; offset < bufferSize; ++offset) {
-            if (buffer[offset] == ',')
+            if (buffer[offset] == ',' || buffer[offset] == '\n')
                 break;
             if (Character.isValidCodePoint(buffer[offset])) {
                 sb.appendCodePoint(buffer[offset]);

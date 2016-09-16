@@ -1,5 +1,7 @@
 package com.ashok.lang.math;
 
+import com.ashok.lang.utils.ArrayUtils;
+
 /**
  * The {@code Numbers} class implements methods to format digits.
  *
@@ -9,6 +11,7 @@ public class Numbers {
     private static int[] powerTensInteger = new int[10];
     private static long[] powerTensLong = new long[19];
     final static char[] digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    final static int[] charToDigits = new int[256];
 
     static {
         powerTensInteger[0] = 1;
@@ -19,6 +22,30 @@ public class Numbers {
 
         for (int i = 1; i < 19; i++)
             powerTensLong[i] = (powerTensLong[i - 1] << 3) + (powerTensLong[i - 1] << 1);
+
+        for (int i = '1'; i <= '9'; i++)
+            charToDigits[i] = i - '0';
+    }
+
+    public static char[] toCharArray(long n) {
+        int size = 1;
+        long copy = n;
+
+        while (n > 9) {
+            copy /= 10;
+            size++;
+        }
+
+        char[] ar = new char[size];
+        int index = 0;
+
+        while (n > 0) {
+            ar[index++] = digits[(int)(n % 10)];
+            n /= 10;
+        }
+
+        ArrayUtils.reverse(ar);
+        return ar;
     }
 
     public static boolean isSamePermutation(long a, long b, int[] digits) {
