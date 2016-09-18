@@ -7,11 +7,19 @@ import java.io.PrintWriter;
 /**
  * Problem Name: Chef and His Garden
  * Link: https://www.codechef.com/AUG16/problems/CHAHG
+ * <p>
+ * For any pair of trees let's say t1 and t2, with heights (initial)
+ * h1 and h2 respectevly, grow at the rate of r1 and r2, the
+ * comparision changes once only. if h1 < h2 and r1 > r2, once in
+ * future h1 will become larger than h2 and will remain forever.
+ * <p>
+ * So at max there can be two time ranges for h1 < h2 and h1 > h2.
+ * We will represent these time ranges in a and b respectively.
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 class CHAHG {
-    private static final long max = Long.MAX_VALUE;
+    private static final long max = Long.MAX_VALUE; // infinite time
     private static final String infinite = "Inf";
     private static final TimeRange a = new TimeRange(), b = new TimeRange();
     private static PrintWriter out = new PrintWriter(System.out);
@@ -49,6 +57,19 @@ class CHAHG {
         out.print(sb);
     }
 
+    /**
+     * Populates TimeRange objects a and b for the specified height
+     * and rate arrays.
+     * <p>
+     * TimeRange a will be updated for the time range for first case:
+     * h1 < h2 > h3 < h4 > h5 ....
+     * <p>
+     * Similarly TimeRange b will be updated when
+     * h1 > h2 < h3 > h4 ...
+     *
+     * @param h height array
+     * @param r rate of change array
+     */
     private static void process(int[] h, int[] r) {
         a.clear();
         b.clear();
@@ -68,6 +89,16 @@ class CHAHG {
         merge();
     }
 
+    /**
+     * Merges time ranges a and b if these are mergeable.
+     * First it sorts these ranges based on startTime.
+     * <p>
+     * Two time ranges (t1, t2) and (t3, t4) are mergeable
+     * if t2 >= t3 - 1. This example will make it clear:
+     * <p>
+     * (1, 4) and (5, 10) are mergeable and the new range is
+     * (1, 10)
+     */
     private static void merge() {
         if (!valid(a) || !valid(b))
             return;
@@ -99,6 +130,24 @@ class CHAHG {
             setTime(h2, r2, h1, r1, tr);
     }
 
+    /**
+     * Updates TimeRange tr for two trees t1 and t2 with heights h1 and h2
+     * when h1 is smaller than h2.
+     * <p>
+     * let's say the time range for h1 to be lesser than h2 is (t1, t2) both
+     * inclusive and the values in tr is (tr1, tr2).
+     * <p>
+     * Then the updated values in tr would be common time range in (t1, t2)
+     * and (tr1, tr2) or it would be (max(t1, tr1), min(t2, tr2)).
+     * <p>
+     * All the conditions in the method are representation of above statement.
+     *
+     * @param h1 height for first tree
+     * @param r1 growth rate for first tree
+     * @param h2 height for second tree
+     * @param r2 growth rate for second tree
+     * @param tr TimeRange to be updated when height of t1 is less than of t2
+     */
     private static void setTime(int h1, int r1, int h2, int r2, TimeRange tr) {
         if (h1 == h2) {
             if (r2 > r1) {
@@ -140,6 +189,11 @@ class CHAHG {
         timeRange.end = -1;
     }
 
+    /**
+     * Prints or appends the time ranges to the StringBuilder sb.
+     *
+     * @param sb
+     */
     private static void append(StringBuilder sb) {
         int count = 0;
 
@@ -164,10 +218,20 @@ class CHAHG {
         }
     }
 
+    /**
+     * Returns true if the TimeRange object is valid.
+     *
+     * @param timeRange TimeRange to be validated.
+     * @return true if timeRange is valid
+     */
     private static boolean valid(TimeRange timeRange) {
         return timeRange.end >= timeRange.start;
     }
 
+    /**
+     * TimeRange class to represent time range.
+     * {@code max} represents infinite time.
+     */
     final static class TimeRange {
         long start = 0, end = max;
 
