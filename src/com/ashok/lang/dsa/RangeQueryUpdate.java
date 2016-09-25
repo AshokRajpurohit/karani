@@ -34,7 +34,7 @@ public class RangeQueryUpdate {
             return query(node.left, L, R);
 
         return operation(query(node.left, L, mid),
-                         query(node.right, mid + 1, R));
+                query(node.right, mid + 1, R));
     }
 
     public void update(int i, int data) {
@@ -51,7 +51,7 @@ public class RangeQueryUpdate {
 
     private void update(Node root, int i, int data) {
         if (root.l == root.r) {
-            root.data += data;
+            root.data = updateOperation(root.data, data);
             return;
         }
 
@@ -93,6 +93,19 @@ public class RangeQueryUpdate {
      */
     private static long operation(long a, long b) {
         return a > b ? b : a;
+    }
+
+    /**
+     * Update function, for the existing data a and update query data b,
+     * returns the new value for existing data. This can be replacement,
+     * addition, subtraction, multiplication or anything desired.
+     *
+     * @param a
+     * @param b
+     * @return new value for the node.
+     */
+    private static long updateOperation(long a, long b) {
+        return b;
     }
 
     final static class Node {

@@ -11,8 +11,8 @@ package com.ashok.lang.geometry;
  */
 
 public class Line {
-    private final double c;
-    private final double slope;
+    public final double c;
+    public final double slope;
 
     /**
      * creates a line connecting two points a and b.

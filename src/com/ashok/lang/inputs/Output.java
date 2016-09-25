@@ -34,6 +34,11 @@ public class Output extends PrintWriter {
         super(new FileOutputStream(file));
     }
 
+    public void finalize() {
+        flush();
+        close();
+    }
+
     public void print(Iterable iterable) {
         StringBuilder sb = new StringBuilder();
 
