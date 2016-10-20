@@ -29,8 +29,47 @@ public class Generators {
     }
 
     public static int[] generateRandomIntegerArray(int size, int start, int end) {
+        if (end < start)
+            return generateRandomIntegerArray(size, end, start);
+
         int mod = end + 1 - start;
         int[] res = generateRandomIntegerArray(size, mod);
+
+        for (int i = 0; i < size; i++)
+            res[i] += start;
+
+        return res;
+    }
+
+    public static long[] generateRandomLongArray(int size) {
+        Random random = new Random();
+        long[] ar = new long[size];
+
+        for (int i = 0; i < size; i++)
+            ar[i] = random.nextLong();
+
+        return ar;
+    }
+
+    public static long[] generateRandomLongArray(int size, long mod) {
+        long[] ar = generateRandomLongArray(size);
+
+        for (int i = 0; i < size; i++) {
+            ar[i] %= mod;
+
+            if (ar[i] < 0)
+                ar[i] += mod;
+        }
+
+        return ar;
+    }
+
+    public static long[] generateRandomLongArray(int size, long start, long end) {
+        if (end < start)
+            return generateRandomLongArray(size, end, start);
+
+        long mod = end + 1 - start;
+        long[] res = generateRandomLongArray(size, mod);
 
         for (int i = 0; i < size; i++)
             res[i] += start;

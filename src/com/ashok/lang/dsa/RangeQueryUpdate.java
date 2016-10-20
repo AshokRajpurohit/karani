@@ -2,7 +2,7 @@ package com.ashok.lang.dsa;
 
 /**
  * This class is for frequent updates of elements. It updates the element and
- * Structure in order of long(n). If updates are for in range then it's
+ * Structure in order of log(n). If updates are for in range then it's
  * better to use {@link RangeQueryLazy} Lazy propagation.
  */
 public class RangeQueryUpdate {

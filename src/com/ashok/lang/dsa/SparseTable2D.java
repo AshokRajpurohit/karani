@@ -19,12 +19,13 @@ public class SparseTable2D {
 
     public int query(int sr, int sc, int er, int ec) {
         int halfRow = Integer.highestOneBit(er + 1 - sr), halfCol =
-            Integer.highestOneBit(ec + 1 - sc);
+                Integer.highestOneBit(ec + 1 - sc);
 
         return operation(matrix[halfRow][halfCol][sr][sc],
-                         matrix[halfRow][halfCol][sr + halfRow][sc],
-                         matrix[halfRow][halfCol][sr][sc + halfCol],
-                         matrix[halfRow][halfCol][sr + halfRow][sc + halfCol]);
+                matrix[halfRow][halfCol][er + 1 - halfRow][sc],
+                matrix[halfRow][halfCol][sr][ec + 1 - halfCol],
+                matrix[halfRow][halfCol][er + 1 - halfRow][ec + 1 - halfCol]);
+
     }
 
     /**
@@ -47,7 +48,7 @@ public class SparseTable2D {
                 for (int j = 0; j <= n - bitj; j++) {
                     matrix[1][bitj][i][j] =
                             operation(matrix[1][halfj][i][j], matrix[1][halfj][i][j +
-                                      halfj]);
+                                    halfj]);
                 }
         }
 
@@ -59,7 +60,7 @@ public class SparseTable2D {
                 for (int j = 0; j <= n - 1; j++) {
                     matrix[biti][1][i][j] =
                             operation(matrix[halfi][1][i][j], matrix[halfi][1][i +
-                                      halfi][j]);
+                                    halfi][j]);
                 }
             }
 
@@ -71,10 +72,10 @@ public class SparseTable2D {
                     for (int j = 0; j <= n - bitj; j++) {
                         matrix[biti][bitj][i][j] =
                                 operation(matrix[halfi][halfj][i][j],
-                                          matrix[halfi][halfj][i + halfi][j],
-                                          matrix[halfi][halfj][i][j + halfj],
-                                          matrix[halfi][halfj][i + halfi][j +
-                                          halfj]);
+                                        matrix[halfi][halfj][i + halfi][j],
+                                        matrix[halfi][halfj][i][j + halfj],
+                                        matrix[halfi][halfj][i + halfi][j +
+                                                halfj]);
                     }
             }
         }
