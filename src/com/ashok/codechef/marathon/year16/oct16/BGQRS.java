@@ -3,7 +3,6 @@ package com.ashok.codechef.marathon.year16.oct16;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.Arrays;
 
 /**
  * Problem Name: Big Queries
@@ -155,7 +154,7 @@ class BGQRS {
      * @return true if powers equal to 0.
      */
     private static boolean isUnit(Multiplier multiplier) {
-        return multiplier.twos + multiplier.fives == 0;
+        return multiplier.twos == 0 && multiplier.fives == 0;
     }
 
     final static class RangeQueryLazy {
@@ -180,7 +179,6 @@ class BGQRS {
          * @param data
          */
         public void multiply(int l, int r, int data) {
-            Arrays.fill(new int[10], 1, 2, 3);
             value.reset();
             value.multiply(data);
 
