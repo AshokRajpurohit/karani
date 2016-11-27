@@ -18,6 +18,10 @@ public class Output extends PrintWriter {
         super(outputStream);
     }
 
+    public Output(OutputStream outputStream, boolean autoFlush) {
+        super(outputStream, autoFlush);
+    }
+
     public Output(String file) throws FileNotFoundException {
         super(new FileOutputStream(file));
     }
@@ -53,7 +57,7 @@ public class Output extends PrintWriter {
         println();
     }
 
-    public void print(Object[] objects) {
+    public void print(Object... objects) {
         StringBuilder sb = new StringBuilder();
 
         for (Object object : objects) {
@@ -63,7 +67,7 @@ public class Output extends PrintWriter {
         print(sb.toString());
     }
 
-    public void println(Object[] objects) {
+    public void println(Object... objects) {
         print(objects);
         println();
     }

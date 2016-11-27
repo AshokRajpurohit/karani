@@ -1,22 +1,30 @@
 package com.ashok.lang.dsa;
 
+import java.util.Comparator;
+
 /**
- * This class is to support heap (and also priority queues) related functions.
+ * This Heap (aka Priority Queue) implementation is for fix size.
+ * It is assumed that in most situation the max size is already known and
+ * we have to know the highest priority element or highest k priority elements
+ * or kth priority element. In all these case the k (max size) is fixed.
  *
- * @author Ashok Rajpurohit (ashok1113@gmail.com)
+ * @param <E> type of parameter Heap holds.
+ * @author Ashok Rajpurohit (ashok1113@gmail.com).
  */
-public class Heap {
-    private int[] heap;
+public class GenericHeap<E> {
+    private final Comparator<? super E> comparator;
     public final int capacity;
     private int count = 0;
+    private final E[] heap;
 
-    public Heap(int capacity) {
+    public GenericHeap(Comparator<? super E> comparator, int capacity) {
+        this.comparator = comparator;
         this.capacity = capacity;
-        heap = new int[capacity];
+        heap = (E[]) new Object[capacity];
     }
 
-    public int poll() {
-        int res = heap[0];
+    public E poll() {
+        E res = heap[0];
         count--;
         heap[0] = heap[count];
         reformatDown(0);
@@ -24,7 +32,7 @@ public class Heap {
         return res;
     }
 
-    public int peek() {
+    public E peek() {
         return heap[0];
     }
 
@@ -39,7 +47,7 @@ public class Heap {
      * @param e
      * @return
      */
-    public boolean offer(int e) {
+    public boolean offer(E e) {
         if (count == capacity)
             return update(e);
         else
@@ -48,14 +56,19 @@ public class Heap {
         return true;
     }
 
-    private void add(int e) {
+    public void addAll(E[] ar) {
+        for (E e : ar)
+            offer(e);
+    }
+
+    private void add(E e) {
         heap[count] = e;
         reformatUp(count);
         count++;
     }
 
-    private boolean update(int e) {
-        if (compare(e, heap[0]) <= 0)
+    private boolean update(E e) {
+        if (comparator.compare(e, heap[0]) <= 0)
             return false;
 
         heap[0] = e;
@@ -66,7 +79,7 @@ public class Heap {
     private void reformatUp(int index) {
         while (index != 0) {
             int parent = (index - 1) >>> 1;
-            if (compare(heap[parent], heap[index]) > 0) {
+            if (comparator.compare(heap[parent], heap[index]) > 0) {
                 swap(index, parent);
                 index = parent;
             }
@@ -76,7 +89,7 @@ public class Heap {
     private void reformatDown(int index) {
         while (((index << 1) + 1) < count) {
             int c = getSmallerChild(index);
-            if (compare(heap[index], heap[c]) > 0) {
+            if (comparator.compare(heap[index], heap[c]) > 0) {
                 swap(index, c);
                 index = c;
             }
@@ -93,19 +106,12 @@ public class Heap {
         if (c2 == count)
             return c1;
 
-        return compare(heap[c1], heap[c2]) <= 0 ? c1 : c2;
+        return comparator.compare(heap[c1], heap[c2]) <= 0 ? c1 : c2;
     }
 
     private void swap(int i, int j) {
-        int temp = heap[i];
+        E temp = heap[i];
         heap[i] = heap[j];
         heap[j] = temp;
-    }
-
-    private int compare(int a, int b) {
-        if (a == b)
-            return 0;
-
-        return a > b ? 1 : -1;
     }
 }

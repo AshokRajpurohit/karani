@@ -100,8 +100,8 @@ public class RangeQueryUpdate {
      * returns the new value for existing data. This can be replacement,
      * addition, subtraction, multiplication or anything desired.
      *
-     * @param a
-     * @param b
+     * @param a old value
+     * @param b value to be updated on the node.
      * @return new value for the node.
      */
     private static long updateOperation(long a, long b) {

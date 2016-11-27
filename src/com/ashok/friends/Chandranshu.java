@@ -1,17 +1,19 @@
 package com.ashok.friends;
 
-import com.ashok.lang.dsa.Heap;
+import com.ashok.lang.dsa.GenericHeap;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
 import com.ashok.lang.utils.Generators;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * The {@code Chandranshu} class is to solve problems for Chandranshu.
- *
+ * <p>
  * {@link Harsh}
+ *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class Chandranshu {
@@ -41,16 +43,23 @@ public class Chandranshu {
     }
 
     public static long bruteForce(int[] ar, long k) {
-        Heap heap = new Heap(false, ar.length);
-        heap.addAll(ar);
-        out.print(heap.getHeapArray());
+        GenericHeap<Integer> heap = new GenericHeap<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return Integer.compare(o2, o1);
+            }
+        }, (int) k);
+
+
+        for (int e : ar)
+            heap.offer(e);
 
         long sum = 0;
         while (k > 0) {
             k--;
-            int top = heap.removeFirst();
+            int top = heap.poll();
             sum += top;
-            heap.add(top - 1);
+            heap.offer(top - 1);
         }
 
         return sum;
