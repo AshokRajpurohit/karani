@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2015, 2099, Ashok and/or its affiliates. All rights reserved.
+ * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ */
 package com.ashok.lang.template;
 
 import java.io.IOException;

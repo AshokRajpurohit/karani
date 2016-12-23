@@ -1,5 +1,7 @@
 package com.ashok.lang.dsa;
 
+import java.security.InvalidParameterException;
+
 /**
  * Implementation of Range Query Data Structure using an array of arrays.
  * Preprocessing complexity is order of n * long(n) and quering complexity is
@@ -20,6 +22,9 @@ public class SparseTable {
     public int query(int L, int R) {
         if (R >= mar[1].length || L < 0)
             throw new IndexOutOfBoundsException(L + ", " + R);
+
+        if (L > R)
+            throw new InvalidParameterException("start index can not be after end index: " + L + ", " + R);
 
         int half = Integer.highestOneBit(R + 1 - L);
         return operation(mar[half][L], mar[half][R + 1 - half]);

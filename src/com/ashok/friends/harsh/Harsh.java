@@ -1,9 +1,14 @@
-package com.ashok.friends;
+package com.ashok.friends.harsh;
 
+import com.ashok.lang.dsa.RandomStrings;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Random;
 
 /**
  * This class is to solve Harshvardhan's problems (programming only ;) )
@@ -14,11 +19,13 @@ public class Harsh {
     private static Output out;
     private static InputReader in;
     private static final String path =
-        "D:\\GitHub\\Language\\Language\\Common\\src\\Code\\Main\\";
+            "D:\\GitHub\\Language\\Language\\Common\\src\\Code\\Main\\";
 
     public static void main(String[] args) throws IOException {
-        in = new InputReader(path + "input.txt");
-        out = new Output(path + "output.txt");
+//        in = new InputReader(path + "input.txt");
+//        out = new Output(path + "output.txt");
+        in = new InputReader();
+        out = new Output();
 
         Harsh a = new Harsh();
         a.solve();
@@ -26,22 +33,49 @@ public class Harsh {
     }
 
     private void solve() throws IOException {
+        while (true) {
+            int size = in.readInt();
 
-        StringBuilder output = new StringBuilder();
+            ArrayList<ArrayListObject> list = getList(size);
+            out.println(list);
 
-        try {
-            while (true)
-                output.append(process(in.readLine())).append('\n');
-        } catch (Exception e) {
-            // do nothing
-        } finally {
-            out.print(output);
+            Collections.sort(list, new Comparator<ArrayListObject>() {
+                @Override
+                public int compare(ArrayListObject o1, ArrayListObject o2) {
+                    return o1.getStatus().compareToIgnoreCase(o2.getStatus());
+                }
+            });
+
+            out.println(list);
+            out.flush();
+        }
+    }
+
+    final static class ArrayListObject {
+        private String status;
+
+        ArrayListObject(String st) {
+            status = st;
         }
 
-        //        while (true) {
-        //            out.println(pattern(in.read(), in.read()));
-        //            out.flush();
-        //        }
+        public String getStatus() {
+            return status;
+        }
+
+        public String toString() {
+            return status;
+        }
+    }
+
+    private static ArrayList<ArrayListObject> getList(int size) {
+        RandomStrings random = new RandomStrings();
+        Random rand = new Random();
+        ArrayList<ArrayListObject> list = new ArrayList<>();
+
+        for (int i = 0; i < size; i++)
+            list.add(new ArrayListObject(random.nextStringAaBb(rand.nextInt(5) + 5)));
+
+        return list;
     }
 
     private static boolean pattern(String a, String b) {

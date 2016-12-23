@@ -1,11 +1,7 @@
 package com.ashok.lang.graph;
 
-import java.lang.reflect.Array;
-
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Set;
 
 /**
  * This class uses Java Library functions unlike {@link GraphList} that makes
@@ -18,12 +14,8 @@ import java.util.Set;
  */
 
 public class Graph {
-    private final static LinkedList<Integer> listType =
-        new LinkedList<Integer>();
     private int nodes, edges;
     private LinkedList<Integer>[] list;
-    private Set<Edge> edgeSet = new HashSet<Edge>();
-    private LinkedList<Edge> edgeList = new LinkedList<Edge>();
     private boolean directed = false;
 
     private Graph() {
@@ -33,8 +25,7 @@ public class Graph {
     public Graph(int nodes) {
         this.nodes = nodes;
         edges = 0;
-        list =
-(LinkedList<Integer>[])Array.newInstance(listType.getClass(), nodes);
+        list = new LinkedList[nodes];
     }
 
     public Graph(int nodes, boolean directed) {
@@ -226,9 +217,7 @@ public class Graph {
         Graph merge = new Graph();
         merge.nodes = this.nodes + graph.nodes;
         merge.edges = this.edges + graph.edges;
-        merge.list =
-                (LinkedList<Integer>[])Array.newInstance(listType.getClass(),
-                                                         merge.nodes);
+        merge.list = new LinkedList[nodes];
 
         for (int i = 0; i < nodes; i++)
             merge.list[i] = copy(list[i]);
@@ -264,9 +253,7 @@ public class Graph {
         graph.nodes = this.nodes;
         graph.edges = this.edges;
         graph.directed = this.directed;
-        graph.list =
-                (LinkedList<Integer>[])Array.newInstance(listType.getClass(),
-                                                         nodes);
+        graph.list = new LinkedList[nodes];
         for (int i = 0; i < nodes; i++)
             graph.list[i] = (LinkedList<Integer>)list[i].clone();
 
@@ -288,9 +275,7 @@ public class Graph {
         Graph graph = new Graph();
         graph.nodes = this.nodes;
         graph.edges = this.edges;
-        graph.list =
-                (LinkedList<Integer>[])Array.newInstance(listType.getClass(),
-                                                         nodes);
+        graph.list = new LinkedList[nodes];
         graph.directed = true;
 
         for (int i = 0; i < nodes; i++)

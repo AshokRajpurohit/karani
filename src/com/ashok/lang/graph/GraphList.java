@@ -34,11 +34,6 @@ public class GraphList {
         if (from == to)
             return true;
 
-        //        return distance(from, to) != -1;
-
-        //        if (from >= nodeCount || to >= nodeCount)
-        //            throw new ArrayIndexOutOfBoundsException("Array index of bound, limit: " +
-        //                                                     (nodeCount - 1));
         boolean[] visited = new boolean[nodeCount];
 
         return connected(from, to, visited);
@@ -244,19 +239,6 @@ public class GraphList {
         nodeCount += gl.nodeCount;
         edgeCount += gl.edgeCount;
     }
-    /*
-    final static class Node {
-        int value;
-
-        Node(int d) {
-            value = d;
-        }
-
-        public boolean equals(Object obj) {
-            return true; // later
-        }
-    }
-    */
 
     public int nodeCount() {
         return nodeCount;

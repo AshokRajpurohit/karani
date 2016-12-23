@@ -1,12 +1,7 @@
 package com.ashok.lang.math;
 
 import java.lang.reflect.Array;
-
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  *
@@ -221,7 +216,7 @@ public class FibonacciHeap<K, V> {
 
     final class NodeComparator implements Comparator<Node> {
 
-        public int compare(FibonacciHeap.Node o1, FibonacciHeap.Node o2) {
+        public int compare(Node o1, Node o2) {
             int diff = degree(o1) - degree(o2);
 
             if (diff != 0)

@@ -7,9 +7,7 @@ import java.util.ArrayList;
  * @link https://en.wikipedia.org/wiki/Ternary_search_tree
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-
-
-class TST {
+public class TST {
     private TST left, right, equal;
     private boolean end = false;
     private Character ch;
@@ -71,11 +69,11 @@ class TST {
         }
     }
 
-    public boolean find(String s) {
-        return find(s, 0);
+    public boolean contains(String s) {
+        return contains(s, 0);
     }
 
-    private boolean find(String s, int pos) {
+    private boolean contains(String s, int pos) {
         if (pos == s.length())
             return true;
 
@@ -85,19 +83,19 @@ class TST {
                 return true;
             if (equal == null)
                 return false;
-            return equal.find(s, pos);
+            return equal.contains(s, pos);
         }
 
-        if (s.charAt(pos) > this.ch) {
+        if (s.charAt(pos) > ch) {
             if (right == null)
                 return false;
-            return right.find(s, pos);
+            return right.contains(s, pos);
         }
 
         if (left == null)
             return false;
 
-        return left.find(s, pos);
+        return left.contains(s, pos);
     }
 
     /**
@@ -228,8 +226,9 @@ class TST {
             left.getList(al, sbuf);
             sbuf.delete(clen, sbuf.length());
         }
+
         sbuf.append(ch);
-        for (int i = 0; i < this.count; i++) {
+        for (int i = 0; i < count; i++) {
             al.add(sbuf.toString());
         }
 
@@ -271,7 +270,7 @@ class TST {
     private void remove(String s, int index) {
         if (index == s.length())
             return;
-        this.find(s);
+        this.contains(s);
     }
 
     public void addEf(String s) {
