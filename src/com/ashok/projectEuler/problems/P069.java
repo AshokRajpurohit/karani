@@ -1,8 +1,8 @@
 package com.ashok.projecteuler.problems;
 
-import com.ashok.lang.math.ModularArithmatic;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.lang.math.ModularArithmatic;
 
 import java.io.IOException;
 

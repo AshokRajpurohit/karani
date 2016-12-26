@@ -1,4 +1,4 @@
-package com.ashok.projectEuler.problems;
+package com.ashok.projecteuler.problems;
 
 import com.ashok.lang.math.Prime;
 

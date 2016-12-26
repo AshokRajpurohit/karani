@@ -8,15 +8,14 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 /**
- *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class P059 {
     public static void solve() throws IOException {
         Output sysout = new Output();
         long time = System.currentTimeMillis();
-        InputReader input = new InputReader(Params.Path.property + "projectEuler\\problems\\P059.in");
-        Output output = new Output(Params.Path.property + "projectEuler\\problems\\P059.out");
+        InputReader input = new InputReader(Params.Path.property + "projecteuler\\problems\\P059.in");
+        Output output = new Output(Params.Path.property + "projecteuler\\problems\\P059.out");
         LinkedList<Integer> list = new LinkedList<>();
 
         while (input.hasNext()) {
@@ -32,10 +31,6 @@ public class P059 {
                 for (int k = 'a'; k <= 'z'; k++) {
                     key[2] = k;
                     String message = decrypt(list, key);
-//                    output.print((char) key[0]);
-//                    output.print((char) key[1]);
-//                    output.print((char) key[2] + ", ");
-//                    output.println(isSimpleText(message) + ", " + asciiSum(message) + ": " + message);
                     if (isSimpleText(message)) {
                         output.println(asciiSum(message) + ": " + message);
                     }
@@ -66,7 +61,6 @@ public class P059 {
 
     private static boolean isCharSimpleText(char ch) {
         return ch >= ' ' && ch <= 127;
-//        return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch == ' ' || ch == ',' || ch == '.' || ch == '(' || ch == ')';
     }
 
     private static String decrypt(int[] ar, int[] key) {

@@ -1,4 +1,4 @@
-package com.ashok.learning;
+package com.ashok.teaching;
 
 /**
  * The {@code SinglyLinkedList} class is a template to learn SinglyLinkedList.
