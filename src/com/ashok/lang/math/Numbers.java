@@ -118,4 +118,13 @@ public class Numbers {
 
         return powerTensInteger.length;
     }
+
+    public static int digitSum(String numString) {
+        int sum = 0;
+
+        for (int i = 0; i < numString.length(); i++)
+            sum += charToDigits[numString.charAt(i)];
+
+        return sum;
+    }
 }
