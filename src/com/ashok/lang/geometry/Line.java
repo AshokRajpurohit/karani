@@ -82,6 +82,7 @@ public class Line {
      * @param line
      * @return
      */
+
     public final boolean isParallel(Line line) {
         return this.slope == line.slope;
     }

@@ -40,7 +40,7 @@ public class Numbers {
         int index = 0;
 
         while (n > 0) {
-            ar[index++] = digits[(int)(n % 10)];
+            ar[index++] = digits[(int) (n % 10)];
             n /= 10;
         }
 
@@ -126,5 +126,31 @@ public class Numbers {
             sum += charToDigits[numString.charAt(i)];
 
         return sum;
+    }
+
+    /**
+     * index is from right to left. the rightmost digit is at index 0.
+     *
+     * @param num   number to be formatted.
+     * @param digit new digit for the position.
+     * @param index position from right.
+     * @return number with replaced digit.
+     */
+    public static long replaceDigit(long num, int digit, int index) {
+        long ten = powerTensLong[index], nextTen = ten * 10;
+        return nextTen * (num / nextTen) + num % ten + digit * ten;
+    }
+
+    /**
+     * index is from right to left. the rightmost digit is at index 0.
+     *
+     * @param num   number to be formatted.
+     * @param digit new digit for the position.
+     * @param index position from right.
+     * @return number with replaced digit.
+     */
+    public static int replaceDigit(int num, int digit, int index) {
+        int ten = powerTensInteger[index], nextTen = ten * 10;
+        return nextTen * (num / nextTen) + num % ten + digit * ten;
     }
 }

@@ -22,10 +22,10 @@ public class FileOperations {
 
     private void solve() throws IOException {
         String path =
-                "D:\\Java Projects\\karani\\src\\com\\ashok\\codejam\\";
+                "C:\\Projects\\others\\projecteuler\\src\\ashok\\solutions\\";
 
         LinkedList<String> packagePath = new LinkedList<String>();
-        packagePath.add("package com.ashok.codejam");
+        packagePath.add("package ashok.solutions");
 
         File folder = new File(path);
         File[] files = folder.listFiles();

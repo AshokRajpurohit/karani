@@ -65,4 +65,112 @@ public class ArrayUtils {
             ar[j] = temp;
         }
     }
+
+    public static int count(int[] ar, int value) {
+        int count = 0;
+
+        for (int e : ar)
+            if (e == value)
+                count++;
+
+        return count;
+    }
+
+    public static int count(long[] ar, long value) {
+        int count = 0;
+
+        for (long e : ar)
+            if (e == value)
+                count++;
+
+        return count;
+    }
+
+    public static int count(boolean[] ar, boolean value) {
+        int count = 0;
+
+        for (boolean e : ar)
+            if (e == value)
+                count++;
+
+        return count;
+    }
+
+    public static int count(char[] ar, char value) {
+        int count = 0;
+
+        for (char e : ar)
+            if (e == value)
+                count++;
+
+        return count;
+    }
+
+    public static int count(double[] ar, double value) {
+        int count = 0;
+
+        for (double e : ar)
+            if (e == value)
+                count++;
+
+        return count;
+    }
+
+    public static<T> int count(Iterable<T> list, T value) {
+        int count = 0;
+
+        for (T t : list)
+            if (value.equals(t))
+                count++;
+
+        return count;
+    }
+
+    public static int max(int[] ar) {
+        int max = ar[0];
+
+        for (int e : ar)
+            max = Math.max(e, max);
+
+        return max;
+    }
+
+    public static long max(long[] ar) {
+        long max = ar[0];
+
+        for (long e : ar)
+            max = Math.max(e, max);
+
+        return max;
+    }
+
+    public static double max(double[] ar) {
+        double max = ar[0];
+
+        for (double e : ar)
+            max = Math.max(e, max);
+
+        return max;
+    }
+
+    public static Comparable max(Comparable[] ar) {
+        Comparable max = ar[0];
+
+        for (Comparable t : ar)
+            if (max.compareTo(t) > 0)
+                max = t;
+
+        return max;
+    }
+
+    public static Comparable max(Iterable<Comparable> list) {
+        Comparable max = null;
+
+        for (Comparable e : list) {
+            if (max == null || max.compareTo(e) > 0)
+                max = e;
+        }
+
+        return max;
+    }
 }

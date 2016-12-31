@@ -2,6 +2,7 @@ package com.ashok.lang.math;
 
 import com.ashok.lang.dsa.MergeSort;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
@@ -13,6 +14,24 @@ import java.util.LinkedList;
 
 public class Prime {
     private Prime() {
+    }
+
+    public static boolean[] getPrimeValidator(int n) {
+        boolean[] ar = new boolean[n + 1];
+        Arrays.fill(ar, true);
+        ar[0] = false;
+        ar[1] = false;
+        int root = (int) Math.sqrt(n);
+
+        for (int i = 2; i <= root; i++) {
+            while (!ar[i])
+                i++;
+            for (int j = i * 2; j <= n; j += i) {
+                ar[j] = j % i != 0;
+            }
+        }
+
+        return ar;
     }
 
     /**

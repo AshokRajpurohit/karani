@@ -7,7 +7,7 @@ import java.util.Iterator;
  *
  * @author Ashok Rajpurohit ashok1113@gmail.com
  */
-public class List<T> implements Iterable {
+public class List<T> implements Iterable<T> {
     private Node<T> head, tail;
     private int size = 0;
 
@@ -129,5 +129,11 @@ public class List<T> implements Iterable {
         }
 
         return sb.toString();
+    }
+
+    public void clear() {
+        head = null;
+        tail = null;
+        size = 0;
     }
 }
