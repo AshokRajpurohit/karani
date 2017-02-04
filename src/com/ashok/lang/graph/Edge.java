@@ -3,22 +3,22 @@ package com.ashok.lang.graph;
 import java.util.Comparator;
 
 public class Edge {
-    public final int from, to, weight;
+    public final int source, destination, weight;
 
     public Edge(int source, int destination) {
-        from = source;
-        to = destination;
+        this.source = source;
+        this.destination = destination;
         weight = 1;
     }
 
     public Edge(int source, int destination, int w) {
-        from = source;
-        to = destination;
+        this.source = source;
+        this.destination = destination;
         weight = w;
     }
 
     public boolean equals(int source, int destination) {
-        return this.from == source && this.to == destination;
+        return this.source == source && this.destination == destination;
     }
 
     public boolean equals(Object o) {
@@ -29,29 +29,28 @@ public class Edge {
             return false;
 
         Edge edge = (Edge)o;
-        return from == edge.from && to == edge.to;
+        return source == edge.source && destination == edge.destination;
     }
 
     public Edge clone() {
-        Edge e = new Edge(from, to, weight);
-        return e;
+        return this;
     }
 
     public String toString() {
-        return from + " --> " + to + " | " + weight;
+        return source + " --> " + destination + " | " + weight;
     }
 
     public final static Comparator<Edge> DESTINATION_COMPARATOR =
         new Comparator<Edge>() {
         public int compare(Edge e1, Edge e2) {
-            return e1.to - e2.to;
+            return e1.destination - e2.destination;
         }
     };
 
     public final static Comparator<Edge> SOURCE_COMPARATOR =
         new Comparator<Edge>() {
         public int compare(Edge a, Edge b) {
-            return a.from - b.from;
+            return a.source - b.source;
         }
     };
 

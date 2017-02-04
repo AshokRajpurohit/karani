@@ -1,3 +1,6 @@
 *.class
 src/com/ashok/lang/neustar/
 out/production/karani/com/ashok/lang/neustar/
+/bin/
+out/
+*.orig

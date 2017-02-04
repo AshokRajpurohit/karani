@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2015, 2099, Ashok and/or its affiliates. All rights reserved.
- * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms, But you are free to use it :).
  *
  */
 package com.ashok.lang.template;
@@ -13,6 +13,7 @@ import java.io.PrintWriter;
  * Problem Name:
  * Link:
  *
+ * For full implementation please see {@link https://github.com/AshokRajpurohit/karani/tree/master/src/com/ashok/}
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class ContestTemplate {

@@ -1,5 +1,7 @@
 package com.ashok.lang.utils;
 
+import java.util.Random;
+
 /**
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
  */
@@ -172,5 +174,39 @@ public class ArrayUtils {
         }
 
         return max;
+    }
+
+    public static void randomizeArray(int[] ar) {
+        Random random = new Random();
+        for (int i = 0; i < ar.length; i++) {
+            int j = random.nextInt(ar.length);
+            while (j == i)
+                j = random.nextInt(ar.length);
+
+            swap(ar, i, j);
+        }
+    }
+
+    public static void randomizeArray(Object[] objects) {
+        Random random = new Random();
+        for (int i = 0; i < objects.length; i++) {
+            int j = random.nextInt(objects.length);
+            while (j == i)
+                j = random.nextInt(objects.length);
+
+            swap(objects, i, j);
+        }
+    }
+
+    public static void swap(int[] ar, int i, int j) {
+        int temp = ar[i];
+        ar[i] = ar[j];
+        ar[j] = temp;
+    }
+
+    public static void swap(Object[] objects, int i, int j) {
+        Object temp = objects[i];
+        objects[i] = objects[j];
+        objects[j] = temp;
     }
 }

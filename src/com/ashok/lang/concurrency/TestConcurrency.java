@@ -8,15 +8,11 @@ package com.ashok.lang.concurrency;
 import com.ashok.lang.annotation.ThreadSafe;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
-import com.sun.istack.internal.NotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.LinkedList;
-import java.util.Timer;
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -24,6 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
+@ThreadSafe
 public class TestConcurrency {
     private static Output out = new Output();
     private static InputReader in = new InputReader();
@@ -76,106 +73,12 @@ public class TestConcurrency {
     }
 
     private void solve() throws InterruptedException {
-        Timer timer = new Timer();
         while (true) {
             int n = inputUtils.nextInt();
             if (n == -1)
                 outputUtils.outputComplete = true;
 
             outputUtils.println(n);
-        }
-    }
-
-    @ThreadSafe
-    final static class FutureRenderer {
-        private static final int NTHREADS = 100;
-        private final ExecutorService executor = Executors.newScheduledThreadPool(NTHREADS);
-
-        void renderPage(CharSequence source) {
-        }
-    }
-
-    final static class LifeCycleWebServer {
-        private static final int NTHREADS = 100;
-        private final ExecutorService exec = Executors.newScheduledThreadPool(NTHREADS);
-
-        public void start() throws IOException {
-            ServerSocket socket = new ServerSocket(80);
-            while (!exec.isShutdown()) {
-                try {
-                    final Socket connection = socket.accept();
-                    exec.execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            handleRequest(connection);
-                        }
-                    });
-                } catch (RejectedExecutionException e) {
-                    if (!exec.isShutdown())
-                        out.println("task submission rejected", e);
-                }
-            }
-        }
-
-        public void stop() {
-            exec.shutdown();
-        }
-
-        private void handleRequest(Socket connection) {
-            try {
-                InputStream inputStream = connection.getInputStream();
-                InputReader inputReader = new InputReader(inputStream);
-                boolean res = true;
-                int req = inputReader.readInt();
-
-                if (isShutdownRequest(req))
-                    stop();
-                else
-                    dispatchRequest(req);
-            } catch (IOException e) {
-                out.println("socket input stream reading failed", e);
-            }
-        }
-
-        private static void dispatchRequest(int req) {
-            // do anything you want
-        }
-
-        private static boolean isShutdownRequest(int req) {
-            return (req & 1) == 1;
-        }
-    }
-
-    final static class TaskExecutionWebServer {
-        private static final int NTHREADS = 100;
-        private static final Executor exec = Executors.newFixedThreadPool(NTHREADS);
-
-        private static void run() throws IOException {
-            ServerSocket socket = new ServerSocket(80);
-            while (true) {
-                final Socket connection = socket.accept();
-
-                Runnable task = new Runnable() {
-                    @Override
-                    public void run() {
-                        handleRequest(connection);
-                    }
-                };
-
-                exec.execute(task);
-            }
-        }
-
-        private static void handleRequest(@NotNull Socket connection) {
-            // do anything you want with connection
-        }
-    }
-
-    final static class HtmlServerTest {
-        private static void run() throws IOException {
-            ServerSocket socket = new ServerSocket(80);
-            Socket connection = socket.accept();
-            socket.getLocalSocketAddress();
         }
     }
 

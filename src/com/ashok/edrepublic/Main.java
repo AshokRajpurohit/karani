@@ -1,8 +1,8 @@
 package com.ashok.edrepublic;
 
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import com.ashok.physics.ZeroGravityPoints;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -36,6 +36,7 @@ public class Main {
 
     public void solve() throws IOException {
         InputReader in = new InputReader();
+        ZeroGravityPoints.solve();
         int t = in.readInt();
 
         while (t > 0) {

@@ -6,10 +6,10 @@ package com.ashok.lang.math;
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
  */
 public class Fraction implements Comparable<Fraction> {
-    public final int numerator, denominator;
+    public final long numerator, denominator;
     public final double value;
 
-    public Fraction(int n, int d) {
+    public Fraction(long n, long d) {
         numerator = n;
         denominator = d;
         value = 1.0 * n / d;
@@ -24,7 +24,7 @@ public class Fraction implements Comparable<Fraction> {
     }
 
     public Fraction toReducedFraction() {
-        int g = ModularArithmatic.gcd(numerator, denominator);
+        long g = ModularArithmatic.gcd(numerator, denominator);
 
         return new Fraction(numerator / g, denominator / g);
     }

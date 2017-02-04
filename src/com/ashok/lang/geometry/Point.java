@@ -1,6 +1,6 @@
 package com.ashok.lang.geometry;
 
-public class Point {
+public class Point implements Comparable<Point> {
     public static final Point ORIGIN = new Point(0, 0);
     public final double x, y;
 
@@ -29,27 +29,28 @@ public class Point {
      * Compares this Point with the specified Object for equality.
      * returns true if point p is same as the point.
      *
-     * @param p
+     * @param object
      * @return
      */
-    public final boolean equals(Object x) {
-        if (x == this)
+    public final boolean equals(Object object) {
+        if (object == this)
             return true;
 
-        if (!(x instanceof Point))
+        if (!(object instanceof Point))
             return false;
 
-        Point xPoint = (Point) x;
-        return this.x == xPoint.x && this.y == xPoint.y;
+        Point point = (Point) object;
+        return x == point.x && y == point.y;
     }
 
-    public final double distance(Point p) {
-        return Math.sqrt((p.y - y) * (p.y - y) + (p.x - x) * (p.x - x));
+    public final double distance(Point point) {
+        double dx = x - point.x, dy = y - point.y;
+
+        return Math.sqrt(dx * dx + dy * dy);
     }
 
     public final static double distance(Point a, Point b) {
-        return Math.sqrt((a.y - b.y) * (a.y - b.y) +
-                (a.x - b.x) * (a.x - b.x));
+        return a.distance(b);
     }
 
     /**
@@ -100,7 +101,19 @@ public class Point {
         return true;
     }
 
+    public Point shift(double dx, double dy) {
+        return new Point(x + dx, y + dy);
+    }
+
     public String toString() {
         return x + ", " + y;
+    }
+
+    @Override
+    public int compareTo(Point point) {
+        if (y == point.y)
+            return Double.compare(x, point.x);
+
+        return Double.compare(y, point.y);
     }
 }

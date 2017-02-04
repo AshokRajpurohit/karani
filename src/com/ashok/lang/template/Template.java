@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2015, 2099, Ashok and/or its affiliates. All rights reserved.
+ * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms, But you are free to use it :).
+ *
+ */
 package com.ashok.lang.template;
 
 import com.ashok.lang.inputs.InputReader;

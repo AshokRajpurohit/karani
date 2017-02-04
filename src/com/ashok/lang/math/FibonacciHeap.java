@@ -226,7 +226,7 @@ public class FibonacciHeap<K, V> {
         }
     }
 
-    final class Node implements Map.Entry<K, V>, Comparable<Node> {
+    private final class Node implements Map.Entry<K, V>, Comparable<Node> {
         K key;
         V value;
         Node next, prev;

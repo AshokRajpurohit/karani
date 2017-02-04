@@ -18,7 +18,6 @@ public class Power {
      * @param mod
      * @return
      */
-
     public static long pow(long a, long b, long mod) {
         if (b == 0)
             return 1;
