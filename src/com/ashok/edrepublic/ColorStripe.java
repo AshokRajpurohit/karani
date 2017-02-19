@@ -7,8 +7,9 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 /**
- * @author Ashok Rajpurohit (ashok1113@gmail.com)
  * problem: Paint Flag With Multiple Color Stripes
+ *
+ * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 
 public class ColorStripe {
@@ -58,6 +59,7 @@ public class ColorStripe {
 
     /**
      * will update it later.
+     *
      * @param left
      * @param right
      * @return
@@ -86,8 +88,8 @@ public class ColorStripe {
 
         if (right > left + 1) {
             if (stripe.charAt(left) == stripe.charAt(right) &&
-                stripe.charAt(left + 1) == stripe.charAt(right - 1) &&
-                stripe.charAt(left) == stripe.charAt(left + 1))
+                    stripe.charAt(left + 1) == stripe.charAt(right - 1) &&
+                    stripe.charAt(left) == stripe.charAt(left + 1))
                 ans = Math.min(ans, process(left + 1, right - 1));
             else if (stripe.charAt(left) == stripe.charAt(right))
                 ans = Math.min(ans, process(left + 1, right - 1) + 1);
@@ -101,6 +103,7 @@ public class ColorStripe {
 
     /**
      * Returns the count of maximum time appearing color in the substring.
+     *
      * @param s
      * @param start
      * @param end
@@ -123,6 +126,7 @@ public class ColorStripe {
      * increase if consecutives duplicates are increased.
      * For example strokes for ABC is same as for AABBBCCC.
      * This function converts AABBCCC into ABC to reduce overhead calculations.
+     *
      * @param s
      * @return
      */
@@ -156,7 +160,7 @@ public class ColorStripe {
 
             for (;
                  buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                 '\n' || buffer[offset] == '\r'; ++offset) {
+                         '\n' || buffer[offset] == '\r'; ++offset) {
                 if (offset == bufferSize - 1) {
                     offset = -1;
                     bufferSize = in.read(buffer);
@@ -164,7 +168,7 @@ public class ColorStripe {
             }
             for (; offset < bufferSize; ++offset) {
                 if (buffer[offset] == ' ' || buffer[offset] == '\t' ||
-                    buffer[offset] == '\n' || buffer[offset] == '\r')
+                        buffer[offset] == '\n' || buffer[offset] == '\r')
                     break;
                 if (Character.isValidCodePoint(buffer[offset])) {
                     sb.appendCodePoint(buffer[offset]);

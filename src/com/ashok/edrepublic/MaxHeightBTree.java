@@ -56,7 +56,6 @@ public class MaxHeightBTree {
         return h;
     }
 
-
     private final static class Node {
         int data;
         Node next;

@@ -177,6 +177,9 @@ public class ArrayUtils {
     }
 
     public static void randomizeArray(int[] ar) {
+        if (ar.length == 1)
+            return;
+
         Random random = new Random();
         for (int i = 0; i < ar.length; i++) {
             int j = random.nextInt(ar.length);

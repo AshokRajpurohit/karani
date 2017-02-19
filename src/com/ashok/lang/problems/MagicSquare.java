@@ -14,12 +14,17 @@ import java.util.LinkedList;
  */
 
 public class MagicSquare {
-    private static int[] matrix;
-    private static Integer[] numbers, freq;
-    private static int sum, count;
-    private static int n, len;
+    private int[] matrix;
+    private Integer[] numbers, freq;
+    private int sum, count;
+    private int n, len;
+    private int[] ar;
 
-    public static int solve(int[] ar) {
+    public MagicSquare(int[] ar) {
+        this.ar = ar;
+    }
+
+    public int solve() {
         len = ar.length;
         n = (int)Math.sqrt(ar.length);
         if (n * n != ar.length) {
@@ -43,7 +48,7 @@ public class MagicSquare {
         return process();
     }
 
-    private static int process() {
+    private int process() {
         count = 0;
         for (int i = 0; i < numbers.length; i++) {
             matrix[0] = numbers[i];
@@ -55,14 +60,13 @@ public class MagicSquare {
         return count;
     }
 
-    private static void permute(int index) {
+    private void permute(int index) {
         if (!checkRow(index))
             return;
 
         if (index == len) {
             if (check()) {
                 count++;
-                System.out.println(print());
             }
 
             return;
@@ -78,7 +82,7 @@ public class MagicSquare {
         }
     }
 
-    private static void populate(int[] ar) {
+    private void populate(int[] ar) {
         Arrays.sort(ar);
         LinkedList<Integer> uniks = new LinkedList<Integer>(), fr =
             new LinkedList<Integer>();
@@ -107,7 +111,7 @@ public class MagicSquare {
         freq = fr.toArray(freq);
     }
 
-    private static boolean checkRow(int index) {
+    private boolean checkRow(int index) {
         if (index % n != 0)
             return true;
 
@@ -119,7 +123,7 @@ public class MagicSquare {
         return local == sum;
     }
 
-    private static boolean check() {
+    private boolean check() {
         for (int i = 0; i < n; i++)
             if (!checkCol(i))
                 return false;
@@ -138,7 +142,7 @@ public class MagicSquare {
         return temp == sum;
     }
 
-    private static boolean checkCol(int col) {
+    private boolean checkCol(int col) {
         int temp = 0;
 
         for (int i = col; i < matrix.length; i += n)
@@ -147,7 +151,7 @@ public class MagicSquare {
         return temp == sum;
     }
 
-    private static String print() {
+    public String toString() {
         StringBuilder sb = new StringBuilder(matrix.length << 2);
 
         for (int i = 0; i < n; i++) {
