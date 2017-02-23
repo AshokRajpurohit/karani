@@ -153,4 +153,25 @@ public class Numbers {
         int ten = powerTensInteger[index], nextTen = ten * 10;
         return nextTen * (num / nextTen) + num % ten + digit * ten;
     }
+
+    public static String normalizeNumberString(String numberString) {
+        boolean negative = numberString.charAt(0) == '-', positive = numberString.charAt(0) == '+';
+        StringBuilder sb = new StringBuilder();
+
+        if (negative)
+            sb.append('-');
+
+        int index = negative || positive ? 1 : 0;
+
+        while (index < numberString.length() && numberString.charAt(index) == '0')
+            index++;
+
+        while (index < numberString.length())
+            sb.append(numberString.charAt(index++));
+
+        if ((negative || positive) && sb.length() == 1)
+            return "0";
+
+        return sb.toString();
+    }
 }

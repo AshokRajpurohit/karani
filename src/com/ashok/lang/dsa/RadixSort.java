@@ -1,5 +1,11 @@
 package com.ashok.lang.dsa;
 
+import com.ashok.lang.math.Numbers;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.LinkedList;
+
 public class RadixSort {
     private static int bits = 63, bitCount = 6;
 
@@ -66,6 +72,65 @@ public class RadixSort {
             max = max >>> bitCount;
             shift += bitCount;
             xor = xor << bitCount;
+        }
+    }
+
+    /**
+     * Sorts numbers in string format.
+     *
+     * @param ar
+     */
+    public static void sortNumberStrings(String[] ar) {
+        int maxLength = 0;
+        for (String e : ar)
+            maxLength = Math.max(maxLength, e.length());
+
+        for (int i = 0; i < ar.length; i++)
+            ar[i] = Numbers.normalizeNumberString(ar[i]);
+
+        Arrays.sort(ar, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
+
+        for (int i = 0; i < ar.length; ) {
+            int j = i + 1;
+
+            while (j < ar.length && ar[j].length() == ar[i].length())
+                j++;
+
+            sortNumberStrings(ar, i, j - 1);
+            i = j;
+        }
+    }
+
+    private static void sortNumberStrings(String[] ar, int start, int end) {
+        int index = ar[start].length() - 1;
+
+        while (index >= 0) {
+            sortNumberStrings(ar, start, end, index);
+            index--;
+        }
+    }
+
+    private static void sortNumberStrings(String[] ar, int start, int end, int index) {
+        if (start == end)
+            return;
+
+        LinkedList<String>[] map = new LinkedList[256];
+        for (int i = '0'; i <= '9'; i++)
+            map[i] = new LinkedList<>();
+
+        for (int i = start; i <= end; i++)
+            map[ar[i].charAt(index)].addLast(ar[i]);
+
+        int arrIndex = start;
+        for (int i = '0'; i <= '9'; i++) {
+            LinkedList<String> list = map[i];
+            for (String str : list)
+                ar[arrIndex++] = str;
         }
     }
 }
