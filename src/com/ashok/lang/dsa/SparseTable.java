@@ -46,6 +46,7 @@ public class SparseTable {
 
     /**
      * Single operation for query types.
+     *
      * @param a
      * @param b
      * @return

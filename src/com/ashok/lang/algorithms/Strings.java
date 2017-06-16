@@ -25,10 +25,6 @@ public class Strings {
         return upperToLowerCase[c];
     }
 
-    private Strings() {
-        super();
-    }
-
     /**
      * Converts a db column name to variable type string.
      * e.g. db_table_column should be dbTableColumn

@@ -28,6 +28,7 @@ public class CountSort {
         for (int i = 0; i < ar.length; i++)
             count[ar[i]]++;
 
+        // populating final indices using count sum.
         for (int i = 1; i < range; i++)
             count[i] += count[i - 1];
 

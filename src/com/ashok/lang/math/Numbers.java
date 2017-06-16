@@ -128,6 +128,24 @@ public class Numbers {
         return sum;
     }
 
+    public static long multiply(long... numbers) {
+        long res = 1;
+
+        for (long n : numbers)
+            res *= n;
+
+        return res;
+    }
+
+    public static long multiply(int... numbers) {
+        long res = 1;
+
+        for (int n : numbers)
+            res *= n;
+
+        return res;
+    }
+
     /**
      * index is from right to left. the rightmost digit is at index 0.
      *

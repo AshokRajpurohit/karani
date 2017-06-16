@@ -545,10 +545,4 @@ public class QuickSort {
         DualPivot(ar, gt + 1, end);
         DualPivot(ar, lt + 1, gt - 1);
     }
-
-    private static void print(int[] ar) {
-        for (int i = 0; i < ar.length; i++)
-            System.out.print(ar[i] + " ");
-        System.out.println();
-    }
 }

@@ -72,6 +72,15 @@ public class Output extends PrintWriter {
         println();
     }
 
+    public void print(char[] ar) {
+        println(String.valueOf(ar));
+    }
+
+    public void print(char[][] ar) {
+        for (char[] e : ar)
+            print(e);
+    }
+
     public void print(int[] ar) {
         StringBuilder sb = new StringBuilder(ar.length << 1);
         for (int e : ar)

@@ -148,7 +148,6 @@ public class ModularArithmatic {
      * @param b
      * @return Greatest Commond Divisor of a and b
      */
-
     private static int euclid(int a, int b) {
         if (a == 0)
             return b;
@@ -220,5 +219,44 @@ public class ModularArithmatic {
         }
 
         return phi;
+    }
+
+    public static long chineseRemainderTheorem(int[] remainders, int[] modulos) {
+        if (remainders.length != modulos.length)
+            throw new RuntimeException("Input size mismatch. Remainders and modulos count should be equal");
+
+        if (!checkCoprimes(modulos))
+            throw new RuntimeException("numbers should be coprime");
+
+        long res = 0, multi = Numbers.multiply(modulos);
+        for (int i = 0; i < modulos.length; i++) {
+            long mi = getMj(modulos, i);
+
+            long x = remainders[i] * inverseModulo(mi, modulos[i]);
+            res += mi * x;
+            res %= multi;
+        }
+
+        return res;
+    }
+
+    private static long getMj(int[] modulos, int index) {
+        long res = 1;
+        int mod = modulos[index];
+
+        for (int e : modulos)
+            if (e != mod)
+                res = (res * e);
+
+        return res;
+    }
+
+    public static boolean checkCoprimes(int[] numbers) {
+        for (int i = 0; i < numbers.length; i++)
+            for (int j = i + 1; j < numbers.length; j++)
+                if (gcd(numbers[i], numbers[j]) != 1)
+                    return false;
+
+        return true;
     }
 }
