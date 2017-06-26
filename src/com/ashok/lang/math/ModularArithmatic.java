@@ -259,4 +259,81 @@ public class ModularArithmatic {
 
         return true;
     }
+
+    /**
+     * Returns the square root of n modulo p, which is r in the following equation:
+     * r * r congruent to n (modulo p), where p is prime.
+     *
+     * @param n
+     * @param p
+     * @return
+     */
+    private static long getSquareRoot(long n, int p) {
+        int mod8 = p & 7;
+        if (mod8 == 3 || mod8 == 7)
+            return Power.pow(n, (p + 1) >>> 2, p);
+
+        if (mod8 == 5) {
+            long v = Power.pow(n << 1, (p - 5) >>> 3, p);
+            long i = 2 * n * (v * v % p) % p;
+            return (i - 1) * (n * v % p) % p;
+        }
+
+        return shankMethod(n, p);
+    }
+
+    /**
+     * Shank's method to find square root of n modulo p. Read wikipedia or any other source.
+     *
+     * @param n
+     * @param p prime number
+     * @return
+     */
+    private static long shankMethod(long n, int p) {
+        int q = getQ(p), e = Integer.numberOfTrailingZeros((p - 1));
+        long x = 2;
+        long z;
+        while (true) {
+            z = Power.pow(x, q, p);
+            if (Power.pow(z, 1 << (e - 1), p) != 1)
+                break;
+
+            x++;
+        }
+
+        long y = z, r = e;
+        x = Power.pow(n, (q - 1) >>> 1, p); // (q - 1) / 2 is equivalent to q / 2 as q is odd.
+        long v = n * x % p, w = v * x % p;
+
+        while (w != 1) {
+            int k = findK(w, p);
+            long d = Power.pow(y, Power.pow(2, r - k - 1, p - 1), p);
+            y = d * d % p;
+            r = k;
+            v = d * v % p;
+            w = w * y % p;
+        }
+
+        return v;
+    }
+
+    private static int findK(long w, long p) {
+        int k = 1;
+        long res = w * w % p;
+
+        while (res != 1) {
+            res = res * res % p;
+            k++;
+        }
+
+        return k;
+    }
+
+    private static int getQ(int p) {
+        p--;
+        while ((p & 1) == 0)
+            p >>>= 1;
+
+        return p;
+    }
 }
