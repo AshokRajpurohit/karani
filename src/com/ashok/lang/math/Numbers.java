@@ -192,4 +192,37 @@ public class Numbers {
 
         return sb.toString();
     }
+
+    public static boolean isSquare(long n) {
+        n = removeTrailingZeroes(n, 2);
+        if (isEven(n)) // still has 2 as factor.
+            return false;
+
+        int num = (int) (n % 10);
+        return num == 1 || num == 5 || num == 9 ? checkSquare(n) : false;
+    }
+
+    public static boolean isEven(long n) {
+        return (n & 1) == 0;
+    }
+
+    public static long removeTrailingZeroes(long n, int zeroCounts) {
+        if (n == 0)
+            return 0;
+
+        long mod = (1 << zeroCounts) - 1;
+        while ((n & mod) == 0)
+            n >>>= zeroCounts;
+
+        return n;
+    }
+
+    public static long removeTrailingZeroes(long n) {
+        return n >>> Long.numberOfTrailingZeros(n);
+    }
+
+    private static boolean checkSquare(long n) {
+        long sqrt = (long) Math.sqrt(n);
+        return n == sqrt * sqrt;
+    }
 }

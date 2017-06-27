@@ -290,7 +290,7 @@ public class ModularArithmatic {
      * @return
      */
     private static long shankMethod(long n, int p) {
-        int q = getQ(p), e = Integer.numberOfTrailingZeros((p - 1));
+        int e = Integer.numberOfTrailingZeros((p - 1)), q = (p - 1) >>> e;
         long x = 2;
         long z;
         while (true) {
@@ -327,13 +327,5 @@ public class ModularArithmatic {
         }
 
         return k;
-    }
-
-    private static int getQ(int p) {
-        p--;
-        while ((p & 1) == 0)
-            p >>>= 1;
-
-        return p;
     }
 }
