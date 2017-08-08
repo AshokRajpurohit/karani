@@ -240,6 +240,17 @@ public class Utils {
         return true;
     }
 
+    public static long[] getSumArray(int[] ar) {
+        int len = ar.length;
+        long[] sum = new long[len];
+        sum[0] = ar[0];
+
+        for (int i = 1; i < len; i++)
+            sum[i] = sum[i - 1] + ar[i];
+
+        return sum;
+    }
+
     final static class Pair implements Comparable<Pair> {
         int index;
         Comparable value;

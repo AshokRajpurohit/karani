@@ -5,10 +5,7 @@ import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Random;
+import java.util.*;
 
 /**
  * This class is to solve Harshvardhan's problems (programming only ;) )
