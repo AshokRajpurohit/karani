@@ -5,6 +5,8 @@
  */
 package com.ashok.lang.template;
 
+import com.ashok.lang.math.Prime;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -13,7 +15,8 @@ import java.io.PrintWriter;
  * Problem Name:
  * Link:
  * <p>
- * For complete implementation please see {@link https://github.com/AshokRajpurohit/karani/tree/master/src/com/ashok/}
+ * For complete implementation please see
+ * {@link https://github.com/AshokRajpurohit/karani/tree/master/src/com/ashok/}
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
@@ -29,38 +32,9 @@ public class ContestTemplate {
 
     private static void solve() throws IOException {
         while (true) {
-            out.println(getArrayIndex(in.readInt(), in.readInt(), in.readInt()));
+            out.print(Prime.primesInRange(in.readInt(), in.readInt()));
             out.flush();
         }
-    }
-
-    private static long getArrayIndex(int n, int row, int col) {
-        if (row >= 2 * n - 1 || (row >= n && col >= n - (row + 1 - n)) || (row < n && col > row))
-            return -1;
-
-        if (row <= n)
-            return getArrayIndex(row, col);
-
-        long index = getArrayIndex(row, col) - (sumN(row - n) << 1);
-        return index;
-    }
-
-    private static long sumN(int start, int end) {
-        int n = end + 1 - start;
-        return 1L * n * start + sumN(n - 1);
-    }
-
-    private static long validateIndex(long index, long size) {
-        return index < size ? index : -1;
-    }
-
-    private static long getArrayIndex(int row, int col) {
-        return sumN(row) + col;
-    }
-
-    private static long sumN(int n) {
-        long val = 1L * n * (n + 1);
-        return val >>> 1;
     }
 
     final static class InputReader {
