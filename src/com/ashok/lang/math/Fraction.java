@@ -16,7 +16,7 @@ public class Fraction implements Comparable<Fraction> {
     }
 
     public int compareTo(Fraction fraction) {
-        return Double.compare(this.value, fraction.value);
+        return Double.compare(value, fraction.value);
     }
 
     public String toString() {
@@ -25,7 +25,17 @@ public class Fraction implements Comparable<Fraction> {
 
     public Fraction toReducedFraction() {
         long g = ModularArithmatic.gcd(numerator, denominator);
+        return g == 1 ? this : new Fraction(numerator / g, denominator / g);
+    }
 
-        return new Fraction(numerator / g, denominator / g);
+    public Fraction add(Fraction fraction) {
+        return add(toReducedFraction(), fraction.toReducedFraction());
+    }
+
+    private static Fraction add(Fraction a, Fraction b) {
+        long n = a.numerator * b.denominator + a.denominator * b.numerator;
+        long d = a.denominator * b.denominator;
+        long g = ModularArithmatic.gcd(n, d);
+        return new Fraction(n / g, d / g);
     }
 }

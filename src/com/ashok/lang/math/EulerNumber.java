@@ -6,7 +6,6 @@ package com.ashok.lang.math;
 public enum EulerNumber implements ContinuedFraction {
     e();
 
-    @Override
     public int getCoefficient(int n) {
         if (n == 0)
             return 2;
@@ -15,5 +14,9 @@ public enum EulerNumber implements ContinuedFraction {
             return 1;
 
         return ((n + 1) / 3) << 1;
+    }
+
+    public ContinuedFraction nextFraction() {
+        return this;
     }
 }
