@@ -1,4 +1,4 @@
-package com.ashok.semaphore.chapter3;
+package com.ashok.semaphore.chapter4;
 
 import java.util.concurrent.Semaphore;
 

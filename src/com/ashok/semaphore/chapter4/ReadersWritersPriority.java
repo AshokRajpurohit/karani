@@ -3,10 +3,11 @@
  * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms, But you are free to use it :).
  *
  */
-package com.ashok.semaphore.chapter3;
+package com.ashok.semaphore.chapter4;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.semaphore.chapter3.Turnstile;
 
 import java.io.IOException;
 import java.util.LinkedList;

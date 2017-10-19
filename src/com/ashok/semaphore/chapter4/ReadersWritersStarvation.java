@@ -3,7 +3,7 @@
  * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms, But you are free to use it :).
  *
  */
-package com.ashok.semaphore.chapter3;
+package com.ashok.semaphore.chapter4;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
@@ -14,25 +14,31 @@ import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 /**
- * This is an improvement over {@link ReadersWritersStarvation}
+ * Solution for ReaderWriters where there can be multiple readers accessing the resource
+ * at the same time, but only one writer can access it. While a writer is accessing the
+ * resource, no other thread reader or writer is allowed to access it.
+ * <p>
+ * The solution presented here does not cause deadlock as reader or writer threads
+ * continuously keep working, But this solution causes starvation.
+ * <p>
+ * Think of the scenario when a writer is waiting for it's turn and readers are making
+ * progress of. All the time there are atleast 2 readers working on it. Before last one
+ * leaves, a new reader can enter and so on. In this case, the writer will never get the
+ * resource and it will starve, so other writers also.
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-public class ReadersWriters {
+public class ReadersWritersStarvation {
     private static Output out = new Output();
     private static InputReader in = new InputReader();
-    private final Semaphore
-            roomEmpty = new Semaphore(1);
-
-    private final Turnstile turnstile = new Turnstile(1);
-    private final LightSwitch lightSwitch = new LightSwitch();
-
+    private Semaphore roomEmpty = new Semaphore(1),
+            mutex = new Semaphore(1);
     private volatile int readers = 0;
     private LinkedList<String> queue = new LinkedList<>();
     private int writerSequence = 1, readerSequence = 1;
 
     public static void main(String[] args) throws IOException {
-        ReadersWriters a = new ReadersWriters();
+        ReadersWritersStarvation a = new ReadersWritersStarvation();
         try {
             a.solve();
         } catch (Exception e) {
@@ -83,10 +89,8 @@ public class ReadersWriters {
         public void run() {
             while (true) {
                 try {
-                    turnstile.acquire();
                     roomEmpty.acquire();
                     task();
-                    turnstile.release();
                     roomEmpty.release();
                     Thread.sleep(random.nextInt(1500));
                 } catch (InterruptedException e) {
@@ -116,15 +120,34 @@ public class ReadersWriters {
         public void run() {
             while (true) {
                 try {
-                    turnstile.jump();
-                    lightSwitch.lock(roomEmpty);
+                    incrementReaders();
                     task();
-                    lightSwitch.unlock(roomEmpty);
+                    decrementReaders();
                     Thread.sleep(random.nextInt(1500));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+        }
+
+        private void incrementReaders() throws InterruptedException {
+            mutex.acquire();
+            readers++;
+
+            if (readers == 1)
+                roomEmpty.acquire();
+
+            mutex.release();
+        }
+
+        private void decrementReaders() throws InterruptedException {
+            mutex.acquire();
+            readers--;
+
+            if (readers == 0)
+                roomEmpty.release();
+
+            mutex.release();
         }
 
         private void task() {

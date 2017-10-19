@@ -3,7 +3,7 @@
  * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms, But you are free to use it :).
  *
  */
-package com.ashok.semaphore.chapter3;
+package com.ashok.semaphore.chapter4;
 
 import com.ashok.lang.dsa.Queue;
 import com.ashok.lang.inputs.InputReader;
