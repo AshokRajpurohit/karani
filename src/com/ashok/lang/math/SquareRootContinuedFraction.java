@@ -1,20 +1,24 @@
 package com.ashok.lang.math;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * it is like
  * d + a / (ﾚb + c )
+ *
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
  */
 public class SquareRootContinuedFraction implements ContinuedFraction {
     private final static ContinuedFraction INVALID_FRACTION = new SquareRootContinuedFraction(-1, -1, -1);
-    final int a, b, c, d;
+    final long a, b, c, d;
     final int hash;
 
-    SquareRootContinuedFraction(int a, int b, int c) {
+    SquareRootContinuedFraction(long a, long b, long c) {
         this(a, b, c, 0);
     }
 
-    SquareRootContinuedFraction(int a, int b, int c, int d) {
+    SquareRootContinuedFraction(long a, long b, long c, long d) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -22,7 +26,7 @@ public class SquareRootContinuedFraction implements ContinuedFraction {
         hash = Long.hashCode(1L * Long.hashCode(a * b) * Long.hashCode(c * d));
     }
 
-    public SquareRootContinuedFraction(int n) {
+    public SquareRootContinuedFraction(long n) {
         a = 1;
         b = n;
         c = -(int) Math.sqrt(n);
@@ -47,12 +51,24 @@ public class SquareRootContinuedFraction implements ContinuedFraction {
 
     public SquareRootContinuedFraction nextFraction() {
         double numerator = Math.sqrt(b) - c;
-        int denominator = b - c * c;
+        long denominator = b - c * c;
         denominator /= a; // a divides this new denominator perfectly. do some paperwork and prove it.
-        int newC = -c - denominator * (int) (numerator / denominator);
-        int newD = denominator * (int) (numerator / denominator);
+        long newC = -c - denominator * (int) (numerator / denominator);
+        long newD = denominator * (long) (numerator / denominator);
 
         return new SquareRootContinuedFraction(denominator, b, newC, newD / denominator);
+    }
+
+    public static BigFraction evaluate(List<SquareRootContinuedFraction> list) {
+        LinkedList<SquareRootContinuedFraction> copy = new LinkedList<>(list);
+        BigFraction value = new BigFraction(copy.removeLast().toFraction());
+        int size = copy.size();
+
+        for (int i = 0; i < size; i++) {
+            value = value.toInverse().add(new BigFraction(copy.removeLast().toFraction()));
+        }
+
+        return value;
     }
 
     public Fraction toFraction() {

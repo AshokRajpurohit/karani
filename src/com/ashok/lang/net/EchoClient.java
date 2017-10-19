@@ -1,5 +1,7 @@
 package com.ashok.lang.net;
 
+import com.ashok.lang.inputs.InputReader;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,7 +22,8 @@ public class EchoClient {
         }*/
 
         String hostName = "localhost";
-        int portNumber = 80;
+        InputReader inputReader = new InputReader();
+        int portNumber = inputReader.readInt();
 
         try (
                 Socket echoSocket = new Socket(hostName, portNumber);
@@ -34,9 +37,10 @@ public class EchoClient {
                                 new InputStreamReader(System.in))
         ) {
             String userInput;
-            while ((userInput = stdIn.readLine()) != null) {
+            echoSocket.getKeepAlive();
+            while (echoSocket.isConnected() && (userInput = stdIn.readLine()) != null) {
                 out.println(userInput);
-                System.out.println("echo: " + in.readLine());
+//                System.out.println("echo: " + in.readLine());
             }
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);
@@ -45,6 +49,8 @@ public class EchoClient {
             System.err.println("Couldn't get I/O for the connection to " +
                     hostName);
             System.exit(1);
+        } finally {
+            inputReader.close();
         }
     }
 }

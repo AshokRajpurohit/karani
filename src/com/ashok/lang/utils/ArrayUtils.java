@@ -118,7 +118,7 @@ public class ArrayUtils {
         return count;
     }
 
-    public static<T> int count(Iterable<T> list, T value) {
+    public static <T> int count(Iterable<T> list, T value) {
         int count = 0;
 
         for (T t : list)
@@ -174,6 +174,114 @@ public class ArrayUtils {
         }
 
         return max;
+    }
+
+    public static int min(int[] ar) {
+        int min = ar[0];
+
+        for (int e : ar)
+            min = Math.min(e, min);
+
+        return min;
+    }
+
+    public static long min(long[] ar) {
+        long min = ar[0];
+
+        for (long e : ar)
+            min = Math.min(e, min);
+
+        return min;
+    }
+
+    public static double min(double[] ar) {
+        double min = ar[0];
+
+        for (double e : ar)
+            min = Math.min(e, min);
+
+        return min;
+    }
+
+    public static Comparable min(Comparable[] ar) {
+        Comparable min = ar[0];
+
+        for (Comparable t : ar)
+            if (min.compareTo(t) < 0)
+                min = t;
+
+        return min;
+    }
+
+    public static Comparable min(Iterable<Comparable> list) {
+        Comparable min = null;
+
+        for (Comparable e : list) {
+            if (min == null || min.compareTo(e) < 0)
+                min = e;
+        }
+
+        return min;
+    }
+
+    public static int minElementIndex(int[] ar) {
+        int index = 0, i = 0;
+        int min = ar[0];
+
+        for (int e : ar) {
+            if (e < min) {
+                index = i;
+                min = e;
+            }
+            i++;
+        }
+
+        return index;
+    }
+
+    public static int minElementIndex(long[] ar) {
+        int index = 0, i = 0;
+        long min = ar[0];
+
+        for (long e : ar) {
+            if (e < min) {
+                index = i;
+                min = e;
+            }
+            i++;
+        }
+
+        return index;
+    }
+
+    public static int maxElementIndex(int[] ar) {
+        int index = 0, i = 0;
+        int max = ar[0];
+
+        for (int e : ar) {
+            if (e > max) {
+                index = i;
+                max = e;
+            }
+            i++;
+        }
+
+        return index;
+    }
+
+    public static int maxElementIndex(long[] ar) {
+        int index = 0, i = 0;
+        long max = ar[0];
+
+        for (long e : ar) {
+            if (e > max) {
+                index = i;
+                max = e;
+            }
+            i++;
+        }
+
+        return index;
     }
 
     public static void randomizeArray(int[] ar) {

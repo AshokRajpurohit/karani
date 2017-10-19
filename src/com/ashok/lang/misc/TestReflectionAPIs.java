@@ -45,7 +45,7 @@ public class TestReflectionAPIs {
         }
     }
 
-    private static void reflections() throws IOException,
+    public static void reflections() throws IOException,
             IllegalAccessException, InstantiationException,
             InvocationTargetException {
         Point a = new Point(10, 20), b = new Point(13, 23);
@@ -63,61 +63,65 @@ public class TestReflectionAPIs {
         Object[] objects = {matrix, a, line};
 
         for (Object object : objects) {
-            out.println(object.getClass().getSimpleName());
-            Class c = object.getClass();
-
-            // Object copy = instantiate(object.getClass());
-            // out.println("Object created: " + copy.getClass().getSimpleName()
-            // + ": " + copy);
-
-            Method[] methods = object.getClass().getDeclaredMethods();
-            // out.println(object.getClass().getMethods());
-            // out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-            // out.flush();
-            out.println("Which method you want to execute?");
-            int i = 0;
-            for (Method method : methods) {
-                out.println((i++) + "\t" + method);
-            }
-            out.flush();
-            Method method = methods[in.readInt()];
-            method.setAccessible(true);
-            out.println(method.getName()
-                    + " executed and result is: "
-                    + method.invoke(object,
-                    getParameters(method.getParameterTypes())));
-            out.flush();
-
-            Field[] fields = object.getClass().getDeclaredFields();
-            out.println("Which field value you want to know?");
-            i = 0;
-
-            for (Field field : fields) {
-                out.println((i++) + ":\t" + field.getType().getSimpleName()
-                        + " " + field.getName());
-            }
-
-            out.flush();
-            Field field = fields[in.readInt()];
-            field.setAccessible(true);
-            out.println("Value for field: " + field.getName() + " is: "
-                    + field.get(object));
-
-            out.println("You want to update the value? 0 for no and other values for yes");
-            out.flush();
-            int update = in.readInt();
-
-            if (update != 0) {
-                field.setAccessible(true);
-                field.set(object, instantiate(field.getType()));
-                out.println("New value for " + field.getName() + " is "
-                        + field.get(object));
-                out.flush();
-            }
+            playWithObject(object);
         }
     }
 
-    private static Object invokeMethod(Method method)
+    public static void playWithObject(Object object) throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        out.println(object.getClass().getSimpleName());
+        Class c = object.getClass();
+
+        // Object copy = instantiate(object.getClass());
+        // out.println("Object created: " + copy.getClass().getSimpleName()
+        // + ": " + copy);
+
+        Method[] methods = object.getClass().getDeclaredMethods();
+        // out.println(object.getClass().getMethods());
+        // out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        // out.flush();
+        out.println("Which method you want to execute?");
+        int i = 0;
+        for (Method method : methods) {
+            out.println((i++) + "\t" + method);
+        }
+        out.flush();
+        Method method = methods[in.readInt()];
+        method.setAccessible(true);
+        out.println(method.getName()
+                + " executed and result is: "
+                + method.invoke(object,
+                getParameters(method.getParameterTypes())));
+        out.flush();
+
+        Field[] fields = object.getClass().getDeclaredFields();
+        out.println("Which field value you want to know?");
+        i = 0;
+
+        for (Field field : fields) {
+            out.println((i++) + ":\t" + field.getType().getSimpleName()
+                    + " " + field.getName());
+        }
+
+        out.flush();
+        Field field = fields[in.readInt()];
+        field.setAccessible(true);
+        out.println("Value for field: " + field.getName() + " is: "
+                + field.get(object));
+
+        out.println("You want to update the value? 0 for no and other values for yes");
+        out.flush();
+        int update = in.readInt();
+
+        if (update != 0) {
+            field.setAccessible(true);
+            field.set(object, instantiate(field.getType()));
+            out.println("New value for " + field.getName() + " is "
+                    + field.get(object));
+            out.flush();
+        }
+    }
+
+    public static Object invokeMethod(Method method)
             throws InvocationTargetException, IllegalAccessException,
             InstantiationException, IOException {
         Class[] types = method.getParameterTypes();
@@ -127,7 +131,7 @@ public class TestReflectionAPIs {
         return method.invoke(getParameters(types));
     }
 
-    private static Object instantiate(Class clazz)
+    public static Object instantiate(Class clazz)
             throws IllegalAccessException, InvocationTargetException,
             InstantiationException, IOException {
         String className = clazz.getSimpleName(), classType = clazz
@@ -153,7 +157,7 @@ public class TestReflectionAPIs {
         return constructor.newInstance(parameters);
     }
 
-    private static Object[] getParameters(Class[] types)
+    public static Object[] getParameters(Class[] types)
             throws IllegalAccessException, InstantiationException,
             InvocationTargetException, IOException {
         if (types.length == 0)
@@ -169,7 +173,7 @@ public class TestReflectionAPIs {
         return parameters;
     }
 
-    private static Object instantiate(Type type) throws IllegalAccessException,
+    public static Object instantiate(Type type) throws IllegalAccessException,
             InstantiationException, InvocationTargetException, IOException {
         String typeName = type.getTypeName(), typeClass = type.getClass()
                 .getSimpleName();
@@ -179,7 +183,7 @@ public class TestReflectionAPIs {
         return getPrimitiveData(type.getTypeName());
     }
 
-    private static Object getPrimitiveData(String primitiveClass)
+    public static Object getPrimitiveData(String primitiveClass)
             throws IOException {
         out.println("Enter value for: " + primitiveClass);
         out.flush();

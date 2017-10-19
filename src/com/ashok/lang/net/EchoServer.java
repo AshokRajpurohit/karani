@@ -18,7 +18,7 @@ public class EchoServer {
             System.exit(1);
         }*/
 
-        int portNumber = 80;
+        int portNumber = 10000;
 
         try (
                 ServerSocket serverSocket =

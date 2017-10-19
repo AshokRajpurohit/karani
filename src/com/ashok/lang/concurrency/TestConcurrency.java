@@ -13,10 +13,15 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Problem Name: Link:
+ * Problem Name: Practice Concurrency
+ * Reference: Java Concurrency in Practice by Brian Goetz et al.
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
@@ -58,7 +63,9 @@ public class TestConcurrency {
 
     public static void main(String[] args) throws IOException,
             InterruptedException {
+        process(new ReentrantLock(), in.readInt());
         TestConcurrency a = new TestConcurrency();
+        a.solve();
         long time = System.currentTimeMillis();
         inputThread.setName("input-thread");
         outputThread.setName("output-thread");
@@ -72,13 +79,117 @@ public class TestConcurrency {
         out.close();
     }
 
-    private void solve() throws InterruptedException {
-        while (true) {
-            int n = inputUtils.nextInt();
-            if (n == -1)
-                outputUtils.outputComplete = true;
+    private static void process(Lock lock, int recusion) {
+        if (recusion == 0)
+            return;
 
-            outputUtils.println(n);
+        lock.lock();
+        out.println("lock time: " + recusion);
+        process(lock, recusion - 1);
+        lock.unlock();
+        out.println("unlock time: " + recusion);
+        out.flush();
+    }
+
+    private void solve() throws InterruptedException, IOException {
+        while (true) {
+            Dummy dummy = new Dummy(in.read());
+            Thread thread1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        dummy.task1();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            Thread thread2 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    dummy.task2();
+                }
+            });
+
+            thread1.start();
+            thread2.start();
+//            int n = inputUtils.nextInt();
+//            if (n == -1)
+//                outputUtils.outputComplete = true;
+//
+//            outputUtils.println(n);
+        }
+    }
+
+    private static Lock lock = new LockImpl();
+
+    final static class LockImpl implements Lock {
+
+        @Override
+        public void lock() {
+            int n = 10;
+            out.println("doing nothing", n);
+            out.flush();
+        }
+
+        @Override
+        public void lockInterruptibly() throws InterruptedException {
+
+        }
+
+        @Override
+        public boolean tryLock() {
+            return false;
+        }
+
+        @Override
+        public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
+            return false;
+        }
+
+        @Override
+        public void unlock() {
+            int n = 73;
+            out.println("unlocking", n);
+            out.flush();
+        }
+
+        @Override
+        public Condition newCondition() {
+            return null;
+        }
+    }
+
+    final static class Dummy {
+        final String name;
+
+        public Dummy(String name) {
+            this.name = name;
+        }
+
+        void task1() throws InterruptedException {
+            synchronized (lock) {
+                int n = 10;
+                int m = n * n;
+                out.println(m + ", " + n);
+                out.flush();
+                Thread.sleep(6000);
+            }
+        }
+
+        void task2() {
+            synchronized (lock) {
+                int n = 15;
+                int m = n * n;
+                out.println(m + ", " + n);
+                out.flush();
+            }
+        }
+
+        @Override
+        public String toString() {
+            return name;
         }
     }
 
