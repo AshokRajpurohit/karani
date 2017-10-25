@@ -1,6 +1,6 @@
 package com.ashok.semaphore.chapter5;
 
-import com.ashok.semaphore.chapter3.Turnstile;
+import com.ashok.lang.concurrency.Turnstile;
 
 import java.util.concurrent.Semaphore;
 

@@ -1,4 +1,4 @@
-package com.ashok.semaphore.chapter3;
+package com.ashok.lang.concurrency;
 
 import java.util.concurrent.Semaphore;
 
@@ -15,6 +15,10 @@ public class Turnstile extends Semaphore {
 
     public Turnstile(int permits, boolean fair) {
         super(permits, fair);
+    }
+
+    public Turnstile() {
+        super(1);
     }
 
     /**

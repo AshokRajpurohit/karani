@@ -8,38 +8,40 @@ import java.util.concurrent.Semaphore;
 public class Barrier {
     private final int size;
     private volatile int count = 0;
-    private final Semaphore
-            mutex = new Semaphore(1),
-            turnstile1 = new Semaphore(0),
-            turnstile2 = new Semaphore(0);
+    private final Semaphore mutex = new Semaphore(1);
+    private final Turnstile turnstile1 = new Turnstile(), turnstile2 = new Turnstile(1);
 
     public Barrier(int size) {
         this.size = size;
     }
 
-    void phase1() throws InterruptedException {
+    public void phase1() throws InterruptedException {
         mutex.acquire();
         count++;
 
-        if (count == size)
-            turnstile1.release(size);
+        if (count == size) {
+            turnstile2.acquire(); // lock the second
+            turnstile1.release(size); // unlock the first
+        }
 
         mutex.release();
-        turnstile1.acquire();
+        turnstile1.passThrough();
     }
 
-    void phase2() throws InterruptedException {
+    public void phase2() throws InterruptedException {
         mutex.acquire();
         count--;
 
-        if (count == 0)
-            turnstile2.release(size);
+        if (count == 0) {
+            turnstile1.acquire(); // lock the first
+            turnstile2.release(size); // unlock the second.
+        }
 
         mutex.release();
-        turnstile2.release();
+        turnstile2.passThrough();
     }
 
-    void barrier() throws InterruptedException{
+    public void barrier() throws InterruptedException {
         phase1();
         phase2();
     }

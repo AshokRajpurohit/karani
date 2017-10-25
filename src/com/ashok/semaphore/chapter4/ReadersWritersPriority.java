@@ -7,7 +7,7 @@ package com.ashok.semaphore.chapter4;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
-import com.ashok.semaphore.chapter3.Turnstile;
+import com.ashok.lang.concurrency.Turnstile;
 
 import java.io.IOException;
 import java.util.LinkedList;
