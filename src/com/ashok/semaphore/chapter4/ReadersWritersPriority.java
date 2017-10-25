@@ -122,7 +122,7 @@ public class ReadersWritersPriority {
         public void run() {
             while (true) {
                 try {
-                    turnstile.jump();
+                    turnstile.passThrough();
                     lightSwitch.lock(roomEmpty);
                     task();
                     lightSwitch.unlock(roomEmpty);

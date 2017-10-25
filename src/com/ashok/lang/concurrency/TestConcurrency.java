@@ -8,6 +8,8 @@ package com.ashok.lang.concurrency;
 import com.ashok.lang.annotation.ThreadSafe;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.semaphore.chapter5.DiningSavages;
+import com.ashok.semaphore.chapter5.HiltzerBarbershopProblem;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -63,6 +65,8 @@ public class TestConcurrency {
 
     public static void main(String[] args) throws IOException,
             InterruptedException {
+        barberProblem();
+        savageProblem();
         process(new ReentrantLock(), in.readInt());
         TestConcurrency a = new TestConcurrency();
         a.solve();
@@ -77,6 +81,56 @@ public class TestConcurrency {
         out.println(System.currentTimeMillis() - time);
 
         out.close();
+    }
+
+    private static void barberProblem() throws IOException {
+        out.println("Enter number for shop capacity, barbers, sofa capacity, customers");
+        out.flush();
+
+        int n = in.readInt(), m = in.readInt(), s = in.readInt(), c = in.readInt();
+        HiltzerBarbershopProblem barberShop = new HiltzerBarbershopProblem(n, m, s);
+        Thread[] threads = new Thread[c];
+
+        for (int i = 0; i < c; i++)
+            threads[i] = new Thread(barberShop.getCustomer());
+
+        for (Thread thread : threads)
+            thread.start();
+
+        out.println("Enter anything to stop it.");
+        out.flush();
+
+        in.read();
+        for (Thread thread : threads)
+            thread.stop();
+
+        out.println("Program stopped, press Ctrl + F2");
+        out.flush();
+    }
+
+    private static void savageProblem() throws IOException {
+        out.println("Enter capacity and number of savages");
+        out.flush();
+
+        int n = in.readInt(), m = in.readInt();
+        DiningSavages diningSavages = new DiningSavages(n);
+        Thread[] threads = new Thread[m];
+
+        for (int i = 0; i < m; i++)
+            threads[i] = new Thread(diningSavages.getSavage());
+
+        for (Thread thread : threads)
+            thread.start();
+
+        out.println("Enter anything to stop it.");
+        out.flush();
+
+        in.read();
+        for (Thread thread : threads)
+            thread.stop();
+
+        out.println("Program stopped, press Ctrl + F2");
+        out.flush();
     }
 
     private static void process(Lock lock, int recusion) {

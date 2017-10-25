@@ -23,7 +23,7 @@ public class Turnstile extends Semaphore {
      *
      * @throws InterruptedException
      */
-    public void jump() throws InterruptedException {
+    public void passThrough() throws InterruptedException {
         acquire();
         release();
     }

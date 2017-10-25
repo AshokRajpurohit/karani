@@ -42,15 +42,6 @@ public class Queue<T> implements Iterable {
         return sb.toString();
     }
 
-    public void print() {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + "\t");
-            temp = temp.next;
-        }
-        System.out.println();
-    }
-
     public T get() {
         return head.data;
     }
@@ -86,18 +77,4 @@ public class Queue<T> implements Iterable {
             return q.pop();
         }
     }
-
-    /* final static class Node {
-        int data;
-        Node next;
-
-        Node(int n) {
-            this.data = n;
-        }
-
-        Node(int n, Node next) {
-            this.data = n;
-            this.next = next;
-        }
-    } */
 }
