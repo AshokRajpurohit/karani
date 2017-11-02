@@ -3,6 +3,10 @@ package com.ashok.lang.concurrency;
 import java.util.concurrent.Semaphore;
 
 /**
+ * The {@code Barrier} class implements re-usable barrier. This Barrier blocks untill {@code predefined} number of
+ * threads arrive at barrier and then open it for those threads only and keeps blocking new threads untill all the
+ * existing threads exit the barrier. It allows a batch of threads to proceed.
+ *
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
  */
 public class Barrier {
@@ -15,7 +19,12 @@ public class Barrier {
         this.size = size;
     }
 
-    public void phase1() throws InterruptedException {
+    /**
+     * Enter the code blocked by this barrier.
+     *
+     * @throws InterruptedException
+     */
+    public void enter() throws InterruptedException {
         mutex.acquire();
         count++;
 
@@ -28,7 +37,12 @@ public class Barrier {
         turnstile1.passThrough();
     }
 
-    public void phase2() throws InterruptedException {
+    /**
+     * Exit the code blocked by this barrier.
+     *
+     * @throws InterruptedException
+     */
+    public void exit() throws InterruptedException {
         mutex.acquire();
         count--;
 
@@ -41,8 +55,13 @@ public class Barrier {
         turnstile2.passThrough();
     }
 
-    public void barrier() throws InterruptedException {
-        phase1();
-        phase2();
+    /**
+     * Just cross over it. It is just like barrier which allows size number of threads to cross at a time.
+     *
+     * @throws InterruptedException
+     */
+    public void cross() throws InterruptedException {
+        enter();
+        exit();
     }
 }
