@@ -76,6 +76,17 @@ public class SinglyLinkedList {
     }
 
     /**
+     * reduce the list size, set next element as head.
+     * something like this:
+     * <code>head = head.next</code>
+     * @return
+     */
+    public int removeFirst() {
+        // return head node value and remove the same.
+        return 0; // dummy value.
+    }
+
+    /**
      * Returns the last value in the list. This is the last value
      * inserted in the list.
      *

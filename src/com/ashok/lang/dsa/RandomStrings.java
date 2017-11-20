@@ -21,7 +21,7 @@ public class RandomStrings extends Random {
     }
 
     public char nextChar() {
-        return (char)(nextInt() & 255);
+        return (char) (nextInt() & 255);
     }
 
     /**
@@ -32,8 +32,7 @@ public class RandomStrings extends Random {
      * @return Random String of length n
      */
     public String nextString(int n) {
-        if (n < 1)
-            throw new IllegalArgumentException("n must be positive: " + n);
+        validateStringLength(n);
 
         char[] ar = new char[n];
         for (int i = 0; i < n; i++) {
@@ -46,9 +45,7 @@ public class RandomStrings extends Random {
     }
 
     public String nextBinaryString(int n) {
-        if (n < 1)
-            throw new IllegalArgumentException("n must be positive: " + n);
-
+        validateStringLength(n);
         boolean one = true;
         char[] ar = new char[n];
         for (int i = 0; i < n; i++) {
@@ -70,12 +67,10 @@ public class RandomStrings extends Random {
      * @return Random String of length n
      */
     public String nextStringABC(int n) {
-        if (n < 1)
-            throw new IllegalArgumentException("n must be positive: " + n);
-
+        validateStringLength(n);
         char[] ar = new char[n];
         for (int i = 0; i < n; i++)
-            ar[i] = (char)(Math.abs(nextInt()) % 26 + 'A');
+            ar[i] = (char) (Math.abs(nextInt()) % 26 + 'A');
 
         return String.valueOf(ar);
     }
@@ -89,33 +84,30 @@ public class RandomStrings extends Random {
      */
 
     public String nextStringabc(int n) {
-        if (n < 1)
-            throw new IllegalArgumentException("n must be positive: " + n);
-
+        validateStringLength(n);
         char[] ar = new char[n];
         for (int i = 0; i < n; i++)
-            ar[i] = (char)(Math.abs(nextInt()) % 26 + 'a');
+            ar[i] = (char) (Math.abs(nextInt()) % 26 + 'a');
 
         return String.valueOf(ar);
     }
 
     /**
      * Returns random string of length consisting only english alphabets.
+     *
      * @param n
      * @return
      */
 
     public String nextStringAaBb(int n) {
-        if (n < 1)
-            throw new IllegalArgumentException("n must be positive: " + n);
-
+        validateStringLength(n);
         char[] ar = new char[n];
         for (int i = 0; i < n; i++) {
             int temp = nextInt() & 2047;
             if ((temp & 1) == 0)
-                ar[i] = (char)(temp % 26 + 'a');
+                ar[i] = (char) (temp % 26 + 'a');
             else
-                ar[i] = (char)(temp % 26 + 'A');
+                ar[i] = (char) (temp % 26 + 'A');
         }
 
         return String.valueOf(ar);
@@ -129,18 +121,16 @@ public class RandomStrings extends Random {
      */
 
     public String nextStringAa1(int n) {
-        if (n < 1)
-            throw new IllegalArgumentException("n must be positive: " + n);
-
+        validateStringLength(n);
         char[] ar = new char[n];
         for (int i = 0; i < n; i++) {
             int temp = nextInt() & 2047;
             if (temp % 3 == 0)
-                ar[i] = (char)(temp % 26 + 'a');
+                ar[i] = (char) (temp % 26 + 'a');
             else if (temp % 3 == 1)
-                ar[i] = (char)(temp % 26 + 'A');
+                ar[i] = (char) (temp % 26 + 'A');
             else
-                ar[i] = (char)(temp % 10 + '0');
+                ar[i] = (char) (temp % 10 + '0');
         }
 
         return String.valueOf(ar);
@@ -154,13 +144,16 @@ public class RandomStrings extends Random {
      */
 
     public String nextString123(int n) {
-        if (n < 1)
-            throw new IllegalArgumentException("n must be positive: " + n);
-
+        validateStringLength(n);
         StringBuilder sb = new StringBuilder(n);
         while (sb.length() < n)
             sb.append(Math.abs(nextLong()));
 
         return sb.substring(0, n);
+    }
+
+    private static void validateStringLength(int len) {
+        if (len < 1)
+            throw new IllegalArgumentException("String length must be positive: " + len);
     }
 }
