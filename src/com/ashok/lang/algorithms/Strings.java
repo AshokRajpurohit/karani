@@ -4,20 +4,20 @@ import com.ashok.lang.math.Power;
 
 public class Strings {
     private static char[] upperToLowerCase = new char[256], lowerToUpperCase =
-        new char[256];
+            new char[256];
     private static int mod = 1000000007;
 
     static {
         for (int i = 0; i < 256; i++) {
-            upperToLowerCase[i] = (char)i;
-            lowerToUpperCase[i] = (char)i;
+            upperToLowerCase[i] = (char) i;
+            lowerToUpperCase[i] = (char) i;
         }
 
         for (int i = 'a', j = 'A'; i <= 'z'; i++, j++) {
-            upperToLowerCase[i] = (char)i;
-            upperToLowerCase[j] = (char)i;
-            lowerToUpperCase[i] = (char)j;
-            lowerToUpperCase[j] = (char)j;
+            upperToLowerCase[i] = (char) i;
+            upperToLowerCase[j] = (char) i;
+            lowerToUpperCase[i] = (char) j;
+            lowerToUpperCase[j] = (char) j;
         }
     }
 
@@ -53,6 +53,7 @@ public class Strings {
 
     /**
      * returns the length of Longest Common Subsequence of two strings a and b.
+     *
      * @param a
      * @param b
      * @return
@@ -239,12 +240,12 @@ public class Strings {
      * calculated or not.
      * ar is to store the precalculated length upto ai and bi index.
      *
-     * @param ar to store and reuse the calculated length.
+     * @param ar  to store and reuse the calculated length.
      * @param var
      * @param a
      * @param b
-     * @param ai index in first string
-     * @param bi index in second string
+     * @param ai  index in first string
+     * @param bi  index in second string
      * @return
      */
     private static int LCS(int[][] ar, boolean[][] var, String a, String b,
@@ -265,6 +266,10 @@ public class Strings {
         return ar[ai][bi];
     }
 
+    public static String largestPalindromeSubstring(String s) {
+        return s.length() < 30 ? largestPalindromeN2(s) : largestPalindromeManacher(s);
+    }
+
     /**
      * This is implementation Manacher's Algorithm for largest Palindromic
      * substring in a string. For the algorithm description please follow
@@ -275,7 +280,7 @@ public class Strings {
      * @param s
      * @return
      */
-    public static String LargestPalindromeManacher(String s) {
+    public static String largestPalindromeManacher(String s) {
         if (s.length() <= 1)
             return s;
 
@@ -289,7 +294,7 @@ public class Strings {
 
             // Attempt to expand palindrome centered at i
             while (i > len[i] &&
-                   t.charAt(i + 1 + len[i]) == t.charAt(i - 1 - len[i]))
+                    t.charAt(i + 1 + len[i]) == t.charAt(i - 1 - len[i]))
                 len[i]++;
 
             // If palindrome centered at i expand past right boundry,
@@ -333,12 +338,12 @@ public class Strings {
      * centre is moved to next position. This method is better than Manacher's
      * algorithm for smaller strings. In worst case when all the characters
      * are same then with string length 17 it's performance is equal to
-     * {@code LargestPalindromeManacher}.
+     * {@code largestPalindromeManacher}.
      *
      * @param s
      * @return returns the largest palindromic substring in string s
      */
-    public static String LargestPalindromeN2(String s) {
+    public static String largestPalindromeN2(String s) {
         if (s.length() == 1)
             return s;
         int centre = 0, maxLen = 1, len = 0, startIndex = 0, endIndex = 0;
@@ -347,7 +352,7 @@ public class Strings {
         for (int i = 1; i < s.length() - maxLen / 2; i++) {
             len = 1;
             while (i > len / 2 && i + 1 + len / 2 < s.length() &&
-                   s.charAt(i + 1 + len / 2) == s.charAt(i - 1 - len / 2))
+                    s.charAt(i + 1 + len / 2) == s.charAt(i - 1 - len / 2))
                 len += 2;
 
             if (maxLen < len) {
@@ -364,7 +369,7 @@ public class Strings {
             if (s.charAt(i) == s.charAt(i + 1)) {
                 len = 2;
                 while (i > (len - 1) / 2 && i + 1 + len / 2 < s.length() &&
-                       s.charAt(i + 1 + len / 2) == s.charAt(i - len / 2))
+                        s.charAt(i + 1 + len / 2) == s.charAt(i - len / 2))
                     len += 2;
 
                 if (maxLen < len) {
@@ -380,5 +385,35 @@ public class Strings {
         }
 
         return s.substring(startIndex, endIndex + 1);
+    }
+
+    /**
+     * Replaces all the pattern strings with strings from {@code filler} in the given
+     * string {@code str}. This method is usefull in case when in logs we see sql query
+     * with parameters. We can use this method to fill the sql query with parameters to
+     * debug.
+     *
+     * @param str
+     * @param pattern
+     * @param filler
+     * @return
+     */
+    public static String replace(String str, String pattern, String[] filler) {
+        StringBuilder sb = new StringBuilder();
+        int prevIndex = 0, count = 0;
+        while (prevIndex != -1) {
+            int index = str.indexOf(pattern, prevIndex);
+
+            if (index == -1)
+                break;
+
+            sb.append(str, prevIndex, index);
+            sb.append(filler[count++]);
+            prevIndex = index + 1;
+        }
+
+        sb.append(str, prevIndex, str.length() - 1);
+
+        return sb.toString();
     }
 }

@@ -117,6 +117,6 @@ public class Output extends PrintWriter {
         for (String e : ar)
             sb.append(e).append('\n');
 
-        print(sb.toString());
+        print(sb);
     }
 }

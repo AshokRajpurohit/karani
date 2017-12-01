@@ -290,6 +290,14 @@ public class InputReader {
         return sb.toString();
     }
 
+    public String[] readLineArray(int size) throws IOException {
+        String[] lines = new String[size];
+        for (int i = 0; i < size; i++)
+            lines[i] = readLine();
+
+        return lines;
+    }
+
     public String read(int n) throws IOException {
         StringBuilder sb = new StringBuilder(n);
         if (offset == bufferSize) {
