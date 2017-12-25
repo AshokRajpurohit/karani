@@ -37,7 +37,7 @@ class JumpOut {
         int jump = 1, req = ar.length;
 
         for (int e : ar) {
-            if (e >= req) // we found our jump element. jump to this.
+            if (e >= req) // we found our passThrough element. passThrough to this.
                 return jump;
 
             jump++;
