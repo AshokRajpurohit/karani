@@ -328,4 +328,18 @@ public class ModularArithmatic {
 
         return k;
     }
+
+    /**
+     * Returns kth root for n modulo mod.
+     *
+     * @param n
+     * @param mod
+     * @param k
+     * @return
+     */
+    public static long moduloRoot(int n, int k, int mod) {
+        int phiMod = totient(mod), phiPhiMod = totient(phiMod);
+        long power = inverseModulo(k, phiMod);
+        return Power.pow(n, power, mod);
+    }
 }
