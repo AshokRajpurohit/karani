@@ -22,9 +22,7 @@ public class ArrayUtils {
 
     public static void reverse(Object[] ar) {
         for (int i = 0, j = ar.length - 1; i < j; i++, j--) {
-            Object temp = ar[i];
-            ar[i] = ar[j];
-            ar[j] = temp;
+            swap(ar, i, j);
         }
     }
 
@@ -124,6 +122,22 @@ public class ArrayUtils {
         for (T t : list)
             if (value.equals(t))
                 count++;
+
+        return count;
+    }
+
+    /**
+     * Counts number of elements between {@code min} and {@code max} both exclusive.
+     *
+     * @param ar
+     * @param min
+     * @param max
+     * @return number of elements in range.
+     */
+    public static int count(int[] ar, int min, int max) {
+        int count = 0;
+        for (int e : ar)
+            if (e > min && e < max) count++;
 
         return count;
     }

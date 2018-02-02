@@ -177,6 +177,17 @@ public class Utils {
         return res;
     }
 
+    public static int[] nextUnequal(int[] ar) {
+        int len = ar.length;
+        int[] res = new int[len];
+        res[len - 1] = len;
+        for (int i = len - 2; i >= 0; i--) {
+            res[i] = ar[i] != ar[i + 1] ? i + 1 : res[i + 1];
+        }
+
+        return res;
+    }
+
     /**
      * Returns array of integer having index of previous equal element to it.
      * If the element doesn't have any such element then the index for it

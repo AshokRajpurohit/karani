@@ -17,9 +17,9 @@ import java.util.Iterator;
 public class ArrayIterator<T> implements Iterator<T> {
     private T[] ar;
     private int index = 0;
-    final int length;
+    final int end, start;
 
-    ArrayIterator(T[] ar) {
+    public ArrayIterator(T[] ar) {
         this(ar, 0, ar.length);
     }
 
@@ -28,20 +28,26 @@ public class ArrayIterator<T> implements Iterator<T> {
     }
 
     ArrayIterator(T[] ar, int start, int end) {
-        this.ar = ar;
-        index = Math.max(start, 0);
-        length = (Math.min(ar.length, end));
-        if (length <= index)
+        if (start > end || start < 0 || end >= ar.length)
             throw new RuntimeException("invalid array range: " + start + ", " + end);
+
+        this.ar = ar;
+        this.start = start;
+        this.end = end;
+        index = start;
     }
 
     @Override
     public boolean hasNext() {
-        return false;
+        return index <= end;
     }
 
     @Override
     public T next() {
         return ar[index++];
+    }
+
+    public void reset() {
+        index = start;
     }
 }

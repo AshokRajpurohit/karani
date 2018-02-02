@@ -28,8 +28,8 @@ public class RangeQueryLazy {
      * Updates the node and child nodes if necessary.
      *
      * @param root
-     * @param L start index
-     * @param R end index
+     * @param L    start index
+     * @param R    end index
      * @param data to be added to each element from index L to index R.
      */
     private static void update(Node root, int L, int R, long data) {
@@ -78,8 +78,7 @@ public class RangeQueryLazy {
         if (R <= mid)
             return query(root.left, L, R);
 
-        return operation(query(root.left, L, mid),
-                         query(root.right, mid + 1, R));
+        return operation(query(root.left, L, mid), query(root.right, mid + 1, R));
 
     }
 

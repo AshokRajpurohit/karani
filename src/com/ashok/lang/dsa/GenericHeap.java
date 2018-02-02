@@ -77,23 +77,37 @@ public class GenericHeap<E> {
     }
 
     private void reformatUp(int index) {
+        E val = heap[index];
         while (index != 0) {
             int parent = (index - 1) >>> 1;
-            if (comparator.compare(heap[parent], heap[index]) > 0) {
-                swap(index, parent);
-                index = parent;
-            }
+            E e = heap[parent];
+            if (comparator.compare(e, val) <= 0)
+                break;
+
+            set(index, e);
+            index = parent;
         }
+
+        set(index, val);
     }
 
     private void reformatDown(int index) {
+        E val = heap[index];
         while (((index << 1) + 1) < count) {
             int c = getSmallerChild(index);
-            if (comparator.compare(heap[index], heap[c]) > 0) {
-                swap(index, c);
-                index = c;
-            }
+            E e = heap[c];
+            if (comparator.compare(val, e) <= 0)
+                break;
+
+            set(index, e);
+            index = c;
         }
+
+        set(index, val);
+    }
+
+    private void set(int index, E e) {
+        heap[index] = e;
     }
 
     private int getParent(int index) {

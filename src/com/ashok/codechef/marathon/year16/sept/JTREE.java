@@ -100,7 +100,6 @@ class JTREE {
             return;
 
         Collections.sort(node.tickets, TICKET_COMPARATOR);
-
         LinkedList<Ticket> tickets = new LinkedList<>();
         tickets.add(node.tickets.removeFirst());
 
