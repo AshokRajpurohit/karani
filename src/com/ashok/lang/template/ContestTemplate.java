@@ -31,9 +31,10 @@ public class ContestTemplate {
     }
 
     private static void solve() throws IOException {
-        while (true) {
-            out.print(Prime.primesInRange(in.readInt(), in.readInt()));
-            out.flush();
+        int t = in.readInt();
+        while (t > 0) {
+            t--;
+
         }
     }
 

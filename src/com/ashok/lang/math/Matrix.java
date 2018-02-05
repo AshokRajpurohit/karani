@@ -79,6 +79,7 @@ public class Matrix {
 
     /**
      * Multiplies matrix a and b, stores the result in new matrix.
+     *
      * @param a
      * @param b
      * @return returns a x b matrix
@@ -104,11 +105,12 @@ public class Matrix {
 
     /**
      * Multiplies two matrices a and b and stores the result into third matrix
+     *
      * @param a
      * @param b
      * @param result
      * @throws Exception when a and b are not multiplicable or result matrix
-     * is not of proper dimension.
+     *                   is not of proper dimension.
      */
     private static void multiply(Matrix a, Matrix b, Matrix result) {
         if (a.m != b.n || result.n != a.n || result.m != b.m)
@@ -139,8 +141,7 @@ public class Matrix {
         if (n == 1)
             return result;
 
-        Matrix temp = new Matrix(a.matrix);
-
+        Matrix temp = new Matrix(a.matrix), swap;
         long r = Long.highestOneBit(n);
         while (r > 1) {
             r = r >>> 1;
@@ -148,7 +149,9 @@ public class Matrix {
             result.mod(mod);
             if ((r & n) != 0) {
                 multiply(result, a, temp);
-                result.copy(temp);
+                swap = result;
+                result = temp;
+                temp = swap;
                 result.mod(mod);
             }
         }
@@ -162,15 +165,16 @@ public class Matrix {
         if (n == 1)
             return result;
 
-        Matrix temp = new Matrix(a.matrix);
-
+        Matrix temp = new Matrix(a.matrix), swap;
         long r = Long.highestOneBit(n);
         while (r > 1) {
             r = r >>> 1;
             square(result, temp);
             if ((r & n) != 0) {
                 multiply(result, a, temp);
-                result.copy(temp);
+                swap = result;
+                result = temp;
+                temp = swap;
             }
         }
         return result;
@@ -201,6 +205,7 @@ public class Matrix {
 
     /**
      * Copy the contents of matrix temp into this matrix.
+     *
      * @param temp Temporary Matrix.
      * @throws Exception if the matrices are not compatible
      */
@@ -216,6 +221,7 @@ public class Matrix {
     /**
      * Squaring the matrix a, storing the result temporarily in matrix b.
      * finally the result is stored in matrix a.
+     *
      * @param a matrix to be squared
      * @param b temporary result storage
      */
@@ -234,6 +240,7 @@ public class Matrix {
 
     /**
      * Squares the matrix and stores the result in the same matrix.
+     *
      * @throws Exception if the Matrix is not square matrix.
      */
     public void square() {
@@ -248,6 +255,7 @@ public class Matrix {
      * then the hash code value for both the matrices will be same, but if
      * hash code value is same that does not guarantee that matrices are
      * equal. This function can be used in hashing.
+     *
      * @return
      */
     public final int hashCode() {
@@ -257,7 +265,7 @@ public class Matrix {
             for (int j = 0; j < this.m; j++)
                 res = ((res << 29) + matrix[i][j]) % mod;
 
-        return (int)res;
+        return (int) res;
     }
 
     /**
@@ -267,7 +275,7 @@ public class Matrix {
      *
      * @param o Object reference with which to compare.
      * @return <code>true</code> if this object is the same as the o
-     *          argument; <code>false</code> otherwise.
+     * argument; <code>false</code> otherwise.
      */
     public final boolean equals(Object o) {
         if (o == this)
@@ -276,7 +284,7 @@ public class Matrix {
         if (!(o instanceof Matrix))
             return false;
 
-        Matrix x = (Matrix)o;
+        Matrix x = (Matrix) o;
         if (x.n != this.n || x.m != this.m)
             return false;
 
@@ -290,6 +298,7 @@ public class Matrix {
 
     /**
      * Create and Returns a new copy of this object.
+     *
      * @return
      */
     public Matrix clone() {
@@ -341,6 +350,7 @@ public class Matrix {
 
     /**
      * Checks whether two matrices a and b are multiplicable.
+     *
      * @param a
      * @param b
      * @return
