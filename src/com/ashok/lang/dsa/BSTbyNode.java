@@ -1,5 +1,7 @@
 package com.ashok.lang.dsa;
 
+import java.util.*;
+import java.util.List;
 import java.util.Stack;
 
 public class BSTbyNode {
@@ -68,6 +70,20 @@ public class BSTbyNode {
         return ar;
     }
 
+    public List<Integer> collect(int from, int to) {
+        List<Integer> list = new LinkedList<>();
+        collect(root, from, to, list);
+        return list;
+    }
+
+    private static void collect(Node node, int from, int to, List<Integer> list) {
+        if (node == null || node.data < from || node.data > to) return;
+
+        collect(node.left, from, to, list);
+        list.add(node.data);
+        collect(node.right, from, to, list);
+    }
+
     private static void sort(int[] ar, Node node) {
         int index = 0;
         if (node.left != null)
@@ -105,7 +121,6 @@ public class BSTbyNode {
      * @param ar
      * @param root
      */
-
     private static void inOrderTraversal(int[] ar, Node root) {
         int[] inOrder = ar;
         int index = 0;

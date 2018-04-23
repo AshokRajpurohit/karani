@@ -47,7 +47,7 @@ public class Output extends PrintWriter {
         StringBuilder sb = new StringBuilder();
 
         for (Object object : iterable)
-            sb.append(object.toString()).append(seperator);
+            sb.append(object).append(seperator);
 
         print(sb);
     }
@@ -61,10 +61,10 @@ public class Output extends PrintWriter {
         StringBuilder sb = new StringBuilder();
 
         for (Object object : objects) {
-            sb.append(object.toString()).append(seperator);
+            sb.append(object).append(seperator);
         }
 
-        print(sb.toString());
+        print(sb);
     }
 
     public void println(Object... objects) {
@@ -86,7 +86,7 @@ public class Output extends PrintWriter {
         for (int e : ar)
             sb.append(e).append(seperator);
 
-        println(sb.toString());
+        println(sb);
     }
 
     public void print(int[][] ar) {
@@ -99,7 +99,7 @@ public class Output extends PrintWriter {
         for (long e : ar)
             sb.append(e).append(seperator);
 
-        println(sb.toString());
+        println(sb);
     }
 
     public void print(long[][] ar) {

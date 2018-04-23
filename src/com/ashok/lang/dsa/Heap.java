@@ -64,23 +64,33 @@ public class Heap {
     }
 
     private void reformatUp(int index) {
+        int val = heap[index];
         while (index != 0) {
             int parent = (index - 1) >>> 1;
-            if (compare(heap[parent], heap[index]) > 0) {
-                swap(index, parent);
-                index = parent;
-            }
+            int e = heap[parent];
+            if (compare(e, val) <= 0)
+                break;
+
+            heap[index] = e;
+            index = parent;
         }
+
+        heap[index] = val;
     }
 
     private void reformatDown(int index) {
+        int val = heap[index];
         while (((index << 1) + 1) < count) {
             int c = getSmallerChild(index);
-            if (compare(heap[index], heap[c]) > 0) {
-                swap(index, c);
-                index = c;
-            }
+            int e = heap[c];
+            if (compare(val, e) <= 0)
+                break;
+
+            heap[index] = e;
+            index = c;
         }
+
+        heap[index] = val;
     }
 
     private int getParent(int index) {
@@ -103,9 +113,6 @@ public class Heap {
     }
 
     private int compare(int a, int b) {
-        if (a == b)
-            return 0;
-
-        return a > b ? 1 : -1;
+        return a - b;
     }
 }

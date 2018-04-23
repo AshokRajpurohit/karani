@@ -4,6 +4,7 @@ package com.ashok.lang.math;
  * This class implements a faster method of division.
  * for a 32 bit number the maximum number of comparision (worst case scenario) is 31+31 = 62 times.
  * and maximum number of subtraction and additions are 31 each.
+ *
  * @author Main Rajpurohit
  */
 
@@ -13,10 +14,8 @@ public class DivFast {
     }
 
     /**
-     *
      * @param N
-     * @param D
-     * this method calculates division and reminder and save it to the parameter of the class.
+     * @param D this method calculates division and reminder and save it to the parameter of the class.
      */
     public static int div(int N, int D) {
         int result = 0;

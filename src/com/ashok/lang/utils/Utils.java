@@ -160,13 +160,12 @@ public class Utils {
     public static int[] nextEqual(int[] ar) {
         int[] res = getIndexArray(ar.length);
         Pair[] pairs = new Pair[ar.length];
-        res[ar.length - 1] = ar.length;
 
         for (int i = 0; i < ar.length; i++)
             pairs[i] = new Pair(i, ar[i]);
 
         Arrays.sort(pairs);
-
+        res[pairs[ar.length - 1].index] = ar.length;
         for (int i = ar.length - 2; i >= 0; i--) {
             if (pairs[i].value == pairs[i + 1].value)
                 res[pairs[i].index] = pairs[i + 1].index;

@@ -2,10 +2,10 @@ package com.ashok.lang.math;
 
 /**
  * @author Ashok Rajpurohit
- * Binary GCD Implementation.
- * Euclid's method is faster than Binary GCD when one of the parameter is
- * in Integer range. If both the parameters are in Long range, in that case
- * Binary GCD is faster.
+ *         Binary GCD Implementation.
+ *         Euclid's method is faster than Binary GCD when one of the parameter is
+ *         in Integer range. If both the parameters are in Long range, in that case
+ *         Binary GCD is faster.
  */
 
 public class BinaryGCD {
@@ -18,16 +18,16 @@ public class BinaryGCD {
     }
 
     public static int gcd(int a, long b) {
-        return euclid(a, (int)(b % a));
+        return euclid(a, (int) (b % a));
     }
 
     public static int gcd(long a, int b) {
-        return euclid((int)(a % b), b);
+        return euclid((int) (a % b), b);
     }
 
     public static long gcd(long a, long b) {
         if (a < Integer.MAX_VALUE || b < Integer.MAX_VALUE)
-            return euclid((int)a, (int)b);
+            return euclid((int) a, (int) b);
         return bgcd(a, b);
     }
 
@@ -128,7 +128,6 @@ public class BinaryGCD {
      * @param b
      * @return Greatest Commond Divisor of a and b
      */
-
     private static int euclid(int a, int b) {
         if (a == 0)
             return b;
@@ -137,6 +136,7 @@ public class BinaryGCD {
 
     /**
      * This method is now used only for inverse modulo calculation.
+     *
      * @param a
      * @param b
      * @return Greatest Commond Divisor of a and b

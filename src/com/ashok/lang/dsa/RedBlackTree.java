@@ -1,5 +1,8 @@
 package com.ashok.lang.dsa;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * This is implementation of Red-Black Tree as explained in Introduction
  * to Algorithms by CLRS. Please refer the same for more details.
@@ -7,9 +10,9 @@ package com.ashok.lang.dsa;
  * Algorithms" by Cormen.
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
- * @see     BSTAVL
- * @see     BSTbyNode
- * @see     RankTree
+ * @see BSTAVL
+ * @see BSTbyNode
+ * @see RankTree
  */
 public class RedBlackTree {
     private final static Node NIL = new Node(0);
@@ -368,6 +371,21 @@ public class RedBlackTree {
                 temp = temp.right;
         }
         return temp;
+    }
+
+
+    public List<Integer> collect(int from, int to) {
+        List<Integer> list = new LinkedList<>();
+        collect(root, from, to, list);
+        return list;
+    }
+
+    private static void collect(Node node, int from, int to, List<Integer> list) {
+        if (node == null || node.key < from || node.key > to) return;
+
+        collect(node.left, from, to, list);
+        list.add(node.key);
+        collect(node.right, from, to, list);
     }
 
     final static class Node {

@@ -1,5 +1,8 @@
 package com.ashok.lang.dsa;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * This class implements AVL Trees.
  * Basically AVL trees are height balanced Binary Search Tree.
@@ -11,7 +14,6 @@ package com.ashok.lang.dsa;
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-
 public class BSTAVL {
     public BSTAVL() {
         super();
@@ -46,8 +48,7 @@ public class BSTAVL {
                 else
                     root = RotateRL(root);
             }
-            root.height =
-                    Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+            root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
             return root;
         }
 
@@ -58,8 +59,7 @@ public class BSTAVL {
             else
                 root = RotateLL(root);
         }
-        root.height =
-                Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+        root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
         return root;
     }
 
@@ -99,9 +99,7 @@ public class BSTAVL {
                 if (root.left.height - getHeight(root.right) == -2)
                     root = RotateLL(root);
 
-                root.height =
-                        Math.max(getHeight(root.left), getHeight(root.right)) +
-                        1;
+                root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
                 return root;
             } else if (root.right != null) {
                 Node del = findMin(root.right);
@@ -111,9 +109,7 @@ public class BSTAVL {
                 if (getHeight(root.right) == 2)
                     root = RotateRR(root);
 
-                root.height =
-                        Math.max(getHeight(root.left), getHeight(root.right)) +
-                        1;
+                root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
                 return root;
             }
 
@@ -135,8 +131,7 @@ public class BSTAVL {
                     root = RotateRL(root);
             }
 
-            root.height =
-                    Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+            root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
             return root;
         }
 
@@ -154,8 +149,7 @@ public class BSTAVL {
                 root = RotateRL(root);
         }
 
-        root.height =
-                Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+        root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
         return root;
     }
 
@@ -163,8 +157,7 @@ public class BSTAVL {
         Node left = root.left;
         root.left = left.right;
         left.right = root;
-        root.height =
-                Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+        root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
         left.height = Math.max(getHeight(left.left), root.height) + 1;
         return left;
     }
@@ -183,8 +176,7 @@ public class BSTAVL {
         Node right = root.right;
         root.right = right.left;
         right.left = root;
-        root.height =
-                Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+        root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
         right.height = Math.max(root.height, getHeight(right.right)) + 1;
         return right;
     }
@@ -242,6 +234,20 @@ public class BSTAVL {
             index = sort(ar, node.right, index);
 
         return index;
+    }
+
+    public List<Integer> collect(int from, int to) {
+        List<Integer> list = new LinkedList<>();
+        collect(root, from, to, list);
+        return list;
+    }
+
+    private static void collect(Node node, int from, int to, List<Integer> list) {
+        if (node == null || node.data < from || node.data > to) return;
+
+        collect(node.left, from, to, list);
+        list.add(node.data);
+        collect(node.right, from, to, list);
     }
 
     public String print() {

@@ -312,6 +312,21 @@ public class ArrayUtils {
         }
     }
 
+    public static void randomizeArray(int[] ar, int from, int to) {
+        if (from == to)
+            return;
+
+        Random random = new Random();
+        int len = to + 1 - from;
+        for (int i = from; i <= to; i++) {
+            int j = from + random.nextInt(len);
+            while (j == i)
+                j = from + random.nextInt(len);
+
+            swap(ar, i, j);
+        }
+    }
+
     public static void randomizeArray(Object[] objects) {
         Random random = new Random();
         for (int i = 0; i < objects.length; i++) {

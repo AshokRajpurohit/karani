@@ -65,16 +65,8 @@ public class Point implements Comparable<Point> {
      * @return
      */
     public final static int orientation(Point a, Point b, Point c) {
-        double m1 = (b.y - a.y) / (b.x - a.x);
-        double m2 = (c.y - b.y) / (c.x - b.x);
-
-        if (m1 < m2)
-            return 1;
-
-        if (m1 > m2)
-            return -1;
-
-        return 0;
+        double v = (b.y - a.y) * (c.x - b.x) - (b.x - a.x) * (c.y - b.y);
+        return Double.compare(v, 0);
     }
 
     /**
