@@ -1,6 +1,8 @@
 package com.ashok.lang.geometry;
 
-public class Point implements Comparable<Point> {
+import com.ashok.hiring.swiggy.Coordinates;
+
+public class Point extends Coordinates implements Comparable<Point> {
     public static final Point ORIGIN = new Point(0, 0);
     public final double x, y;
 
@@ -107,5 +109,10 @@ public class Point implements Comparable<Point> {
             return Double.compare(x, point.x);
 
         return Double.compare(y, point.y);
+    }
+
+    @Override
+    public double distance(Coordinates coordinates) {
+        return distance((Point) coordinates);
     }
 }

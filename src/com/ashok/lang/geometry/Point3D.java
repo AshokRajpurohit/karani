@@ -1,6 +1,8 @@
 package com.ashok.lang.geometry;
 
-public class Point3D {
+import com.ashok.hiring.swiggy.Coordinates;
+
+public class Point3D extends Coordinates {
     public final static Point3D ORIGIN = new Point3D(0, 0, 0);
     public final int x, y, z;
 
@@ -17,13 +19,18 @@ public class Point3D {
         if (!(o instanceof Point3D))
             return false;
 
-        Point3D point = (Point3D)o;
+        Point3D point = (Point3D) o;
         return x == point.x && y == point.y && z == point.z;
     }
 
     public static double distance(Point3D p1, Point3D p2) {
         return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) +
-                         (p1.y - p2.y) * (p1.y - p2.y) +
-                         (p1.z - p2.z) * (p1.z - p2.z));
+                (p1.y - p2.y) * (p1.y - p2.y) +
+                (p1.z - p2.z) * (p1.z - p2.z));
+    }
+
+    @Override
+    public double distance(Coordinates coordinates) {
+        return distance(this, (Point3D) coordinates);
     }
 }
