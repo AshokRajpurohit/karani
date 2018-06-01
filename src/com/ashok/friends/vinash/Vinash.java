@@ -9,8 +9,7 @@ import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * Problem Name:
@@ -34,10 +33,7 @@ public class Vinash {
 
     private void solve() throws IOException {
         while (true) {
-            int n = in.readInt();
-            String[] ar = in.readLineArray(n);
-            findMaximumEvents(ar);
-            out.println(in.read());
+            out.println(Parser.isBalanced(in.read()));
             out.flush();
         }
     }
@@ -96,7 +92,7 @@ public class Vinash {
             int max = 0;
             for (int time = endTime + 1; time <= 24; time++) {
                 startTimeEventMap[time].stream().forEach((t) -> process(t));
-                max = startTimeEventMap[time].stream().map((t) -> eventCountMap[t]).max(Integer :: compare).orElse(0);
+                max = startTimeEventMap[time].stream().map((t) -> eventCountMap[t]).max(Integer::compare).orElse(0);
                 for (int eventId : startTimeEventMap[time]) {
                     process(eventId);
                     max = Math.max(max, eventCountMap[eventId]);
@@ -136,6 +132,97 @@ public class Vinash {
         Event(int startTime, int endTime) {
             this.startTime = startTime;
             this.endTime = endTime;
+        }
+    }
+
+    final static class ReformattingDates {
+        private static String[] months = {
+                "jan", "feb", "mar", "apr", "may", "jun",
+                "jul", "aug", "sep", "oct", "nov", "dec"
+        };
+
+        private static Map<String, String> monthMap = new HashMap<>();
+
+        static {
+            int month = 1;
+            for (String m : months) {
+                monthMap.put(m, month < 10 ? "0" + month : "" + month);
+                month++;
+            }
+        }
+
+        static String[] reformatDates(String[] dates) {
+            return Arrays.stream(dates)
+                    .map((t) -> reformatDate(t))
+                    .toArray((t) -> new String[t]);
+        }
+
+        private static String reformatDate(String s) {
+            String[] dateParts = s.split(" ");
+            StringBuilder sb = new StringBuilder(s.length());
+            sb.append(dateParts[2]).append('-')
+                    .append(getMonth(dateParts[1]))
+                    .append('-').append(getDay(dateParts[0]));
+
+            return sb.toString();
+        }
+
+        private static String getMonth(String month) {
+            month = month.toLowerCase();
+            if (monthMap.containsKey(month))
+                return monthMap.get(month);
+
+            throw new RuntimeException("Invalid month name: " + month);
+        }
+
+        private static String getDay(String day) {
+            int d = day.charAt(0) - '0';
+            if (day.charAt(1) >= '0' && day.charAt(1) <= '9')
+                d = d * 10 + day.charAt(1) - '0';
+
+            return d < 10 ? "0" + d : "" + d;
+        }
+    }
+
+    private static class Parser {
+        static boolean isBalanced(String s) {
+            char[] chars = s.toCharArray();
+            int len = chars.length;
+
+            if (closing(chars[0]) || opening(chars[len - 1]))
+                return false;
+
+            Stack<Character> stack = new Stack<>();
+            for (char bracket : chars) {
+                if (opening(bracket))
+                    stack.push(bracket);
+                else {
+                    if (stack.empty())
+                        return false;
+
+                    char top = stack.pop();
+                    if (!opening(top) || !complements(top, bracket))
+                        return false;
+                }
+            }
+
+            return stack.empty();
+        }
+
+        private static boolean complements(int opening, int closing) {
+            return opening == '(' ? closing == ')' : closing == '}';
+        }
+
+        private static boolean valid(char bracket) {
+            return opening(bracket) || closing(bracket);
+        }
+
+        private static boolean opening(char bracket) {
+            return bracket == '(' || bracket == '{';
+        }
+
+        private static boolean closing(char bracket) {
+            return bracket == ')' || bracket == '}';
         }
     }
 }
