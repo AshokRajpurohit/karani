@@ -7,6 +7,7 @@ package com.ashok.hackerRank.hiring;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.lang.utils.ArrayUtils;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -33,8 +34,28 @@ public class FlipKart {
 
     private static void solve() throws IOException {
         while (true) {
+            out.println(LazyEscalations.getLazyEscalations(in.readInt(), in.readIntArray(in.readInt())));
             out.println(ChromosomeInsights.getLongestBalancedChromosome(in.read()));
             out.flush();
+        }
+    }
+
+    final static class LazyEscalations {
+
+        private static int getLazyEscalations(int n, int[] escalations) {
+            Arrays.sort(escalations);
+            ArrayUtils.reverse(escalations);
+            int days = 0, count = 0;
+            for (int e : escalations) {
+                if (count >= n)
+                    break;
+
+                count += e;
+                days++;
+
+            }
+
+            return count >= n ? days : -1;
         }
     }
 
