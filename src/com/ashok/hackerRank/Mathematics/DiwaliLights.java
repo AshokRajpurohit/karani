@@ -1,4 +1,4 @@
-package com.ashok.hackerRank.Mathematics;
+package com.ashok.hackerRank.mathematics;
 
 
 import java.io.IOException;
