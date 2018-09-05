@@ -6,13 +6,17 @@
 package com.ashok.lang.concurrency;
 
 import com.ashok.lang.annotation.ThreadSafe;
+import com.ashok.lang.dsa.RandomObjects;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
 import com.ashok.semaphore.chapter5.DiningSavages;
 import com.ashok.semaphore.chapter5.HiltzerBarbershopProblem;
+import com.ashok.semaphore.chapter6.SearchInsertDelete;
 
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -65,6 +69,7 @@ public class TestConcurrency {
 
     public static void main(String[] args) throws IOException,
             InterruptedException {
+        searchInsertDelete();
         barberProblem();
         savageProblem();
         process(new ReentrantLock(), in.readInt());
@@ -81,6 +86,50 @@ public class TestConcurrency {
         out.println(System.currentTimeMillis() - time);
 
         out.close();
+    }
+
+    private static void searchInsertDelete() throws IOException {
+        while (true) {
+            RandomObjects<Integer> randomObjects = new RandomObjects<Integer>() {
+                Random random = new Random();
+
+                @Override
+                public Integer next() {
+                    return random.nextInt(40);
+                }
+            };
+
+            out.println("Enter number of insert, delete, search threads and duration");
+            out.flush();
+            out.println("Enter anything to stop this crap");
+            out.flush();
+
+            int i = in.readInt(), d = in.readInt(), s = in.readInt(), t = in.readInt();
+            List<Thread> threadList = new LinkedList<>();
+            SearchInsertDelete<Integer> sid = new SearchInsertDelete<>();
+
+            while (i > 0) {
+                i--;
+                threadList.add(new Thread(sid.getInsertTask(t, randomObjects)));
+            }
+
+            while (d > 0) {
+                d--;
+                threadList.add(new Thread(sid.getDeleteTask(t, randomObjects)));
+            }
+
+            while (s > 0) {
+                s--;
+                threadList.add(new Thread(sid.getSearchTask(t, randomObjects)));
+            }
+
+            for (Thread thread : threadList)
+                thread.start();
+
+            in.read();
+            for (Thread thread : threadList)
+                thread.stop();
+        }
     }
 
     private static void barberProblem() throws IOException {

@@ -42,7 +42,6 @@ public class TestConcurrentInputOutput {
     });
 
     private static Thread outputThread = new Thread(new Runnable() {
-
         @Override
         public void run() {
             try {

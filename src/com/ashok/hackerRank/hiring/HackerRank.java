@@ -7,9 +7,12 @@ package com.ashok.hackerRank.hiring;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.lang.utils.Generators;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Random;
 
 /**
  * Problem Name: HackerRank SDE Hiring Challenge - Java
@@ -39,6 +42,103 @@ public class HackerRank {
             int p = in.readInt();
             out.println(BuyingShowTickets.waitingTime(ar, p));
             out.flush();
+        }
+    }
+
+    private static void test() throws IOException {
+        Random random = new Random();
+        int n = in.readInt(), a = in.readInt(), b = in.readInt();
+        while (true) {
+            int[] ar = Generators.generateRandomIntegerArray(n, a, b);
+            int p = random.nextInt(n);
+        }
+    }
+
+    private static long waitingTimeQueue(int[] tickets, int p) {
+        SortedQueue[] sortedQueues = toSortedQueue(tickets);
+        final int jesseValue = tickets[p], n = tickets.length;
+        PriorityQueue<SortedQueue> queue = new PriorityQueue<SortedQueue>((a, b) ->
+                a.ticketCount == b.ticketCount ? a.index - b.index : a.ticketCount - b.ticketCount);
+
+        int loops = 0, removed = 0;
+        long time = 0;
+        while (!queue.isEmpty()) {
+            SortedQueue top = queue.peek();
+            if (top.ticketCount != jesseValue) {
+                time += 1L * (top.ticketCount - loops) * queue.size();
+                loops = top.ticketCount;
+            } else {
+                int ahead = p - removed + 1, behind = queue.size() - ahead;
+                time += 1L * ahead * (top.ticketCount - loops) + 1L * behind * (top.ticketCount - loops - 1);
+                break;
+            }
+
+            if (top.index < p)
+                removed++;
+
+            queue.remove();
+        }
+
+        return time;
+    }
+
+    private static SortedQueue[] toSortedQueue(int[] ar) {
+        int n = ar.length;
+        SortedQueue[] sortedQueues = new SortedQueue[n];
+        for (int i = 0; i < n; i++)
+            sortedQueues[i] = new SortedQueue(i, ar[i]);
+
+        return sortedQueues;
+    }
+
+    private static void waitingTime(int[] tickets, int p) {
+        int minIndex = 0;
+        int toSubtract = 0;
+        int n = tickets.length;
+        int t = 0;
+        int jesseValue = tickets[p];
+
+        SortedQueue[] sortedTktArr = new SortedQueue[n];
+
+        for (int i = 0; i < tickets.length; i++) {
+            SortedQueue obj = new SortedQueue(i, tickets[i]);
+            sortedTktArr[i] = obj;
+
+        }
+        int pos = p;
+        Arrays.sort(sortedTktArr);
+
+        while (true) {
+
+            SortedQueue obj = sortedTktArr[minIndex];
+            int currentTktCount = obj.ticketCount - toSubtract;
+
+            if (obj.index == p || obj.ticketCount == jesseValue) {
+                t = t + (currentTktCount - 1) * n + (pos + 1);
+                break;
+            } else {
+                if (obj.index < p)
+                    pos--;
+                t = t + currentTktCount * n;
+            }
+            toSubtract = toSubtract + currentTktCount;
+            minIndex++;
+            n--;
+        }
+    }
+
+    final static class SortedQueue implements Comparable<SortedQueue> {
+        final int index;
+        int ticketCount;
+
+        SortedQueue(int i, int v) {
+            index = i;
+            ticketCount = v;
+        }
+
+        @Override
+        public int compareTo(SortedQueue o) {
+            return ticketCount - o.ticketCount;
         }
     }
 

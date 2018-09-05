@@ -1,6 +1,7 @@
 package com.ashok.lang.utils;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
@@ -30,6 +31,22 @@ public class Utils {
         return res;
     }
 
+    public static <T> int[] nextHigher(T[] ar, Comparator<T> c) {
+        int[] res = new int[ar.length];
+        res[ar.length - 1] = ar.length;
+
+        for (int i = ar.length - 2; i >= 0; i--) {
+            int j = i + 1;
+
+            while (j < ar.length && c.compare(ar[i], ar[j]) >= 0)
+                j = res[j];
+
+            res[i] = j;
+        }
+
+        return res;
+    }
+
     public static int[] nextSmaller(int[] ar) {
         int[] res = new int[ar.length];
         res[ar.length - 1] = ar.length;
@@ -38,6 +55,22 @@ public class Utils {
             int j = i + 1;
 
             while (j < ar.length && ar[j] >= ar[i])
+                j = res[j];
+
+            res[i] = j;
+        }
+
+        return res;
+    }
+
+    public static <T> int[] nextSmaller(T[] ar, Comparator<T> c) {
+        int[] res = new int[ar.length];
+        res[ar.length - 1] = ar.length;
+
+        for (int i = ar.length - 2; i >= 0; i--) {
+            int j = i + 1;
+
+            while (j < ar.length && c.compare(ar[i], ar[j]) <= 0)
                 j = res[j];
 
             res[i] = j;
@@ -62,6 +95,22 @@ public class Utils {
         return res;
     }
 
+    public static <T> int[] previousHigher(T[] ar, Comparator<T> c) {
+        int[] res = new int[ar.length];
+        res[0] = -1;
+
+        for (int i = 1; i < ar.length; i++) {
+            int j = i - 1;
+
+            while (j >= 0 && c.compare(ar[i], ar[j]) >= 0)
+                j = res[j];
+
+            res[i] = j;
+        }
+
+        return res;
+    }
+
     public static int[] previousSmaller(int[] ar) {
         int[] res = new int[ar.length];
         res[0] = -1;
@@ -70,6 +119,22 @@ public class Utils {
             int j = i - 1;
 
             while (j >= 0 && ar[j] >= ar[i])
+                j = res[j];
+
+            res[i] = j;
+        }
+
+        return res;
+    }
+
+    public static <T> int[] previousSmaller(T[] ar, Comparator<T> c) {
+        int[] res = new int[ar.length];
+        res[0] = -1;
+
+        for (int i = 1; i < ar.length; i++) {
+            int j = i - 1;
+
+            while (j >= 0 && c.compare(ar[i], ar[j]) <= 0)
                 j = res[j];
 
             res[i] = j;

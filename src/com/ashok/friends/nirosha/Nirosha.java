@@ -7,10 +7,11 @@ package com.ashok.friends.nirosha;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
-import com.ashok.lang.utils.Generators;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
 
 /**
  * Problem Name: Nirosha's problems
@@ -33,17 +34,46 @@ public class Nirosha {
     }
 
     private void solve() throws IOException {
+        Runnable runnable = () -> {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            out.println("Sleeping thread: " + Thread.currentThread());
+        };
+
         while (true) {
             int n = in.readInt();
-            int[] ar = Generators.generateRandomIntegerArray(n, in.readInt(), in.readInt());
-            out.print(ar);
-            out.print(format(ar));
+            playWithMultiThreading(n, runnable);
+            out.println("Finish running");
             out.flush();
+        }
+    }
+
+    private static void playWithMultiThreading(int threads, Runnable run) {
+        CyclicBarrier barrier = new CyclicBarrier(threads, () -> out.println("Barrier tripping thread: " + Thread.currentThread()));
+
+        for (int i = 0; i < threads; i++) {
+            new Thread(() -> {
+                try {
+                    barrier.await();
+                    // log something
+                    out.println("Executing thread: " + Thread.currentThread());
+                    run.run(); // the method.
+                    //log something
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (BrokenBarrierException e) {
+                    e.printStackTrace();
+                }
+            }, "Thread number: " + (i + 1)).start();
         }
     }
 
     /**
      * Returns array with
+     *
      * @param ar
      * @return
      */

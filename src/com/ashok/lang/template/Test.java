@@ -5,14 +5,20 @@
  */
 package com.ashok.lang.template;
 
+import com.ashok.lang.algorithms.Strings;
 import com.ashok.lang.dsa.GroupOperator;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
+import com.ashok.lang.math.Power;
 import com.ashok.lang.math.Prime;
+import com.ashok.lang.utils.ArrayUtils;
 import com.ashok.lang.utils.Generators;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -29,6 +35,7 @@ public class Test {
     private static final String path = "C:/Projects/karani/src/com/ashok/lang/template/";
     private static Output out = new Output();
     private static InputReader in = new InputReader();
+    private static String start = "this is ";
 
     public static void main(String[] args) throws IOException,
             InterruptedException {
@@ -39,22 +46,406 @@ public class Test {
         }
     }
 
-    private static void play() throws IOException, InterruptedException {
-        out.println(Integer.MAX_VALUE);
-        out.println(1L << 32);
-        out.flush();
+    private static void play() throws IOException {
+//        Map<Pair, String> lockMap = new ConcurrentHashMap<>();
+//        String f1 = in.read(), f2 = in.read();
+//        File file1 = new File(f1), file2 = new File(f2);
+//        file1.equals(file2); // we can use equal method to validate and then create a mapping
+        // we can use Set, populate it with first list and then iterate for the second.
+        // hashing we can do using file path string and time stamp.
         while (true) {
-            int n = in.readInt();
-            testSync(new Semaphore(1), n);
-            out.flush();
-            long l = 1;
-            for (int i = 1; i <= n; i++) {
-                out.println("" + i + "\t" + l);
-                l <<= 1;
-            }
-
+            moveAllFiles(in.read(), in.read());
+            out.println("Done");
+//            String query = in.readLine();
+//            String[] params = in.readLineArray(in.readInt());
+//            out.println(Strings.replace(query, "?", params));
             out.flush();
         }
+    }
+
+    /**
+     * Moves all the files from {@code source} directory to {@code target} directory.
+     *
+     * @param source
+     * @param target
+     */
+    static Path moveFiles(String source, String target) throws IOException {
+        Path tar = Files.createDirectories(Paths.get(target).resolve(System.currentTimeMillis() + ""));
+//        Path tar = Files.createDirectory(Paths.get(target).resolve(System.currentTimeMillis() + ""));
+        File file = new File(source);
+        out.println(file.list());
+        for (File it : file.listFiles()) {
+            boolean res = it.renameTo(new File(tar.toString(), it.getName()));
+            out.println("transferred file: " + it.getAbsolutePath() + ": " + res);
+        }
+
+        return tar;
+    }
+
+    static void moveAllFiles(String source, String target) throws IOException {
+        if (Files.notExists(Paths.get(target)))
+            Files.copy(Paths.get(source), Paths.get(target));
+
+        File file = new File(source);
+        if (!file.isDirectory())
+            return;
+
+        for (File it : file.listFiles())
+            moveAllFiles(it.toString(), Paths.get(target, it.getName()).toString());
+    }
+
+    static boolean delete(File file) {
+        if (file.isDirectory()) {
+            for (File f : file.listFiles())
+                delete(f);
+        }
+
+        return file.delete();
+    }
+
+    private static boolean primeDigits(long n) {
+        while (n > 1) {
+            long d = n % 10;
+            n /= 10;
+            if (!isPrimeDigit(d))
+                return false;
+        }
+
+        return true;
+    }
+
+    private static boolean increasingDigits(long n) {
+        long d = 10;
+        while (n > 0) {
+            long digit = n % 10;
+            n /= 10;
+            if (digit >= d)
+                return false;
+
+            d = digit;
+        }
+
+        return true;
+    }
+
+    private static boolean isPrimeDigit(long n) {
+        return n == 2 || n == 3 || n == 5 || n == 7;
+    }
+
+    final static class ThreadExt extends Thread {
+        ThreadExt(Object lock) {
+            function(lock);
+            out.println("khatam");
+            out.flush();
+        }
+    }
+
+    private static void function(Object lock) {
+        synchronized (lock) {
+            out.println("ye lock hai" + lock);
+            out.flush();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    final static class Pair {
+        long clientId, sdsId;
+
+        Pair(int a, int b) {
+            clientId = a;
+            sdsId = b;
+        }
+
+        public int hashCode() {
+            return Long.hashCode(1L * Long.hashCode(clientId) * Long.hashCode(sdsId));
+        }
+
+        public boolean equals(Object object) {
+            if (this == object)
+                return true;
+
+            if (!(object instanceof Pair))
+                return false;
+
+            Pair pair = (Pair) object;
+            return clientId == pair.clientId && sdsId == pair.sdsId;
+        }
+    }
+
+    private static boolean validate(int[] ar, int[] nextEqualIndex) {
+        for (int i = 0; i < ar.length; i++) {
+            int j = i + 1;
+            while (j < ar.length && ar[j] != ar[i]) j++;
+            if (j != nextEqualIndex[i])
+                return false;
+        }
+
+        return true;
+    }
+
+    private static void dbQueries() throws IOException {
+        while (true) {
+            String query = in.readLine(), pattern = in.readLine();
+            int count = in.readInt();
+            String[] list = in.readLineArray(count);
+            out.println(Strings.replace(query, pattern, list));
+            out.flush();
+        }
+    }
+
+    final static Comparator<LinkedListNode> LIST_NODE_COMPARATOR = (a, b) -> a.val - b.val;
+
+    static LinkedListNode sort(int k, LinkedListNode list) {
+        // Write your code here.
+        LinkedListNode[] nodes = toArray(list);
+        k = Math.min(k, nodes.length);
+        int start = 0, end = k, len = nodes.length;
+        while (start <= len) {
+            end = Math.min(end, len);
+            Arrays.sort(nodes, start, end, LIST_NODE_COMPARATOR);
+            start += k;
+            end += k;
+        }
+
+        for (int i = 0; i < len - 1; i++)
+            nodes[i].next = nodes[i + 1];
+
+        nodes[len - 1] = null;
+        return nodes[0];
+    }
+
+    private static LinkedListNode[] toArray(LinkedListNode list) {
+        int size = getSize(list);
+        LinkedListNode[] ar = new LinkedListNode[size];
+        for (int i = 0; i < size; i++, list = list.next)
+            ar[i] = list;
+
+        return ar;
+    }
+
+    private static int getSize(LinkedListNode list) {
+        int count = 0;
+        LinkedListNode iterator = list;
+        while (iterator != null) {
+            iterator = iterator.next;
+            count++;
+        }
+
+        return count;
+    }
+
+    private static class LinkedListNode {
+        int val;
+        LinkedListNode next;
+    }
+
+    private static LinkedListNode _insert_node_into_singlylinkedlist(LinkedListNode list, LinkedListNode listTail, int val) {
+        LinkedListNode node = new LinkedListNode();
+        node.val = val;
+
+        if (list == null)
+            return node;
+
+        listTail.next = node;
+        return node;
+    }
+
+    static long calculateCombinations(int n, int r) {
+        // recursive way;
+        if (r == 0)
+            return 1;
+
+        return calculateCombinations(n - 1, r - 1) * n / r;
+    }
+
+    /**
+     * Iterative way
+     */
+    private static long ncr(int n, int r) {
+        r = Math.min(r, n - r);
+        long result = 1L;
+        n = n - r + 1;
+
+        for (int i = 1; i <= r; i++, n++)
+            result = result * n / i;
+
+        return result;
+    }
+
+    private static long bruteForce(int[] ar) {
+        Arrays.sort(ar);
+        long val = 0;
+        int len = ar.length;
+        for (int i = 0; i < len; i++)
+            for (int j = i + 1; j < len; j++)
+                for (int k = j + 1; k < len; k++) {
+                    if (ar[k] >= ar[i] + ar[j])
+                        break;
+
+                    val = Math.max(val, ar[i] + ar[j] + ar[k]);
+                }
+
+        return val;
+    }
+
+    private static long optimized(int[] ar) {
+        Arrays.sort(ar);
+        ArrayUtils.reverse(ar);
+        for (int i = 0, j = 1, k = 2; k < ar.length; i++, j++, k++)
+            if (ar[i] < ar[j] + ar[k])
+                return ar[i] + ar[j] + ar[k];
+
+        return 0;
+    }
+
+    private static abstract class Aclass {
+        public int get() {
+            return get2();
+        }
+
+        public abstract int get1();
+
+        public int get2() {
+            return 4;
+        }
+    }
+
+    private static class Bclass extends Aclass {
+
+        @Override
+        public int get1() {
+            return -1;
+        }
+
+        @Override
+        public int get2() {
+            return 17;
+        }
+    }
+
+    private static void synchronizedMethod() {
+        synchronized (out) {
+            out.println(Thread.currentThread().getName());
+            out.println("just nothing");
+            out.flush();
+            out.println("another print");
+            out.flush();
+        }
+    }
+
+    public static void solveThis(String s) {
+        char[] chars = s.toCharArray();
+        int len = s.length();
+        int j = 1;
+        int i = 0;
+        for (i = 0; j < len; ) {
+            if (i == -1) {
+                chars[i + 1] = chars[j];
+                i++;
+                j++;
+                continue;
+            }
+            if (i < 0) {
+                i++;
+                continue;
+            }
+            if (chars[i] != chars[j]) {
+                chars[i + 1] = chars[j];
+                i++;
+                j++;
+            } else {
+                while (j < len && chars[i] == chars[j]) {
+                    j++;
+                }
+                i--;
+            }
+        }
+//        System.out.println(Arrays.toString(chars));
+        s = new String(chars);
+        out.println(s.substring(0, i + 1));
+    }
+
+    private static void encryptionTesting() throws IOException, InterruptedException {
+        String a = null;
+//        System.out.println(a.equals(b));
+        int[] ar = new int[256];
+        for (int i = 'a'; i <= 'z'; i++)
+            ar[i] = i + 1 - 'a';
+
+        for (int i = 'A'; i <= 'Z'; i++)
+            ar[i] = i + 1 - 'A';
+
+        long mod = 10000000000L;
+        while (true) {
+            out.println("Enter max number and max power for testing");
+            out.flush();
+            int n = in.readInt(), p = in.readInt();
+            for (int i = 2; i <= n; i++)
+                for (int j = 2; j <= p; j++) {
+                    long actual = calculateModPower(i, j, mod), expected = Power.pow(i, j, mod);
+                    if (actual != expected)
+                        out.println("Incorrect value for " + i + "->" + j + ", actual: " + actual + ", expected: " + expected);
+                }
+
+            out.flush();
+//            out.println(Power.pow(in.readInt(), in.readInt(), mod));
+//            out.print(Prime.primesInRange(in.readInt(), in.readInt()));
+//            out.flush();
+            /*int n = in.readInt(), k = in.readInt(), m = in.readInt();
+            int v = (int)Power.pow(n, k, m);
+            out.println(v);
+            out.flush();
+            out.println(ModularArithmatic.moduloRoot(v, k, m));
+            out.flush();*/
+            /*String s = in.read();
+            char[] chars = s.toCharArray();
+            StringBuilder sb = new StringBuilder(), sb1 = new StringBuilder();
+            for (char ch : chars) {
+                long num = ar[ch];
+                if (num < 10)
+                    sb.append('0');
+
+                sb.append(num);
+                num = Power.pow(num, 27, 29);
+                if (num < 10)
+                    sb1.append('0');
+
+                sb1.append(num);
+            }
+
+            out.println(sb);
+            out.println(sb1);*/
+
+            out.flush();
+
+            /*int p = in.readInt(), q = in.readInt(), k = in.readInt();
+            Encryption encryption = new Encryption(p, q, k);
+            while (true) {
+                String s = in.read();
+                String en = encryption.encrypt(s);
+                out.println(en);
+                out.println(encryption.decrypt(en));
+                out.flush();
+            }*/
+        }
+    }
+
+    static private long calculateModPower(long a, long b, long mod) {
+        long res = 1;
+        while (b != 0) {
+            if ((b & 1) == 1)
+                res = (res * a) % mod;
+            // if (res < 0) {
+            // res = res + mod;
+            // }
+            a = (a * a) % mod;
+            b = b >> 1;
+        }
+        return res;
     }
 
     private static void testSync(Semaphore semaphore, int count) throws InterruptedException {

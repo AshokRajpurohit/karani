@@ -315,7 +315,7 @@ class PizzaDelivery {
                     while (index >= 0 && unwantedPizzarias[index].location > pizzaria.location) index--;
                     return index >= 0 && unwantedPizzarias[index].location == pizzaria.location;
                 }
-            }
+            };
         }
     }
 

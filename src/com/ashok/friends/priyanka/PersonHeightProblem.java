@@ -10,6 +10,7 @@ import com.ashok.lang.inputs.Output;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 /**
@@ -44,10 +45,43 @@ public class PersonHeightProblem {
     private static int[] process(int[] heights, int[] positions) {
         Pair[] pairs = getPairs(heights, positions);
         Arrays.sort(pairs, (a, b) -> b.height - a.height);
+        Comparator<Pair> comparator = (a, b) -> a.position == b.position ? a.height - b.height : a.position - b.position;
+        Arrays.sort(pairs, comparator);
+        out.println(pairs);
         LinkedList<Pair> list = new LinkedList<>();
         for (Pair pair : pairs) {
             list.add(pair.position, pair);
         }
+
+        int n = pairs.length;
+        Pair[] order = new Pair[n];
+        int[] nextEmptyIndexMap = new int[n], prevEmptyIndexMap = new int[n];
+        for (int i = 0; i < n; i++) {
+            nextEmptyIndexMap[i] = i + 1;
+            prevEmptyIndexMap[i] = i - 1;
+        }
+
+        Arrays.sort(pairs, (a, b) -> a.height - b.height);
+        for (Pair pair : pairs) {
+            int index = pair.position;
+            int prev = prevEmptyIndexMap[index];
+            int next = nextEmptyIndexMap[index];
+            if (order[index] != null) {
+                index = nextEmptyIndexMap[index];
+                next = nextEmptyIndexMap[index];
+            }
+
+            if (prev != -1)
+                nextEmptyIndexMap[prev] = next;
+
+            if (next != n)
+                prevEmptyIndexMap[next] = prev;
+
+            order[index] = pair;
+        }
+
+        out.println("Correct way");
+        out.println(order);
 
         return Arrays.stream(list.toArray()).mapToInt((t) -> ((Pair) t).height).toArray();
     }
