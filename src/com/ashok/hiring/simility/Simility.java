@@ -11,6 +11,7 @@ import com.ashok.lang.utils.ArrayUtils;
 import com.ashok.lang.utils.Generators;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Problem Name: Shuffle array in zig-zag order
@@ -37,10 +38,12 @@ public class Simility {
         int n = in.readInt();
         while (true) {
             int[] ar = Generators.generateRandomIntegerArray(n, 1000);
+            if (!uniques(ar.clone()))
+                continue; // the simplest approach also not consistent when there are consecutive duplicates.
             partitionAtMid(ar);
             int[] copy = prepareWaveForm(ar);
             try {
-                validateWaveForm(copy);
+                validateWaveForm(copy); // strict waveform.
             } catch (Exception e) {
 //                e.printStackTrace();
                 out.print(ar);
@@ -49,6 +52,12 @@ public class Simility {
                 in.read();
             }
         }
+    }
+
+    private static boolean uniques(int[] ar) {
+        Arrays.sort(ar);
+        for (int i = 1; i < ar.length; i++) if (ar[i] == ar[i - 1]) return false;
+        return true;
     }
 
     private static void validateWaveForm(int[] ar) {
