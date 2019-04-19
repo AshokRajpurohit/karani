@@ -33,7 +33,10 @@ public class Vinash {
 
     private void solve() throws IOException {
         while (true) {
-            out.println(Parser.isBalanced(in.read()));
+            int n = in.readInt();
+            int L = in.readInt();
+            long[] ar = in.readLongArray(n);
+            out.println(findHowMuchCentsToSpend(n, L, ar));
             out.flush();
         }
     }
@@ -54,6 +57,50 @@ public class Vinash {
             max = Math.max(max, e);
 
         return max;
+    }
+
+    static long findHowMuchCentsToSpend(int n, int L, long[] c) {
+        normalize(c);
+        long res = 0;
+        int index = 0;
+        long val = 1, var = 1;
+        while (var <= L && index < n) {
+            if ((val & L) != 0) {
+                res += c[index];
+            }
+
+            if (var != L)
+                val += c[index];
+            else
+                val = c[index];
+
+            index++;
+            var <<= 1;
+        }
+
+        res = Math.min(res, val);
+
+        while (index < n) {
+            res = Math.min(res, c[index++]);
+        }
+
+        return res;
+    }
+
+    private static void normalize(long[] ar) {
+        for (int i = 1; i < ar.length; i++) {
+            ar[i] = Math.min(ar[i], ar[i - 1] << 1);
+        }
+    }
+
+    private static long sum(long[] ar, int from, int end) {
+        long sum = 0;
+        for (int i = from; i <= end; i++) sum += ar[i];
+        return sum;
+    }
+
+    private static long sum(long[] ar) {
+        return sum(ar, 0, ar.length - 1);
     }
 
     final static class EventProcessor {

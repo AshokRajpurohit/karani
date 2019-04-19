@@ -2,6 +2,7 @@ package com.ashok.lang.utils;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.stream.IntStream;
 
 /**
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
@@ -324,6 +325,14 @@ public class Utils {
             sum[i] = sum[i - 1] + ar[i];
 
         return sum;
+    }
+
+    public static int[] indicesInSortedArray(int[] ar) {
+        Pair[] pairs = IntStream.range(0, ar.length).mapToObj(i -> new Pair(i, ar[i])).toArray(t -> new Pair[t]);
+        Pair[] copy = pairs.clone();
+        Arrays.sort(copy);
+        IntStream.range(0, ar.length).forEach(i -> copy[i].index = i);
+        return Arrays.stream(pairs).mapToInt(t -> t.index).toArray();
     }
 
     final static class Pair implements Comparable<Pair> {

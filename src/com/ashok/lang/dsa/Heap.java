@@ -55,7 +55,7 @@ public class Heap {
     }
 
     private boolean update(int e) {
-        if (compare(e, heap[0]) <= 0)
+        if (e - heap[0] <= 0)
             return false;
 
         heap[0] = e;
@@ -68,7 +68,7 @@ public class Heap {
         while (index != 0) {
             int parent = (index - 1) >>> 1;
             int e = heap[parent];
-            if (compare(e, val) <= 0)
+            if (e - val <= 0)
                 break;
 
             heap[index] = e;
@@ -83,7 +83,7 @@ public class Heap {
         while (((index << 1) + 1) < count) {
             int c = getSmallerChild(index);
             int e = heap[c];
-            if (compare(val, e) <= 0)
+            if (val - e <= 0)
                 break;
 
             heap[index] = e;
@@ -103,7 +103,7 @@ public class Heap {
         if (c2 == count)
             return c1;
 
-        return compare(heap[c1], heap[c2]) <= 0 ? c1 : c2;
+        return heap[c1] - heap[c2] <= 0 ? c1 : c2;
     }
 
     private void swap(int i, int j) {
@@ -112,7 +112,4 @@ public class Heap {
         heap[j] = temp;
     }
 
-    private int compare(int a, int b) {
-        return a - b;
-    }
 }

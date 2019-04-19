@@ -1,40 +1,36 @@
 package com.ashok.lang.dsa;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * This is implemantion of Ternary Search Tree (TST) Data Structure.
- * @link https://en.wikipedia.org/wiki/Ternary_search_tree
+ *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
+ * @link https://en.wikipedia.org/wiki/Ternary_search_tree
  */
-public class GenericTST {
+public class GenericTST<T> {
     private GenericTST left, right, equal;
     private boolean end = false;
     private Character ch;
     private int count = 0;
+    private java.util.List<T> list = new LinkedList<>();
+    private static final GenericTST<Object> INVALID_VALUE = new GenericTST<>("a", new Object());
+    private static final List emptyList = Collections.unmodifiableList(new LinkedList<>());
 
-    public GenericTST(String s) {
-        this(s, 0);
-    }
-
-    /**
-     * initializes the instance with first string and then add the remaining
-     * strings.
-     * @param ar
-     */
-
-    public GenericTST(String[] ar) {
-        this(ar[0], 0);
-        for (int i = 1; i < ar.length; i++)
-            this.add(ar[i], 0);
+    public GenericTST(String s, T t) {
+        this(s, 0, t);
     }
 
     /**
      * initializes the instance.
-     * @param s String s you want to initialize the instance.
-     * @param pos   start pos in string s to be inserted in instance.
+     *
+     * @param s   String s you want to initialize the instance.
+     * @param pos start pos in string s to be inserted in instance.
      */
-    private GenericTST(String s, int pos) {
+    private GenericTST(String s, int pos, T t) {
         if (pos == s.length())
             return;
 
@@ -43,12 +39,13 @@ public class GenericTST {
             if (pos == s.length() - 1) {
                 end = true;
                 count++;
+                list.add(t);
             } else
-                equal = new GenericTST(s, pos + 1);
+                equal = new GenericTST(s, pos + 1, t);
         } else {
             if (ch < s.charAt(pos)) {
                 if (right == null)
-                    right = new GenericTST(s, pos);
+                    right = new GenericTST(s, pos, t);
                 else
                     right.add(s, pos);
             } else if (ch == s.charAt(pos)) {
@@ -56,13 +53,13 @@ public class GenericTST {
                     end = true;
                     count++;
                 } else if (equal == null) {
-                    equal = new GenericTST(s, pos + 1);
+                    equal = new GenericTST(s, pos + 1, t);
                 } else {
                     equal.add(s, pos + 1);
                 }
             } else {
                 if (left == null)
-                    left = new GenericTST(s, pos);
+                    left = new GenericTST(s, pos, t);
                 else
                     left.add(s, pos);
             }
@@ -70,83 +67,82 @@ public class GenericTST {
     }
 
     public boolean contains(String s) {
-        return contains(s, 0);
+        return !find(s).isEmpty();
     }
 
-    private boolean contains(String s, int pos) {
+    private GenericTST<T> find(String s, int pos) {
         if (pos == s.length())
-            return true;
+            return this;
 
         if (s.charAt(pos) == this.ch) {
             pos++;
             if (pos == s.length())
-                return true;
+                return this;
             if (equal == null)
-                return false;
-            return equal.contains(s, pos);
+                return (GenericTST<T>) INVALID_VALUE;
+            return equal.find(s, pos);
         }
 
         if (s.charAt(pos) > ch) {
             if (right == null)
-                return false;
-            return right.contains(s, pos);
+                return (GenericTST<T>) INVALID_VALUE;
+            return right.find(s, pos);
         }
 
         if (left == null)
-            return false;
+            return (GenericTST<T>) INVALID_VALUE;
 
-        return left.contains(s, pos);
+        return left.find(s, pos);
+    }
+
+    public List<T> find(String s) {
+        GenericTST<T> node = find(s, 0);
+        if (node == INVALID_VALUE) return emptyList;
+        return node.list;
     }
 
     /**
      * adds the given string to the TST structure.
+     *
      * @param s
      */
 
-    public void add(String s) {
-        this.add(s, 0);
-    }
-
-    /**
-     * adds the array of strings to existing instance.
-     * @param ar
-     */
-
-    public void add(String[] ar) {
-        for (int i = 0; i < ar.length; i++)
-            add(ar[i], 0);
+    public void add(String s, T t) {
+        this.add(s, 0, t);
     }
 
     /**
      * to add new string into existing TST instance.
-     * @param s String s to be added to instance.
+     *
+     * @param s   String s to be added to instance.
      * @param pos start char pos in String s.
      */
-    private void add(String s, int pos) {
+    private void add(String s, int pos, T t) {
         if (s.charAt(pos) == this.ch) {
             if (pos == s.length() - 1) {
                 this.end = true;
                 count++;
+                list.add(t);
                 return;
             } else {
                 if (equal == null)
-                    equal = new GenericTST(s, pos + 1);
+                    equal = new GenericTST(s, pos + 1, t);
                 else
-                    equal.add(s, pos + 1);
+                    equal.add(s, pos + 1, t);
                 return;
             }
         } else if (s.charAt(pos) < this.ch) {
             if (left == null) {
-                left = new GenericTST(s, pos);
+                left = new GenericTST(s, pos, t);
                 return;
             } else
-                left.add(s, pos);
+                left.add(s, pos, t);
         } else {
             if (right == null) {
-                right = new GenericTST(s, pos);
+                right = new GenericTST(s, pos, t);
                 return;
             } else {
-                right.add(s, pos);
+                right.add(s, pos, t);
                 return;
             }
         }
@@ -158,8 +154,9 @@ public class GenericTST {
     }
 
     /**
-     *  appends all the strings to sb lexicographical order.
-     * @param sb    StringBuilder to which all the strings to be appended.
+     * appends all the strings to sb lexicographical order.
+     *
+     * @param sb StringBuilder to which all the strings to be appended.
      */
 
     public void print(StringBuilder sb) {
@@ -168,8 +165,9 @@ public class GenericTST {
     }
 
     /**
-     *  returns all the strings in lexicographical order.
-     * @return  all the strings in lexicographical order seperated by new line character.
+     * returns all the strings in lexicographical order.
+     *
+     * @return all the strings in lexicographical order seperated by new line character.
      */
 
     public String print() {
@@ -180,9 +178,10 @@ public class GenericTST {
     }
 
     /**
-     *  print function adds all the strings in sorted order to StringBuilder sb.
-     * @param sb    StringBuilder to which all the strings to be appended.
-     * @param sbuf  used to get strings.
+     * print function adds all the strings in sorted order to StringBuilder sb.
+     *
+     * @param sb   StringBuilder to which all the strings to be appended.
+     * @param sbuf used to get strings.
      */
     private void print(StringBuilder sb, StringBuilder sbuf) {
         int clen = sbuf.length();
@@ -240,6 +239,20 @@ public class GenericTST {
         if (right != null) {
             right.getList(al, sbuf);
         }
+    }
+
+    private void getList(List<T> li) {
+        if (!list.isEmpty()) li.addAll(list);
+        if (left != null) left.getList(li);
+        if (right != null) right.getList(li);
+        if (equal != null) equal.getList(li);
+    }
+
+    private List<T> findAllStartingWith(String name) {
+        GenericTST<T> node = find(name, 0);
+        LinkedList<T> values = new LinkedList<>();
+        node.getList(values);
+        return values;
     }
 
     public void remove(String s) {

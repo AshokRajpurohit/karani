@@ -40,7 +40,7 @@ public class EchoClient {
             echoSocket.getKeepAlive();
             while (echoSocket.isConnected() && (userInput = stdIn.readLine()) != null) {
                 out.println(userInput);
-//                System.out.println("echo: " + in.readLine());
+                System.out.println("echo: " + userInput);
             }
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);

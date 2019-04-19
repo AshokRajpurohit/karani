@@ -6,6 +6,7 @@
 package com.ashok.lang.template;
 
 import com.ashok.lang.algorithms.Strings;
+import com.ashok.lang.concurrency.Turnstile;
 import com.ashok.lang.dsa.GroupOperator;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
@@ -20,6 +21,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -40,6 +43,8 @@ public class Test {
     public static void main(String[] args) throws IOException,
             InterruptedException {
         try {
+            ConcurrentSkipListMap map = new ConcurrentSkipListMap();
+            TreeMap treeMap = new TreeMap();
             play();
         } finally {
             out.close();
@@ -47,19 +52,52 @@ public class Test {
     }
 
     private static void play() throws IOException {
-//        Map<Pair, String> lockMap = new ConcurrentHashMap<>();
-//        String f1 = in.read(), f2 = in.read();
-//        File file1 = new File(f1), file2 = new File(f2);
-//        file1.equals(file2); // we can use equal method to validate and then create a mapping
-        // we can use Set, populate it with first list and then iterate for the second.
-        // hashing we can do using file path string and time stamp.
+        Semaphore semaphore = new Semaphore(1);
+        semaphore.tryAcquire();
+        SingletonFactory factory = new SingletonFactory();
+        Callable<Singleton> tasks = () -> factory.get();
         while (true) {
-            moveAllFiles(in.read(), in.read());
-            out.println("Done");
-//            String query = in.readLine();
-//            String[] params = in.readLineArray(in.readInt());
-//            out.println(Strings.replace(query, "?", params));
-            out.flush();
+            break;
+        }
+    }
+
+    private static class Singleton {
+        private static volatile Singleton object;
+        private static final Semaphore lock = new Semaphore(1);
+        private static final Turnstile TURNSTILE = new Turnstile(0);
+
+        private Singleton() {
+            out.println("creating Singleton");
+        }
+
+        private static Singleton get() throws InterruptedException {
+            if (lock.tryAcquire()) {
+                object = new Singleton();
+                TURNSTILE.release(1);
+            }
+
+            TURNSTILE.passThrough();
+            return object;
+        }
+    }
+
+    private static class SingletonFactory {
+        private volatile Singleton object;
+        private final Semaphore lock = new Semaphore(1);
+        private final Turnstile turnstile = new Turnstile(0);
+
+        private Singleton get() {
+            if (lock.tryAcquire()) {
+                object = new Singleton();
+                turnstile.release(1);
+            }
+
+            try {
+                turnstile.passThrough();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return object;
         }
     }
 

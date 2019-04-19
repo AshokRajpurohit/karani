@@ -316,7 +316,7 @@ public class QuickSort {
     }
 
     private static int kthElement(int[] ar, int k, int start, int end) {
-        int pivot = pivot_Mid(ar, start, end);
+        int pivot = pivot_Mo3(ar, start, end);
         if (pivot == k)
             return ar[pivot];
 

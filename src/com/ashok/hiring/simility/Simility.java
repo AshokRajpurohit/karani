@@ -12,6 +12,8 @@ import com.ashok.lang.utils.Generators;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Problem Name: Shuffle array in zig-zag order
@@ -25,6 +27,7 @@ public class Simility {
 
     public static void main(String[] args) throws IOException {
         try {
+            play();
             solve();
         } finally {
             in.close();
@@ -52,6 +55,21 @@ public class Simility {
                 in.read();
             }
         }
+    }
+
+    private static void play() throws IOException {
+        ForkJoinPool forkJoinPool = new ForkJoinPool();
+        while (true) {
+            NotLessThanHundred t = new NotLessThanHundred(in.readInt(), in.readInt());
+            out.println(t.setA(in.readInt()));
+            out.println(t.setB(in.readInt()));
+            out.println(t.set(in.readInt(), in.readInt()));
+            out.flush();
+        }
+    }
+
+    private static int function(int r) {
+        return function(r >>> 1) + function(1 + (r >>> 1));
     }
 
     private static boolean uniques(int[] ar) {
@@ -127,5 +145,67 @@ public class Simility {
     private static int medianOfThree(int[] ar, int a, int b, int c) {
         return (ar[a] < ar[b] ? (ar[b] < ar[c] ? b : ar[a] < ar[c] ? c : a) :
                 (ar[b] > ar[c] ? b : ar[a] > ar[c] ? c : a));
+    }
+
+    final static class NotLessThanHundred {
+        private volatile int a, b;
+        final ReentrantReadWriteLock lock = new ReentrantReadWriteLock(); // let's not make it fair for performance purpose.
+
+        NotLessThanHundred(int a, int b) {
+            if (a + b < 100) throw new IllegalArgumentException("sum of a and b should not be less than 100" + (a + b));
+            this.a = a;
+            this.b = b;
+        }
+
+        public boolean setA(int value) {
+            boolean updated;
+            lock.writeLock().lock();
+            updated = value + b >= 100;
+            if (updated) a = value;
+            lock.writeLock().unlock();
+            return updated;
+        }
+
+        public boolean setB(int value) {
+            boolean updated;
+            lock.writeLock().lock();
+            updated = value + a >= 100;
+            if (updated) b = value;
+            lock.writeLock().unlock();
+            return updated;
+        }
+
+        public int getA() {
+            int val;
+            lock.readLock().lock();
+            val = a;
+            lock.readLock().unlock();
+            return val;
+        }
+
+        public int getB() {
+            int val;
+            lock.readLock().lock();
+            val = a;
+            lock.readLock().unlock();
+            return val;
+        }
+
+        public int getSum() {
+            int val;
+            lock.readLock().lock();
+            val = a + b;
+            lock.readLock().unlock();
+            return val;
+        }
+
+        public boolean set(int a, int b) {
+            if (a + b < 100) return false;
+            lock.writeLock().lock();
+            this.a = a;
+            this.b = b;
+            lock.writeLock().unlock();
+            return true;
+        }
     }
 }

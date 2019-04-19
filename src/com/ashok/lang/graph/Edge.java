@@ -28,7 +28,7 @@ public class Edge {
         if (!(o instanceof Edge))
             return false;
 
-        Edge edge = (Edge)o;
+        Edge edge = (Edge) o;
         return source == edge.source && destination == edge.destination;
     }
 
@@ -40,24 +40,9 @@ public class Edge {
         return source + " --> " + destination + " | " + weight;
     }
 
-    public final static Comparator<Edge> DESTINATION_COMPARATOR =
-        new Comparator<Edge>() {
-        public int compare(Edge e1, Edge e2) {
-            return e1.destination - e2.destination;
-        }
-    };
+    public final static Comparator<Edge> DESTINATION_COMPARATOR = (e1, e2) -> e1.destination - e2.destination;
 
-    public final static Comparator<Edge> SOURCE_COMPARATOR =
-        new Comparator<Edge>() {
-        public int compare(Edge a, Edge b) {
-            return a.source - b.source;
-        }
-    };
+    public final static Comparator<Edge> SOURCE_COMPARATOR = (e1, e2) -> e1.source - e2.source;
 
-    public final static Comparator<Edge> WEIGHT_COMPARATOR =
-        new Comparator<Edge>() {
-        public int compare(Edge a, Edge b) {
-            return a.weight - b.weight;
-        }
-    };
+    public final static Comparator<Edge> WEIGHT_COMPARATOR = (e1, e2) -> e1.weight - e2.weight;
 }

@@ -118,6 +118,7 @@ public class BSTbyNode {
     /**
      * kartecy: Ankit Agrawal aka Mr. P
      * slightly modified for my need.
+     *
      * @param ar
      * @param root
      */
@@ -160,6 +161,86 @@ public class BSTbyNode {
 
         Node(int i) {
             data = i;
+        }
+    }
+
+    class InorderIterator implements Iterator<Integer> {
+        final Deque<Node> stack = new LinkedList<>();
+        private Node current;
+
+        InorderIterator(Node node) {
+            current = node;
+        }
+
+
+        @Override
+        public boolean hasNext() {
+            return !stack.isEmpty() || current != null;
+        }
+
+        @Override
+        public Integer next() {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+
+            current = stack.pop();
+            int value = current.data;
+            current = current.right;
+
+            return value;
+        }
+    }
+
+    class PreorderIterator implements Iterator<Integer> {
+        final Deque<Node> stack = new LinkedList<>();
+
+        PreorderIterator(Node node) {
+            stack.push(node);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return !stack.isEmpty();
+        }
+
+        @Override
+        public Integer next() {
+            Node node = stack.pop();
+            if (node.right != null) stack.push(node.right);
+            if (node.left != null) stack.push(node.left);
+            return node.data;
+        }
+    }
+
+    class PostOrderIterator implements Iterator<Integer> {
+        final Deque<Node> stack = new LinkedList<>(), iter = new LinkedList<>();
+        private Node current;
+
+        PostOrderIterator(Node node) {
+            current = node;
+            populate();
+        }
+
+        private void populate() {
+            stack.push(current);
+            while (!stack.isEmpty()) {
+                current = stack.pop();
+                iter.push(current);
+                if (current.right != null) stack.push(current.right);
+                if (current.left != null) stack.push(current.left);
+            }
+        }
+
+        @Override
+        public boolean hasNext() {
+            return !stack.isEmpty();
+        }
+
+        @Override
+        public Integer next() {
+            return stack.pop().data;
         }
     }
 }

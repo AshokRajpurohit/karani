@@ -44,7 +44,7 @@ public class Graph {
      * will return false.
      *
      * @param from start node of the edge
-     * @param to end node of the edge
+     * @param to   end node of the edge
      * @return success of edge insertion in graph.
      */
     public boolean addEdge(int from, int to) {
@@ -86,7 +86,7 @@ public class Graph {
      * If the edge already exists it returns false.
      *
      * @param from start node of the edge
-     * @param to end node of the edge
+     * @param to   end node of the edge
      * @return success of edge addition
      */
     private boolean add(int from, int to) {
@@ -105,7 +105,7 @@ public class Graph {
      * Returns true if there exists a path from start node to destination node.
      * If the nodes are invalid then it returns false.
      *
-     * @param start source node of the path
+     * @param start       source node of the path
      * @param destination end node of the path
      * @return connectivity from start node to destination node.
      */
@@ -147,7 +147,7 @@ public class Graph {
             distance++;
             boolean cont = true;
             while (cont) {
-                Integer temp = (Integer)queue.removeFirst();
+                Integer temp = (Integer) queue.removeFirst();
                 if (temp == -1) {
                     cont = false;
                     queue.add(-1);
@@ -155,11 +155,11 @@ public class Graph {
 
                 if (cont && list[temp] != null) {
                     for (Object obj : list[temp]) {
-                        if ((Integer)obj == v)
+                        if ((Integer) obj == v)
                             return distance;
-                        if (!check[(Integer)obj])
+                        if (!check[(Integer) obj])
                             queue.add(obj);
-                        check[(Integer)obj] = true;
+                        check[(Integer) obj] = true;
                     }
                 }
             }
@@ -194,7 +194,7 @@ public class Graph {
 
         vis[u] = true;
         for (Object obj : list[u])
-            if (dfs((Integer)obj, v, vis))
+            if (dfs((Integer) obj, v, vis))
                 return true;
 
         return false;
@@ -232,8 +232,8 @@ public class Graph {
      * Adds all the nodes from second list to first list with data incremented
      * by parameter value.
      *
-     * @param a First list to be updated.
-     * @param b second list
+     * @param a     First list to be updated.
+     * @param b     second list
      * @param value node data to be incremented.
      */
     private static void addAll(LinkedList a, LinkedList b, int value) {
@@ -241,11 +241,12 @@ public class Graph {
             return;
 
         for (Object obj : b)
-            a.add((Integer)obj + value);
+            a.add((Integer) obj + value);
     }
 
     /**
      * Creates completely new identical graph.
+     *
      * @return
      */
     public Graph clone() {
@@ -255,7 +256,7 @@ public class Graph {
         graph.directed = this.directed;
         graph.list = new LinkedList[nodes];
         for (int i = 0; i < nodes; i++)
-            graph.list[i] = (LinkedList<Integer>)list[i].clone();
+            graph.list[i] = (LinkedList<Integer>) list[i].clone();
 
         return graph;
     }
@@ -281,7 +282,7 @@ public class Graph {
         for (int i = 0; i < nodes; i++)
             if (list[i] != null) {
                 for (Object obj : list[i])
-                    graph.add((Integer)obj, i);
+                    graph.add((Integer) obj, i);
             }
 
         return graph;
@@ -326,7 +327,7 @@ public class Graph {
         if (!(graph instanceof Graph))
             return false;
 
-        Graph og = (Graph)graph;
+        Graph og = (Graph) graph;
 
         if (this.nodes == og.nodes ^ this.edges == og.edges)
             return false;
@@ -388,7 +389,7 @@ public class Graph {
         for (int i = 0; i < nodes; i++) {
             if (list[i] != null) {
                 for (Object o : list[i]) {
-                    if (to == (Integer)o)
+                    if (to == (Integer) o)
                         degree++;
                 }
             }
@@ -402,7 +403,7 @@ public class Graph {
             return true;
 
         boolean[] processing = new boolean[nodes], processed =
-            new boolean[nodes];
+                new boolean[nodes];
         for (int i = 0; i < nodes; i++) {
             if (!processing[i] && !processed[i]) {
                 processing[i] = true;
@@ -421,14 +422,14 @@ public class Graph {
             return false;
 
         for (Object o : list[n]) {
-            if (brown[(Integer)o] && !black[(Integer)o])
+            if (brown[(Integer) o] && !black[(Integer) o])
                 return true;
 
-            brown[(Integer)o] = true;
-            if (cyclic((Integer)o, brown, black))
+            brown[(Integer) o] = true;
+            if (cyclic((Integer) o, brown, black))
                 return true;
 
-            black[(Integer)o] = true;
+            black[(Integer) o] = true;
         }
         return false;
     }
@@ -485,7 +486,7 @@ public class Graph {
                     continue;
 
                 for (Object o : list[temp]) {
-                    queue.add((Integer)o);
+                    queue.add((Integer) o);
                 }
             }
         }
@@ -497,7 +498,7 @@ public class Graph {
                 check[i] = true;
 
                 for (Object o : list[i]) {
-                    check[(Integer)o] = true;
+                    check[(Integer) o] = true;
                 }
             }
         }
@@ -522,7 +523,7 @@ public class Graph {
         for (int i = 0, j = 0; i < count && j < count; j++) {
             if (topos[j] != null) {
                 for (Object o : topos[j]) {
-                    res[i] = (Integer)o;
+                    res[i] = (Integer) o;
                     i++;
                 }
             }
@@ -546,7 +547,7 @@ public class Graph {
             if (list[i] != null) {
                 indegree[i] = 0;
                 for (Object o : list[i]) {
-                    indegree[(Integer)o] = 0;
+                    indegree[(Integer) o] = 0;
                 }
             }
         }
@@ -554,7 +555,7 @@ public class Graph {
         for (int i = 0; i < nodes; i++) {
             if (list[i] != null) {
                 for (Object o : list[i]) {
-                    indegree[(Integer)o]++;
+                    indegree[(Integer) o]++;
                 }
             }
         }
@@ -570,10 +571,10 @@ public class Graph {
             int temp = zero.removeFirst();
             if (list[temp] != null) {
                 for (Object o : list[temp]) {
-                    indegree[(Integer)o]--;
-                    if (indegree[(Integer)o] == 0) {
-                        zero.add((Integer)o);
-                        sorted.add((Integer)o);
+                    indegree[(Integer) o]--;
+                    if (indegree[(Integer) o] == 0) {
+                        zero.add((Integer) o);
+                        sorted.add((Integer) o);
                     }
                 }
             }
@@ -605,14 +606,14 @@ public class Graph {
         check[node] = true;
 
         while (!queue.isEmpty()) {
-            Integer temp = (Integer)queue.removeFirst();
+            Integer temp = (Integer) queue.removeFirst();
             if (list[temp] != null) {
                 for (Object obj : list[temp]) {
-                    if (!check[(Integer)obj]) {
+                    if (!check[(Integer) obj]) {
                         queue.add(obj);
-                        res.add((Integer)obj);
+                        res.add((Integer) obj);
                     }
-                    check[(Integer)obj] = true;
+                    check[(Integer) obj] = true;
                 }
             }
         }
@@ -631,8 +632,8 @@ public class Graph {
 
         LinkedList<Integer> res = new LinkedList<Integer>();
         LinkedList<Integer> connectedTo =
-            connectedComponents(node), connectedFrom =
-            transpose().connectedComponents(node);
+                connectedComponents(node), connectedFrom =
+                transpose().connectedComponents(node);
 
         boolean[] connected = new boolean[nodes], check = new boolean[nodes];
         for (Integer e : connectedTo)
@@ -669,7 +670,7 @@ public class Graph {
         for (int i = 0; i < nodes; i++) {
             if (list[i] != null) {
                 for (Object e : list[i])
-                    indegree[(Integer)e]++;
+                    indegree[(Integer) e]++;
             }
         }
 
@@ -758,7 +759,7 @@ public class Graph {
     /**
      * Returns Minimum Spanning Tree for un-weighted graph.
      * It is just the same graph without any cycle.
-     *
+     * <p>
      * This algorithms is for un-weighted graphs only.
      * For weighted graphs, the algorithm is different.
      *
@@ -768,7 +769,7 @@ public class Graph {
         boolean[] nodeAdded = new boolean[nodes];
         Graph msp = new Graph(nodes);
         LinkedList<Integer> sl = new LinkedList<Integer>(), dl =
-            new LinkedList<Integer>();
+                new LinkedList<Integer>();
 
         for (int i = 0; i < nodes; i++) {
             if (list[i] != null) {

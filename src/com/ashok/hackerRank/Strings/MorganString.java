@@ -1,12 +1,15 @@
 package com.ashok.hackerRank.Strings;
 
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 
 /**
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
- * problem: Morgan and a String
- * https://www.hackerrank.com/challenges/morgan-and-a-string
+ *         problem: Morgan and a String
+ *         https://www.hackerrank.com/challenges/morgan-and-a-string
  */
 
 public class MorganString {
@@ -15,17 +18,18 @@ public class MorganString {
     private static InputStream in;
 
     public static void main(String[] args) throws IOException {
-        //        OutputStream outputStream = System.out;
-        //        in = System.in;
-        //        out = new PrintWriter(outputStream);
-
+        OutputStream outputStream = System.out;
+        in = System.in;
+        out = new PrintWriter(outputStream);
+/*
 
         String input = "input_file.in", output = "output_file.out";
         FileInputStream fip = new FileInputStream(input);
         FileOutputStream fop = new FileOutputStream(output);
         in = fip;
-        out = new PrintWriter(fop);
+        out = new PrintWriter(fop);*/
 
+        play();
         MorganString a = new MorganString();
         a.solve();
         out.close();
@@ -38,67 +42,117 @@ public class MorganString {
 
         while (t > 0) {
             t--;
-            sb.append(process(in.read(), in.read())).append('\n');
+            process(sb, in.read(), in.read());
+            sb.append('\n');
         }
         out.print(sb);
     }
 
+    private static void play() throws IOException {
+        InputReader in = new InputReader();
+        while (true) {
+            StringBuilder sb = new StringBuilder();
+            process(sb, in.read(), in.read());
+            out.println(sb);
+            out.flush();
+        }
+    }
+
     /**
      * Work in progress
+     *
      * @param a
      * @param b
      * @return
      */
-    private static String process(String a, String b) {
-        StringBuilder sb = new StringBuilder(a.length() + b.length());
-        int i = 0, j = 0;
-        for (; i < a.length() && j < b.length(); ) {
-            if (a.charAt(i) < b.charAt(j)) {
-                sb.append(a.charAt(i));
-                i++;
-            } else if (a.charAt(i) > b.charAt(j)) {
-                sb.append(b.charAt(j));
-                j++;
+    private static void process(StringBuilder sb, String a, String b) {
+        char[] ar = a.toCharArray(), br = b.toCharArray();
+        int i = 0, j = 0, alen = ar.length, blen = br.length;
+
+        for (; i < alen && j < blen; ) {
+            if (ar[i] < br[j]) {
+                sb.append(ar[i++]);
+            } else if (ar[i] > br[j]) {
+                sb.append(br[j++]);
             } else {
-                int m = i, n = j;
-                char cha = a.charAt(i), chb = b.charAt(j);
+                int dis = nextDiffCharIndex(ar, br, i, j);
+                int ai = i + dis, bi = j + dis;
+                int ch = ar[i], cha = ai < alen ? ar[ai] : ar[alen - 1], chb = bi < blen ? br[bi] : br[blen - 1];
 
-                while (m < a.length() && a.charAt(m) == cha)
-                    m++;
-
-                if (m < a.length())
-                    cha = a.charAt(m);
-
-                while (n < b.length() && b.charAt(n) == chb)
-                    n++;
-
-                if (n < b.length())
-                    chb = b.charAt(n);
-
-                if (cha < chb) {
-                    while (i < m) {
-                        sb.append(a.charAt(i));
-                        i++;
-                    }
+                if (cha <= chb) {
+                    append(sb, ar, i, dis);
+                    i = ai;
                 } else {
-                    while (j < n) {
-                        sb.append(b.charAt(j));
-                        j++;
-                    }
+                    append(sb, br, j, dis);
+                    j = bi;
                 }
             }
         }
 
-        while (i < a.length()) {
-            sb.append(a.charAt(i));
+        append(sb, ar, i);
+        append(sb, br, j);
+    }
+
+    private static void append(StringBuilder sb, char[] ar, int fromIndex) {
+        while (fromIndex < ar.length)
+            sb.append(ar[fromIndex++]);
+    }
+
+    private static void append(StringBuilder sb, char[] ar, int fromIndex, int len) {
+        int maxIndex = Math.min(ar.length, fromIndex + len);
+        while (fromIndex < maxIndex) {
+            sb.append(ar[fromIndex++]);
+            len--;
+        }
+    }
+
+    private static int nextDiffCharIndex(char[] ar, int index) {
+        int ref = ar[index];
+        while (index < ar.length && ar[index] == ref) index++;
+
+        return index;
+    }
+
+    private static int nextDiffCharIndex(char[] ar, char[] br, int i, int j) {
+        int dis = 0, ref = ar[i], cont_len = 0;
+        while (i < ar.length && j < br.length && ar[i] == ref && br[j] == ref) {
             i++;
+            j++;
+            dis++;
+            cont_len++;
         }
 
-        while (j < b.length()) {
-            sb.append(b.charAt(j));
-            j++;
+        while (i < ar.length && j < br.length && ar[i] <= ref && br[j] <= ref && ar[i] == br[j]) {
+            while (i < ar.length && j < br.length && ar[i] == br[j] && ar[i] < ref && br[j] < ref) {
+                i++;
+                j++;
+                dis++;
+            }
+
+            int temp_cont_len = 0;
+            while (i < ar.length && j < br.length && ar[i] == ref && br[j] == ref) {
+                i++;
+                j++;
+                temp_cont_len++;
+            }
+
+            if (temp_cont_len > cont_len) return dis;
+            dis += temp_cont_len;
         }
-        return sb.toString();
+
+        if (i == ar.length) {
+            while (j < br.length && br[j] < ref) {
+                j++;
+                dis++;
+            }
+        } else if (j == br.length) {
+            while (i < ar.length && ar[i] < ref) {
+                i++;
+                dis++;
+            }
+        }
+
+        return dis;
     }
 
     final static class InputReader {
@@ -146,7 +200,7 @@ public class MorganString {
 
             for (;
                  buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
-                 '\n' || buffer[offset] == '\r'; ++offset) {
+                         '\n' || buffer[offset] == '\r'; ++offset) {
                 if (offset == bufferSize - 1) {
                     offset = -1;
                     bufferSize = in.read(buffer);
@@ -154,7 +208,7 @@ public class MorganString {
             }
             for (; offset < bufferSize; ++offset) {
                 if (buffer[offset] == ' ' || buffer[offset] == '\t' ||
-                    buffer[offset] == '\n' || buffer[offset] == '\r')
+                        buffer[offset] == '\n' || buffer[offset] == '\r')
                     break;
                 if (Character.isValidCodePoint(buffer[offset])) {
                     sb.appendCodePoint(buffer[offset]);

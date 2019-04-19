@@ -18,7 +18,7 @@ public class EchoServer {
             System.exit(1);
         }*/
 
-        int portNumber = 10000;
+        int portNumber = 10001;
 
         try (
                 ServerSocket serverSocket =
@@ -35,12 +35,13 @@ public class EchoServer {
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 System.out.println(inputLine);
-                out.println(stdIn.readLine());
+                out.println(inputLine);
+                out.flush();
             }
         } catch (IOException e) {
             System.out.println("Exception caught when trying to listen on port "
                     + portNumber + " or listening for a connection");
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

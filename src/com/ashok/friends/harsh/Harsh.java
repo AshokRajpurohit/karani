@@ -6,6 +6,7 @@ import com.ashok.lang.inputs.Output;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.Semaphore;
 
 /**
  * This class is to solve Harshvardhan's problems (programming only ;) )
@@ -24,6 +25,7 @@ public class Harsh {
         in = new InputReader();
         out = new Output();
 
+        testMultipleThreadOneByOne(in.readInt());
         Harsh a = new Harsh();
         a.solve();
         out.close();
@@ -121,5 +123,57 @@ public class Harsh {
             sb.append(s.charAt(i));
 
         return sb.toString();
+    }
+
+    private static void testMultipleThreadOneByOne(int n) {
+        final NumberPrinter odd = new NumberPrinter(n, 1), even = new NumberPrinter(n, 2);
+        final Semaphore oddLock = new Semaphore(1), evenLock = new Semaphore(0);
+        Thread oddThread = new Thread(() -> {
+            while (odd.current <= n) {
+                try {
+                    oddLock.acquire();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    break;
+                }
+                odd.run();
+                evenLock.release();
+            }
+        });
+
+        Thread evenThread = new Thread(() -> {
+            while (even.current <= n) {
+                try {
+                    evenLock.acquire();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                even.run();
+                oddLock.release();
+            }
+        });
+
+        oddThread.setName("odd");
+        evenThread.setName("even");
+
+        oddThread.start();
+        evenThread.start();
+    }
+
+    final static class NumberPrinter implements Runnable {
+        final int end;
+        private int current;
+
+        NumberPrinter(int e, int c) {
+            this.end = e;
+            current = c;
+        }
+
+        @Override
+        public void run() {
+            out.println(Thread.currentThread().getName() + ": " + current);
+            out.flush();
+            current += 2;
+        }
     }
 }

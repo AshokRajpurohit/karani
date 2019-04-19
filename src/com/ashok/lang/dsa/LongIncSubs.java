@@ -1,30 +1,27 @@
 package com.ashok.lang.dsa;
 
-import java.util.LinkedList;
-import java.util.TreeSet;
-
 public class LongIncSubs {
     private int[] seq_ar;
 
     public LongIncSubs(int[] array) {
-        longestSubSequence(array);
+        longestIncreasingSubSequence(array);
     }
 
-    private void longestSubSequence(int[] ar) {
-        TreeSet<Pair> ts = new TreeSet<Pair>();
-        LinkedList<Integer> list;
-        ts.add(new Pair(ar[0]));
-
-        for (int i = 1; i < ar.length; i++) {
-            boolean yes = false;
-            //            for (Integer e : ts) {
-            //                if (e >= ar[i])
-            //                    break;
-            //
-            //                yes = true;
-            //                ts.add(ar[i]);
-            //            }
+    public static int[] longestIncreasingSubSequence(int[] ar) {
+        int len = ar.length;
+        int[] map = new int[len];
+        map[0] = 1;
+        for (int i = 1; i < len; i++) {
+            int max = 0;
+            for (int j = 0; j < i - 1; j++) {
+                if (ar[j] < ar[i]) {
+                    max = Math.max(max, map[j]);
+                }
+            }
+            map[i] = max + 1;
         }
+
+        return map;
     }
 
     final static class Pair implements Comparable<Pair> {
@@ -47,4 +44,6 @@ public class LongIncSubs {
             return this.last - pair.last;
         }
     }
+
+
 }
