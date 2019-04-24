@@ -215,23 +215,6 @@ public class AQR {
             return counts;
         }
 
-        public boolean find(int n) {
-            int temp = 0;
-            while (true) {
-                if (n == node[temp])
-                    return true;
-                if (n > node[temp]) {
-                    if (right[temp] == -1)
-                        return false;
-                    temp = right[temp];
-                } else {
-                    if (left[temp] == -1)
-                        return false;
-                    temp = left[temp];
-                }
-            }
-        }
-
         private void ensureCapacity(int n) {
             if (node.length >= n)
                 return;
