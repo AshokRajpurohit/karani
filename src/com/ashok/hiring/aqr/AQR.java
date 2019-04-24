@@ -150,17 +150,6 @@ public class AQR {
             Arrays.fill(right, -1);
         }
 
-        public BSTbyArray(int[] ar) {
-            this(ar.length);
-            add(ar);
-        }
-
-        public void add(int[] ar) {
-            ensureCapacity(size + ar.length);
-            for (int e : ar)
-                add(e);
-        }
-
         public void add(int n) {
             ensureCapacity(size + 1);
             node[size] = n;
@@ -241,32 +230,6 @@ public class AQR {
                     temp = left[temp];
                 }
             }
-        }
-
-        public int[] sort() {
-            int[] ar = new int[size];
-            sort(ar);
-            return ar;
-        }
-
-        private void sort(int[] ar) {
-            int index = 0;
-            if (left[0] != 0)
-                index = sort(ar, left[0], 0);
-            ar[index] = node[0];
-            if (right[0] != 0)
-                sort(ar, right[0], index + 1);
-        }
-
-        private int sort(int[] ar, int node_index, int index) {
-            if (left[node_index] != 0)
-                index = sort(ar, left[node_index], index);
-            ar[index] = node[node_index];
-            index++;
-            if (right[node_index] != 0)
-                return sort(ar, right[node_index], index);
-
-            return index;
         }
 
         private void ensureCapacity(int n) {
