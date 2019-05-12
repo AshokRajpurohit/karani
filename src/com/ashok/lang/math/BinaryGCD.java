@@ -9,10 +9,6 @@ package com.ashok.lang.math;
  */
 
 public class BinaryGCD {
-    private BinaryGCD() {
-        super();
-    }
-
     public static int gcd(int a, int b) {
         return euclid(a, b);
     }
