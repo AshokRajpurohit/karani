@@ -34,18 +34,18 @@ public class Hotstar {
     }
 
     private static void solve() throws IOException {
-        out.println(applyPolicy(new int[]{1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8,
+        out.println(dropRequests(new int[]{1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8,
                 8, 9, 9, 9, 9, 9, 10, 10, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 14, 14,
                 14, 14, 14, 16, 16, 16, 16, 16, 16, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 19, 19, 19, 19, 19, 19,
                 19, 20, 20, 20, 20, 20}));
         out.flush();
         while (true) {
-            out.println(applyPolicy(in.readIntArray(in.readInt())));
+            out.println(dropRequests(in.readIntArray(in.readInt())));
             out.flush();
         }
     }
 
-    private static int applyPolicy(int[] requestTimes) {
+    private static int dropRequests(int[] requestTimes) {
         Arrays.sort(requestTimes);
         Request[] requests = toRequests(requestTimes);
         Arrays.stream(policies).forEach(policy -> applyPolicy(requests, policy));
