@@ -1,36 +1,36 @@
 package com.ashok.hiring.walmart;
 
-import sun.plugin.dom.exception.InvalidStateException;
-
 /**
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
  */
 public enum CartStatus {
     ACTIVE {
         @Override
-        CartStatus setStatus(Cart cart, CartStatus newStatus) {
-            if (this == newStatus)
-                throw new InvalidStateException("state can't be changed from " + this + " to " + newStatus);
+        void putOrder(Cart cart) {
+            cart.status = ORDERED;
+        }
 
-            return newStatus;
+        @Override
+        void cancleOrder(Cart cart) {
+            cart.status = DISCARDED;
         }
     }, ORDERED {
         @Override
-        CartStatus setStatus(Cart cart, CartStatus newStatus) {
-            if (this == newStatus || this == ACTIVE)
-                throw new InvalidStateException("state can't be changed from " + this + " to " + newStatus);
-
-            return newStatus;
+        void cancleOrder(Cart cart) {
+            cart.status = DISCARDED;
         }
     }, DISCARDED {
         @Override
-        CartStatus setStatus(Cart cart, CartStatus newStatus) {
-            if (this == newStatus)
-                throw new InvalidStateException("state can't be changed from " + this + " to " + newStatus);
-
-            return newStatus;
+        void putOrder(Cart cart) {
+            cart.status = ORDERED;
         }
     };
 
-    abstract CartStatus setStatus(Cart cart, CartStatus status);
+    void putOrder(Cart cart) {
+        // default operation, do not update state when not necessary.
+    }
+
+    void cancleOrder(Cart cart) {
+        // default operation, do not update state when not necessary.
+    }
 }

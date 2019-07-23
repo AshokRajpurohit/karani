@@ -14,7 +14,7 @@ public class Cart {
     private static final AtomicInteger sequence = new AtomicInteger(0);
     final Map<Category, Map<Product, Integer>> categoryProductsMap = new HashMap<>();
     private AtomicInteger itemCount = new AtomicInteger();
-    private volatile CartStatus status = CartStatus.ACTIVE;
+    volatile CartStatus status = CartStatus.ACTIVE;
     public final int id = sequence.incrementAndGet();
     private volatile double totalPrice = 0;
     public final Date date = new Date();
@@ -43,7 +43,7 @@ public class Cart {
     public void putOrder() {
         lock.writeLock().lock();
         try {
-            status = status.setStatus(this, CartStatus.ORDERED);
+            status.putOrder(this);
         } finally {
             lock.writeLock().unlock();
         }
@@ -52,7 +52,7 @@ public class Cart {
     public void cancleOrder() {
         lock.writeLock().lock();
         try {
-            status = status.setStatus(this, CartStatus.DISCARDED);
+            status.putOrder(this);
         } finally {
             lock.writeLock().unlock();
         }
