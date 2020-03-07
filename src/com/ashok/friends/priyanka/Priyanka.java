@@ -10,6 +10,9 @@ import com.ashok.lang.inputs.Output;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * Problem Name:
@@ -32,11 +35,34 @@ public class Priyanka {
     }
 
     private void solve() throws IOException {
+        TestFunction function = (a) -> a * a;
+        TwoArgsFunction twoArgsFunction = (a, b) -> a / b;
+        Consumer<Object> println = (o) -> out.println(o);
+        BiConsumer<String, Integer> manipulator = (a, b) -> {
+            println.accept(a);
+            println.accept(b);
+        };
+
+        manipulator.accept(in.read(), in.readInt());
+        out.flush();
+
+
         HashMap<Key, Value> hashMap = new HashMap<>();
         hashMap.values().stream()
-                .filter((t) -> (t.value & 1) == 0)
+                .skip(10)
+                .limit(11)
+                .filter((v) -> v != null)
+                .map(e -> e.toString().length())
+                .map(e -> e + "" + e)
+                .forEach(out::println);
+
+
+        hashMap.values().stream()
+                .filter((t) -> (t.value & 1) != 0)
                 .sorted((a, b) -> a.value - b.value)
                 .forEach((t) -> out.println(t));
+
+        hashMap.values().parallelStream();
 
         hashMap.entrySet().stream()
                 .sorted((a, b) -> a.getValue().value - b.getValue().value)
@@ -72,9 +98,14 @@ public class Priyanka {
         TreeMap<Key, Pair> map = new TreeMap<>(keyComparaotor);
 
         for (Map.Entry entry : map.entrySet()) {
+            println.accept(entry.getKey());
             out.println(entry.getValue());
         }
 
+    }
+
+    private static void testStrings(Consumer<String> stringConsumer, String... strings) {
+        for (String s : strings) stringConsumer.accept(s);
     }
 
     final static Comparator<Key> keyComparaotor = new Comparator<Key>() {
@@ -130,5 +161,15 @@ public class Priyanka {
             Pair pair = (Pair) o;
             return key == pair.key;
         }
+    }
+
+    @FunctionalInterface
+    interface TestFunction {
+        int method(int param);
+    }
+
+    @FunctionalInterface
+    interface TwoArgsFunction {
+        int method(int param1, int param2);
     }
 }

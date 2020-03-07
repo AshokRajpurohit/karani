@@ -1,18 +1,17 @@
 package com.ashok.lang.main;
 
-import com.ashok.codechef.marathon.year16.july.CHSGMNTS;
+import com.ashok.lang.algorithms.Expressions;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
-import com.ashok.lang.utils.Generators;
+import com.ashok.lang.math.BasicMathOperations;
+import com.ashok.lang.math.Power;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-import java.util.logging.Logger;
+import java.security.GeneralSecurityException;
+import java.util.*;
 
 /**
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
@@ -38,131 +37,134 @@ public class Main {
         Collection<Integer> c;
     }
 
-    static interface MySecondEnum {
-        public String toString();
-
-        public String secondName();
-
-        public String getTableName();
-    }
-
-    static enum Test implements MySecondEnum {
-        A("Ashok"),
-        B("Bak-Bak");
-
-        String testParam;
-        final static String tabeName = "My Own Table Foosball";
-
-        Test(String name) {
-            testParam = name;
-        }
-
-        public String toString() {
-            return testParam;
-        }
-
-        public String secondName() {
-            return "Rajpurohit";
-        }
-
-        public String getTableName() {
-            return tabeName;
-        }
-    }
-
-    enum Table2 implements MySecondEnum {
-        id("id"),
-        name("name"),
-        pK("p_K");
-
-        final String column;
-        final static String table = "ClientConfiguration";
-
-        Table2(String name) {
-            column = name;
-        }
-
-        public String secondName() {
-            return column;
-        }
-
-        public String getTableName() {
-            return table;
-        }
-    }
-
     public void solve() throws IOException, Exception {
+        int t = in.readInt();
+
         while (true) {
-            int[] ar = Generators.generateRandomIntegerArray(in.readInt(), 1, in.readInt
-                    ());
+            int n = in.readInt(), mod = in.readInt();
+            LongOperations longOperations = new LongOperations(mod);
+            Expressions<Long> expressions = new Expressions<Long>(longOperations);
+            List<Long> numbers = new LinkedList<>();
+            List<Character> operators = new LinkedList<>();
+
+            populate(numbers, new char[]{'+', '-', '*', '/'}, operators, mod
+                    - 1, n);
+
+            String expression = formExpression(numbers, operators);
+            out.println(expression);
 
             long time = System.currentTimeMillis();
-            out.println(CHSGMNTS.solve(ar.length, ar));
-            out.println("time: " + (System.currentTimeMillis() - time));
+            out.println(Expressions.evaluate(expression, mod));
+            out.println((System.currentTimeMillis() - time) + " ms");
+            out.flush();
+
+            time = System.currentTimeMillis();
+            out.println(expressions.evaluate(numbers, operators));
+            out.println((System.currentTimeMillis() - time) + " ms");
             out.flush();
         }
     }
 
-    final static class implenter implements Iterator, Comparator {
+    private static void populate(List<Long> numbers, char[] operators,
+                                 List<Character> operatorList, int mod, int length) {
+        Random random = new Random();
 
-        public boolean hasNext() {
-            return false;
-        }
+        for (int i = 0; i < length; i++)
+            numbers.add(Math.abs(random.nextLong()) % mod + 1);
 
-        public Object next() {
-            return null;
-        }
-
-        public String getName() {
-            implenter im = new implenter();
-            im.getClass().getName();
-
-            return "ashok";
-        }
-
-        public int compare(Object o1, Object o2) {
-            return 0;
-        }
+        for (int i = 1; i < length; i++)
+            operatorList.add(operators[random.nextInt(operators.length)]);
     }
 
-    private static String formQuery(List<MySecondEnum> list) {
-        StringBuilder sb = new StringBuilder();
+    private static String formExpression(List<Long> numbers, List<Character>
+            operators) {
+        StringBuilder sb = new StringBuilder(numbers.size() * 9);
 
-        for (MySecondEnum mse : list) {
-            sb.append("select ").append(mse.secondName()).append(" from ").append(mse.getTableName()).append('\n');
-        }
+        Iterator<Long> numIter = numbers.iterator();
+        Iterator<Character> opeIter = operators.iterator();
 
+        while (opeIter.hasNext())
+            sb.append(numIter.next()).append(opeIter.next());
+
+        sb.append(numIter.next());
         return sb.toString();
     }
 
-    private static String formQuery(MySecondEnum column) {
-        return "select " + column.secondName() + " from " +
-                column.getTableName();
-    }
+    final static class LongOperations implements BasicMathOperations<Long> {
+        private int mod = 1000000007;
 
-    final static class LoggingExceptions {
-        public static void test() {
-            try {
-                throw new LoggingException();
-            } catch (LoggingException e) {
-                System.err.println("Caught " + e);
-            }
+        public LongOperations(int mod) {
+            this.mod = mod;
+        }
 
-            try {
-                throw new LoggingException();
-            } catch (LoggingException e) {
-                System.err.println("Caught Again " + e);
-            }
+        public LongOperations() {
+
+        }
+
+        @Override
+        public Long add(Long a, Long b) {
+            return (a + b) % mod;
+        }
+
+        @Override
+        public Long subtract(Long a, Long b) {
+            return a - b;
+        }
+
+        @Override
+        public Long multiply(Long a, Long b) {
+            return a * b % mod;
+        }
+
+        @Override
+        public Long divide(Long a, Long b) {
+            return a * Power.inverseModulo(b, mod) % mod;
+        }
+
+        @Override
+        public Long remainder(Long a, Long b) {
+            return a % b;
+        }
+
+        @Override
+        public Long power(Long a, Long b) {
+            return Power.pow(a, b, mod);
         }
     }
 
-    final static class LoggingException extends Exception {
-        private static Logger logger = Logger.getLogger("Logging Exception");
+    private static byte[] toBytes(String s) {
+        return s.getBytes();
+    }
 
-        public LoggingException() {
-            StringWriter trace = new StringWriter();
-            printStackTrace(new PrintWriter(trace));
-            logger.severe(trace.toString());
+    private static byte[] decryptPassword(byte[] result) throws
+            GeneralSecurityException {
+        byte constant = result[0];
+        if (constant != 5) {
+            throw new IllegalArgumentException();
+        }
+
+        byte[] secretKey = new byte[8];
+        System.arraycopy(result, 1, secretKey, 0, 8);
+
+        byte[] encryptedPassword = new byte[result.length - 9];
+        System.arraycopy(result, 9, encryptedPassword, 0, encryptedPassword.length);
+
+        byte[] iv = new byte[8];
+        for (int i = 0; i < iv.length; i++) {
+            iv[i] = 0;
+        }
+
+        Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(secretKey, "DES"), new IvParameterSpec(iv));
+        return cipher.doFinal(encryptedPassword);
+    }
+
+    enum Property {
+        ASHOK("Ashok"), KK("Krishna Kumar");
+        final String name;
+
+        Property(String name) {
+            this.name = name;
         }
     }
 }

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="lang:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/lang_jar</output-path>
+    <root id="root">
+      <element id="dir-copy" path="$PROJECT_DIR$/src/com/ashok/lang" />
+      <element id="archive" name="lang.jar" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/com/ashok/semaphore" />
+      <element id="archive" name="archive.jar" />
+    </root>
+  </artifact>
+</component>

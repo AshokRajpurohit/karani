@@ -21,7 +21,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -35,6 +34,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class Test {
+    final static Comparator<LinkedListNode> LIST_NODE_COMPARATOR = (a, b) -> a.val - b.val;
     private static final String path = "C:/Projects/karani/src/com/ashok/lang/template/";
     private static Output out = new Output();
     private static InputReader in = new InputReader();
@@ -42,6 +42,7 @@ public class Test {
 
     public static void main(String[] args) throws IOException,
             InterruptedException {
+        testException();
         try {
             ConcurrentSkipListMap map = new ConcurrentSkipListMap();
             TreeMap treeMap = new TreeMap();
@@ -52,53 +53,62 @@ public class Test {
     }
 
     private static void play() throws IOException {
-        Semaphore semaphore = new Semaphore(1);
-        semaphore.tryAcquire();
-        SingletonFactory factory = new SingletonFactory();
-        Callable<Singleton> tasks = () -> factory.get();
+
+        String trnId = "123d793b-ef88-11e9-88e6-00155dffceba";
+        out.println(Math.abs(trnId.hashCode()) % 1000);
+        out.flush();
+        Short s = new Short("2");
+        int v = s;
+        out.println(v);
+        Integer bi = v;
+        short value = (short) 2;
+        out.println(s.equals(value));
+        out.println(s.shortValue() == value);
+        out.flush();
+//        Semaphore semaphore = new Semaphore(1);
+//        semaphore.tryAcquire();
+//        SingletonFactory factory = new SingletonFactory();
+//        Callable<Singleton> tasks = () -> factory.get();
         while (true) {
-            break;
+            out.println(isEven(in.readInt()));
+            out.flush();
         }
     }
 
-    private static class Singleton {
-        private static volatile Singleton object;
-        private static final Semaphore lock = new Semaphore(1);
-        private static final Turnstile TURNSTILE = new Turnstile(0);
+    private static void testException() {
+        int a = new Random().nextInt();
 
-        private Singleton() {
-            out.println("creating Singleton");
-        }
-
-        private static Singleton get() throws InterruptedException {
-            if (lock.tryAcquire()) {
-                object = new Singleton();
-                TURNSTILE.release(1);
+        try {
+            if (isEven(a)) {
+                throw new ArrayIndexOutOfBoundsException("problem");
             }
 
-            TURNSTILE.passThrough();
-            return object;
+            if (!isEven(a)) {
+                throw new NullPointerException("fir se problem");
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            out.println("ArrayIndexOutOfBoundsException");
+            throw e;
+        } catch (IndexOutOfBoundsException e) {
+            out.println("IndexOutOfBoundsException");
+            e.printStackTrace(out);
+        } catch (NullPointerException e) {
+            out.println("NullPointerException");
+            throw e;
+        } catch (RuntimeException e) {
+            out.println("RuntimeException");
+            e.printStackTrace(out);
+        } catch (Exception e) {
+            out.println("Exception");
+            e.printStackTrace(out);
+        } finally {
+            out.flush();
         }
+
     }
 
-    private static class SingletonFactory {
-        private volatile Singleton object;
-        private final Semaphore lock = new Semaphore(1);
-        private final Turnstile turnstile = new Turnstile(0);
-
-        private Singleton get() {
-            if (lock.tryAcquire()) {
-                object = new Singleton();
-                turnstile.release(1);
-            }
-
-            try {
-                turnstile.passThrough();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return object;
-        }
+    private static boolean isEven(long n) {
+        return (n & 1) == 0;
     }
 
     /**
@@ -170,14 +180,6 @@ public class Test {
         return n == 2 || n == 3 || n == 5 || n == 7;
     }
 
-    final static class ThreadExt extends Thread {
-        ThreadExt(Object lock) {
-            function(lock);
-            out.println("khatam");
-            out.flush();
-        }
-    }
-
     private static void function(Object lock) {
         synchronized (lock) {
             out.println("ye lock hai" + lock);
@@ -187,30 +189,6 @@ public class Test {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    final static class Pair {
-        long clientId, sdsId;
-
-        Pair(int a, int b) {
-            clientId = a;
-            sdsId = b;
-        }
-
-        public int hashCode() {
-            return Long.hashCode(1L * Long.hashCode(clientId) * Long.hashCode(sdsId));
-        }
-
-        public boolean equals(Object object) {
-            if (this == object)
-                return true;
-
-            if (!(object instanceof Pair))
-                return false;
-
-            Pair pair = (Pair) object;
-            return clientId == pair.clientId && sdsId == pair.sdsId;
         }
     }
 
@@ -234,8 +212,6 @@ public class Test {
             out.flush();
         }
     }
-
-    final static Comparator<LinkedListNode> LIST_NODE_COMPARATOR = (a, b) -> a.val - b.val;
 
     static LinkedListNode sort(int k, LinkedListNode list) {
         // Write your code here.
@@ -274,11 +250,6 @@ public class Test {
         }
 
         return count;
-    }
-
-    private static class LinkedListNode {
-        int val;
-        LinkedListNode next;
     }
 
     private static LinkedListNode _insert_node_into_singlylinkedlist(LinkedListNode list, LinkedListNode listTail, int val) {
@@ -338,31 +309,6 @@ public class Test {
                 return ar[i] + ar[j] + ar[k];
 
         return 0;
-    }
-
-    private static abstract class Aclass {
-        public int get() {
-            return get2();
-        }
-
-        public abstract int get1();
-
-        public int get2() {
-            return 4;
-        }
-    }
-
-    private static class Bclass extends Aclass {
-
-        @Override
-        public int get1() {
-            return -1;
-        }
-
-        @Override
-        public int get2() {
-            return 17;
-        }
     }
 
     private static void synchronizedMethod() {
@@ -563,18 +509,6 @@ public class Test {
         return new TreeMap<K, V>();
     }
 
-    static class Parent {
-        Parent(String name) {
-            // do nothing
-        }
-    }
-
-    static class Child extends Parent {
-        Child() {
-            super("ashok");
-        }
-    }
-
     private static void methodThrowingError(int n) throws Error {
         if ((n & 1) == 1) {
             throw new Error("error thrown");
@@ -646,14 +580,6 @@ public class Test {
         n++;
     }
 
-    static class Custom {
-        int value = 0;
-    }
-
-    static class CustomExtend extends Custom {
-        int value = 10;
-    }
-
     public static void puzzle(int totalNumbersCount) {
 
         List<Integer> numberList = new ArrayList<Integer>();
@@ -680,6 +606,137 @@ public class Test {
         return copiedNumberList;
     }
 
+    private static void normalizeIndex(int[] start, int[] end) {
+        for (int i = 0; i < start.length; i++)
+            if (start[i] > end[i]) {
+                int t = start[i];
+                start[i] = end[i];
+                end[i] = t;
+            }
+    }
+
+    private static class Singleton {
+        private static final Semaphore lock = new Semaphore(1);
+        private static final Turnstile TURNSTILE = new Turnstile(0);
+        private static volatile Singleton object;
+
+        private Singleton() {
+            out.println("creating Singleton");
+        }
+
+        private static Singleton get() throws InterruptedException {
+            if (lock.tryAcquire()) {
+                object = new Singleton();
+                TURNSTILE.release(1);
+            }
+
+            TURNSTILE.passThrough();
+            return object;
+        }
+    }
+
+    private static class SingletonFactory {
+        private final Semaphore lock = new Semaphore(1);
+        private final Turnstile turnstile = new Turnstile(0);
+        private volatile Singleton object;
+
+        private Singleton get() {
+            if (lock.tryAcquire()) {
+                object = new Singleton();
+                turnstile.release(1);
+            }
+
+            try {
+                turnstile.passThrough();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return object;
+        }
+    }
+
+    final static class ThreadExt extends Thread {
+        ThreadExt(Object lock) {
+            function(lock);
+            out.println("khatam");
+            out.flush();
+        }
+    }
+
+    final static class Pair {
+        long clientId, sdsId;
+
+        Pair(int a, int b) {
+            clientId = a;
+            sdsId = b;
+        }
+
+        public int hashCode() {
+            return Long.hashCode(1L * Long.hashCode(clientId) * Long.hashCode(sdsId));
+        }
+
+        public boolean equals(Object object) {
+            if (this == object)
+                return true;
+
+            if (!(object instanceof Pair))
+                return false;
+
+            Pair pair = (Pair) object;
+            return clientId == pair.clientId && sdsId == pair.sdsId;
+        }
+    }
+
+    private static class LinkedListNode {
+        int val;
+        LinkedListNode next;
+    }
+
+    private static abstract class Aclass {
+        public int get() {
+            return get2();
+        }
+
+        public abstract int get1();
+
+        public int get2() {
+            return 4;
+        }
+    }
+
+    private static class Bclass extends Aclass {
+
+        @Override
+        public int get1() {
+            return -1;
+        }
+
+        @Override
+        public int get2() {
+            return 17;
+        }
+    }
+
+    static class Parent {
+        Parent(String name) {
+            // do nothing
+        }
+    }
+
+    static class Child extends Parent {
+        Child() {
+            super("ashok");
+        }
+    }
+
+    static class Custom {
+        int value = 0;
+    }
+
+    static class CustomExtend extends Custom {
+        int value = 10;
+    }
+
     final static class Operator implements GroupOperator<Long> {
 
         @Override
@@ -696,15 +753,6 @@ public class Test {
         public Long newInstance() {
             return 0L;
         }
-    }
-
-    private static void normalizeIndex(int[] start, int[] end) {
-        for (int i = 0; i < start.length; i++)
-            if (start[i] > end[i]) {
-                int t = start[i];
-                start[i] = end[i];
-                end[i] = t;
-            }
     }
 
     final static class Question4 {

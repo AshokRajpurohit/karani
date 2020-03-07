@@ -25,7 +25,6 @@ public class Hotstar {
 
     public static void main(String[] args) throws IOException {
         try {
-            Integer.highestOneBit(10);
             solve();
         } finally {
             in.close();

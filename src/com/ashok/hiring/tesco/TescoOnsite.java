@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -36,6 +37,7 @@ public class TescoOnsite {
     private static void solve() throws IOException {
         while (true) {
             out.println(in.read());
+            UserCompareStrategy strategy = UserComparisonStrataties.FIRST_NAME.andAlso(UserComparisonStrataties.ADDRESS);
             out.flush();
         }
     }
@@ -55,7 +57,15 @@ public class TescoOnsite {
                 userWrappersMap.put(u, u);
         });
 
+        User[] users = users1.stream().toArray(t -> new User[t]);
+        Function<User, UserWrapper> userToWrapper = u -> new UserWrapper(u, strategy);
+        Function<UserWrapper, UserCompareStrategy> function = uw -> uw.strategy;
+
+        Function<User, UserCompareStrategy> userStrategyFunction = userToWrapper.andThen(function);
+        Function<User, User> identityFunction = Function.identity();
+
+        int[] ar = new int[10];
+
         return userWrappersMap.values().stream().map(userWrapper -> userWrapper.user).collect(Collectors.toList());
     }
-
 }

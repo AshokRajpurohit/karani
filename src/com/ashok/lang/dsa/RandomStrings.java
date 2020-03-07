@@ -49,11 +49,7 @@ public class RandomStrings extends Random {
         boolean one = true;
         char[] ar = new char[n];
         for (int i = 0; i < n; i++) {
-            if (one)
-                ar[i] = '1';
-            else
-                ar[i] = '0';
-
+            ar[i] = one ? '1' : '0';
             one = (nextInt() & 1) == 1;
         }
 

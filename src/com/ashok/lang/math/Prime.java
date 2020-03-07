@@ -41,7 +41,7 @@ public class Prime {
      * @param n prime numbers upto integer n
      * @return
      */
-    public static int[] gen_prime(int n) {
+    public static int[] generatePrimes(int n) {
         boolean[] ar = new boolean[n + 1];
         int root = (int) Math.sqrt(n);
 
@@ -74,7 +74,7 @@ public class Prime {
     public static int[] primes(int[] ar) {
         MergeSort.sort(ar);
         int p = (int) Math.sqrt(ar[ar.length - 1]);
-        int[] primes = gen_prime(p);
+        int[] primes = generatePrimes(p);
         boolean[] primes_check = new boolean[ar.length];
         for (int i = 0; i < primes.length; i++) {
             for (int j = 0; j < primes.length && !primes_check[i]; j++)
@@ -110,7 +110,7 @@ public class Prime {
 
         boolean[] ar = new boolean[end + 1 - start];
         int p = (int) Math.sqrt(end);
-        int[] primes = gen_prime(p);
+        int[] primes = generatePrimes(p);
 
         for (int i = 0; i < primes.length; i++) {
             int j = (start + primes[i] - 1) / primes[i];
@@ -145,7 +145,7 @@ public class Prime {
             return primesInRange(end, start);
 
         int limit = (int) Math.sqrt(end) + 1;
-        int[] primes = gen_prime(limit);
+        int[] primes = generatePrimes(limit);
 
         boolean[] check = new boolean[(int) (end - start + 1)];
 

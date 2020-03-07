@@ -10,4 +10,8 @@ public interface UserCompareStrategy {
     default UserCompareStrategy andAlso(UserCompareStrategy strategy) {
         return (a, b) -> checkEquals(a, b) && strategy.checkEquals(a, b);
     }
+
+    default UserCompareStrategy or(UserCompareStrategy strategy) {
+        return (a, b) -> checkEquals(a, b) || strategy.checkEquals(a, b);
+    }
 }

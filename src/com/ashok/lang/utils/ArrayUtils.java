@@ -1,6 +1,7 @@
 package com.ashok.lang.utils;
 
 import java.util.Random;
+import java.util.function.Predicate;
 
 /**
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
@@ -348,5 +349,64 @@ public class ArrayUtils {
         Object temp = objects[i];
         objects[i] = objects[j];
         objects[j] = temp;
+    }
+
+    public static void rangeCheck(int arrayLength, int fromIndex, int toIndex) {
+        if (fromIndex > toIndex) {
+            throw new IllegalArgumentException(
+                    "fromIndex(" + fromIndex + ") > toIndex(" + toIndex + ")");
+        }
+        if (fromIndex < 0) {
+            throw new ArrayIndexOutOfBoundsException(fromIndex);
+        }
+        if (toIndex > arrayLength) {
+            throw new ArrayIndexOutOfBoundsException(toIndex);
+        }
+    }
+
+    /**
+     * Searches the specified array for the specified object using the binary
+     * search algorithm. The predicate makes the array a boolean array (by checking each element) and then we
+     * need to know the index of first true value, now any arbitrary value as in case of normal Arrays.binarySearch
+     * method.
+     *
+     * @param ar
+     * @param predicate
+     * @param <T>
+     * @return
+     */
+    public static <T> int binarySearchMin(T[] ar, Predicate<T> predicate) {
+        return binarySearchMin0(ar, 0, ar.length, predicate);
+    }
+
+    public static <T> int binarySearchMin(T[] ar, int fromIndex, int toIndex, Predicate<T> predicate) {
+        rangeCheck(ar.length, fromIndex, toIndex);
+        return binarySearchMin(ar, fromIndex, toIndex, predicate);
+    }
+
+    private static <T> int binarySearchMin0(T[] ar, int fromIndex, int toIndex, Predicate<T> predicate) {
+        int low = fromIndex, high = toIndex - 1;
+        if (!predicate.test(ar[high])) return ar.length;
+
+        while (low <= high) {
+            int mid = (low + high) >>> 1;
+            T midVal = ar[mid];
+
+            if (predicate.test(midVal))
+                high = mid - 1;
+            else
+                low = mid + 1;
+        }
+
+        return low;
+    }
+
+    public static <T> int binarySearchMax(T[] ar, Predicate<T> predicate) {
+        return binarySearchMin0(ar, 0, ar.length - 1, predicate.negate()) - 1;
+    }
+
+    public static <T> int binarySearchMax(T[] ar, int fromIndex, int toIndex, Predicate<T> predicate) {
+        rangeCheck(ar.length, fromIndex, toIndex);
+        return binarySearchMin0(ar, fromIndex, toIndex, predicate.negate()) - 1;
     }
 }
