@@ -3,19 +3,23 @@
  * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms, But you are free to use it :).
  *
  */
-package com.ashok.codejam.template;
+package com.ashok.codejam.cj20.qualification;
+
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.StringJoiner;
+import java.util.stream.IntStream;
 
 /**
- * Problem Name:
- * Link:
+ * Problem Name: Vestigium
+ * Link: Code Jam 2020 Qualifying Round
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-public class CodeJamTemplate {
+class Vestigium {
     private static final PrintWriter out = new PrintWriter(System.out);
     private static final InputReader in = new InputReader();
     private static final String CASE = "Case #";
@@ -34,7 +38,43 @@ public class CodeJamTemplate {
     }
 
     private static String process() throws IOException {
-        return null;
+        int n = in.readInt();
+        int[][] matrix = in.readIntTable(n, n);
+        int trace = getTrace(matrix);
+        int dupEntryRowCount = getDuplicateEntryRows(matrix);
+        int dupEntryColCount = getDuplicateEntryCols(matrix);
+        return new StringJoiner(" ")
+                .add(String.valueOf(trace))
+                .add(String.valueOf(dupEntryRowCount))
+                .add(String.valueOf(dupEntryColCount))
+                .toString();
+    }
+
+    private static int getDuplicateEntryCols(int[][] matrix) {
+        int n = matrix.length;
+        return (int) IntStream.range(0, n)
+                .filter(c -> hasDuplicates(
+                        IntStream.range(0, n).map(r -> matrix[r][c]).toArray()))
+                .count();
+    }
+
+    private static int getDuplicateEntryRows(int[][] matrix) {
+        return (int) Arrays.stream(matrix)
+                .filter(row -> hasDuplicates(row))
+                .count();
+    }
+
+    private static boolean hasDuplicates(int[] row) {
+        int n = row.length;
+        boolean[] map = new boolean[n + 1];
+        Arrays.stream(row).forEach(v -> map[v] = true);
+        return IntStream.range(1, n + 1).filter(i -> !map[i]).count() != 0;
+    }
+
+    private static int getTrace(int[][] matrix) {
+        return IntStream.range(0, matrix.length)
+                .map(i -> matrix[i][i])
+                .sum();
     }
 
     private static void print(int testNo, String result) {

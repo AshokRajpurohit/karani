@@ -3,19 +3,21 @@
  * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms, But you are free to use it :).
  *
  */
-package com.ashok.codejam.template;
+package com.ashok.codejam.cj20.r1A;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
- * Problem Name:
+ * Problem Name: Square Dance
  * Link:
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-public class CodeJamTemplate {
+public class SquareDance {
     private static final PrintWriter out = new PrintWriter(System.out);
     private static final InputReader in = new InputReader();
     private static final String CASE = "Case #";
@@ -34,7 +36,73 @@ public class CodeJamTemplate {
     }
 
     private static String process() throws IOException {
-        return null;
+        int r = in.readInt(), c = in.readInt();
+        int[][] dancers = in.readIntTable(r, c);
+        return "" + process(dancers);
+    }
+
+    private static long process(int[][] dancers) {
+        long score = score(dancers);
+        long totalScore = score;
+        while (true) {
+            performRound(dancers);
+            long roundScore = score(dancers);
+            if (roundScore == score) break;
+            score = roundScore;
+            totalScore += score;
+        }
+
+        return totalScore;
+    }
+
+    private static void performRound(int[][] dancers) {
+        int r = dancers.length, c = dancers[0].length;
+        long[][] avgs = new long[r][c];
+        IntStream.range(0, r).forEach(i -> {
+            long sum = 0, val = dancers[i][0];
+            avgs[i][0] += val;
+            for (int j = 1; j < c; j++) {
+                if (val == 0) val = dancers[i][j];
+                avgs[i][j] += val;
+                if (dancers[i][j] != 0) val = dancers[i][j];
+            }
+
+            val = dancers[i][c - 1];
+            avgs[i][c - 1] += val;
+            for (int j = c - 2; j >= 0; j--) {
+                if (val == 0) val = dancers[i][j];
+                avgs[i][j] += val;
+                if (dancers[i][j] != 0) val = dancers[i][j];
+            }
+        });
+
+        IntStream.range(0, c).forEach(j -> {
+            long sum = 0, val = dancers[0][j];
+            avgs[0][j] += val;
+            for (int i = 1; i < r; i++) {
+                if (val == 0) val = dancers[i][j];
+                avgs[i][j] += val;
+                if (dancers[i][j] != 0) val = dancers[i][j];
+            }
+
+            val = dancers[r - 1][j];
+            avgs[r - 1][j] += val;
+            for (int i = r - 2; i >= 0; i--) {
+                if (val == 0) val = dancers[i][j];
+                avgs[i][j] += val;
+                if (dancers[i][j] != 0) val = dancers[i][j];
+            }
+        });
+
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if ((dancers[i][j] << 2) < avgs[i][j]) dancers[i][j] = 0;
+            }
+        }
+    }
+
+    private static long score(int[][] dancers) {
+        return Arrays.stream(dancers).flatMap(row -> Arrays.stream(row).mapToObj(v -> v)).mapToLong(v -> v).sum();
     }
 
     private static void print(int testNo, String result) {

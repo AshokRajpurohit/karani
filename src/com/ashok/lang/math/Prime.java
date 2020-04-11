@@ -120,6 +120,10 @@ public class Prime {
                 ar[j] = true;
         }
 
+        for (int prime: primes) {
+            if (prime >= start) ar[prime - start] = false;
+        }
+
         int count = 0;
         for (int i = 0; i < ar.length; i++) {
             if (!ar[i]) {

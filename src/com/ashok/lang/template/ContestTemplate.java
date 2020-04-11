@@ -5,16 +5,14 @@
  */
 package com.ashok.lang.template;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import java.io.*;
 
 /**
  * Problem Name:
  * Link:
  * <p>
  * For complete implementation please see
- * {@link https://github.com/AshokRajpurohit/karani/tree/master/src/com/ashok/}
+ * <a href="https://github.com/AshokRajpurohit/karani/tree/master/src/com/ashok/">GIT Repo</a>
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
@@ -32,7 +30,6 @@ public class ContestTemplate {
         int t = in.readInt();
         while (t > 0) {
             t--;
-
         }
     }
 
@@ -42,12 +39,75 @@ public class ContestTemplate {
         protected int offset = 0;
         protected int bufferSize = 0;
 
+        public InputReader(InputStream input) {
+            in = input;
+        }
+
         public InputReader() {
             in = System.in;
         }
 
+        public InputReader(String file) throws FileNotFoundException {
+            in = new FileInputStream(file);
+        }
+
+        public InputReader(File file) throws FileNotFoundException {
+            in = new FileInputStream(file);
+        }
+
         public void close() throws IOException {
             in.close();
+        }
+
+        public String next() throws IOException {
+            return read();
+        }
+
+        public boolean hasNext() throws IOException {
+            if (offset == bufferSize) {
+                offset = 0;
+                bufferSize = in.read(buffer);
+            }
+
+            return bufferSize != -1;
+        }
+
+        public boolean isNewLine() {
+            return buffer[offset] == '\n' || buffer[offset] == '\r';
+        }
+
+        public char nextChar() throws IOException {
+            if (offset == bufferSize) {
+                offset = 0;
+                bufferSize = in.read(buffer);
+            }
+
+            if (bufferSize == -1 || bufferSize == 0)
+                throw new IOException("No new bytes");
+
+            return (char) buffer[offset++];
+        }
+
+        public char nextValidChar() throws IOException {
+            if (offset == bufferSize) {
+                offset = 0;
+                bufferSize = in.read(buffer);
+            }
+
+            if (bufferSize == -1 || bufferSize == 0)
+                throw new IOException("No new bytes");
+
+            for (;
+                 buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
+                         '\n' || buffer[offset] == '\r'; ++offset) {
+                if (offset == bufferSize - 1) {
+                    offset = -1;
+                    bufferSize = in.read(buffer);
+                }
+            }
+
+            return (char) buffer[offset++];
+
         }
 
         public int readInt() throws IOException {
@@ -84,6 +144,30 @@ public class ContestTemplate {
                 ar[i] = readInt();
 
             return ar;
+        }
+
+        public int[] readIntArray(int n, int d) throws IOException {
+            int[] ar = new int[n];
+            for (int i = 0; i < n; i++)
+                ar[i] = readInt() + d;
+
+            return ar;
+        }
+
+        public int[][] readIntTable(int m, int n) throws IOException {
+            int[][] res = new int[m][];
+            for (int i = 0; i < m; i++)
+                res[i] = readIntArray(n);
+
+            return res;
+        }
+
+        public int[][] readIntTable(int m, int n, int d) throws IOException {
+            int[][] res = new int[m][];
+            for (int i = 0; i < m; i++)
+                res[i] = readIntArray(n, d);
+
+            return res;
         }
 
         public long readLong() throws IOException {
@@ -123,6 +207,14 @@ public class ContestTemplate {
             return ar;
         }
 
+        public long[] readLongArray(int n, long d) throws IOException {
+            long[] ar = new long[n];
+            for (int i = 0; i < n; i++)
+                ar[i] = readLong() + d;
+
+            return ar;
+        }
+
         public String read() throws IOException {
             StringBuilder sb = new StringBuilder();
             if (offset == bufferSize) {
@@ -156,6 +248,10 @@ public class ContestTemplate {
             return sb.toString();
         }
 
+        public boolean isSpaceCharacter(char ch) {
+            return ch == ' ' || ch == '\t' || ch == '\r' || ch == '\n';
+        }
+
         public String readLine() throws IOException {
             StringBuilder sb = new StringBuilder();
             if (offset == bufferSize) {
@@ -186,6 +282,51 @@ public class ContestTemplate {
                 }
             }
             return sb.toString();
+        }
+
+        public String readLines(int lines) throws IOException {
+            StringBuilder sb = new StringBuilder();
+
+            if (offset == bufferSize) {
+                offset = 0;
+                bufferSize = in.read(buffer);
+            }
+
+            if (bufferSize == -1 || bufferSize == 0)
+                throw new IOException("No new bytes");
+
+            for (;
+                 buffer[offset] == ' ' || buffer[offset] == '\t' || buffer[offset] ==
+                         '\n' || buffer[offset] == '\r'; ++offset) {
+                if (offset == bufferSize - 1) {
+                    offset = -1;
+                    bufferSize = in.read(buffer);
+                }
+            }
+
+            for (; offset < bufferSize && lines > 0; ++offset) {
+                if (buffer[offset] == '\n' || buffer[offset] == '\r')
+                    lines--;
+
+                if (Character.isValidCodePoint(buffer[offset])) {
+                    sb.appendCodePoint(buffer[offset]);
+                }
+
+                if (offset == bufferSize - 1) {
+                    offset = -1;
+                    bufferSize = in.read(buffer);
+                }
+            }
+
+            return sb.toString();
+        }
+
+        public String[] readLineArray(int size) throws IOException {
+            String[] lines = new String[size];
+            for (int i = 0; i < size; i++)
+                lines[i] = readLine();
+
+            return lines;
         }
 
         public String read(int n) throws IOException {
@@ -221,6 +362,14 @@ public class ContestTemplate {
             return sb.toString();
         }
 
+        public String[] readStringArray(int size) throws IOException {
+            String[] res = new String[size];
+            for (int i = 0; i < size; i++)
+                res[i] = read();
+
+            return res;
+        }
+
         public String[] readStringArray(int size, int len) throws IOException {
             String[] res = new String[size];
             for (int i = 0; i < size; i++)
@@ -229,5 +378,16 @@ public class ContestTemplate {
             return res;
         }
 
+        public double readDouble() throws IOException {
+            return Double.parseDouble(read());
+        }
+
+        public double[] readDoubleArray(int n) throws IOException {
+            double[] ar = new double[n];
+            for (int i = 0; i < n; i++)
+                ar[i] = readDouble();
+
+            return ar;
+        }
     }
 }

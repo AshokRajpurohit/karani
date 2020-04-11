@@ -5,4 +5,5 @@ out/production/karani/com/ashok/lang/neustar/
 out/
 *.orig
 .classpath
-out/production/karani/com/ashok/codechef/marathon/year15/APRIL15/D.in
+out/*
+.idea/*
