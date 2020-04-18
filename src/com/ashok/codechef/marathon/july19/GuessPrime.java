@@ -5,8 +5,8 @@
  */
 package com.ashok.codechef.marathon.july19;
 
-import com.sun.tools.javac.util.Assert;
-import com.sun.tools.javac.util.Pair;
+
+import javafx.util.Pair;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -195,7 +195,6 @@ class GuessPrime {
                 factorInfo.residue = top.topResidue();
             }
 
-            Assert.check(factorInfos.size() == factorInfos.stream().map(f -> f.squareResidue).collect(Collectors.toSet()).size());
         }
 
         int getValueForQuery() {
@@ -246,19 +245,19 @@ class GuessPrime {
                 squreResiduePairs.add(new Pair<>(i * i % prime, i));
             }
 
-            Collections.sort(squreResiduePairs, Comparator.comparingInt(p -> p.fst));
+            Collections.sort(squreResiduePairs, Comparator.comparingInt(p -> p.getKey()));
         }
 
         private int topSquareResidue() {
-            return squreResiduePairs.get(0).fst;
+            return squreResiduePairs.get(0).getKey();
         }
 
         private int topResidue() {
-            return squreResiduePairs.get(0).snd;
+            return squreResiduePairs.get(0).getValue();
         }
 
         private int remove() {
-            return squreResiduePairs.remove(0).fst;
+            return squreResiduePairs.remove(0).getKey();
         }
     }
 

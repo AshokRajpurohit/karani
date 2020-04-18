@@ -7,7 +7,7 @@ package com.ashok.hiring.amazon;
 
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
-import sun.jvm.hotspot.utilities.Assert;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -52,7 +52,7 @@ public class TemparetureAggregator {
         private final TreeMap<Long, TemperatureStatistic> temparetureInfoMap = new TreeMap<>();
 
         public void recordTemperature(long time, double temperature) {
-            Assert.that(time >= 0, "time can not be negative");
+            Assert.assertTrue("time can not be negative", time >= 0);
             if (!temparetureInfoMap.containsKey(time)) {
                 temparetureInfoMap.put(time, new TemperatureStatistic(time));
             }
@@ -62,8 +62,8 @@ public class TemparetureAggregator {
         }
 
         public Collection<TemperatureStatistic> getTemperatureStatistics(long startTime, long endTime) {
-            Assert.that(endTime >= startTime, "end time can not be negative");
-            Assert.that(startTime >= 0, "time can not be negative");
+            Assert.assertTrue("end time can not be negative", endTime >= startTime);
+            Assert.assertTrue("time can not be negative", startTime >= 0);
             Collection<TemperatureStatistic> temperatureStatistics = temparetureInfoMap.subMap(startTime, endTime + 1).values();
             return temperatureStatistics;
         }
