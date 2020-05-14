@@ -6,7 +6,6 @@ package com.ashok.lang.math;
  * @author Ashok Rajpurohit (ashok1113@gmail.com).
  */
 public class Fraction implements Comparable<Fraction> {
-    public static final Fraction UNIT_FRACTION = new Fraction(1, 1);
     public final long numerator, denominator;
     public final double value;
 
