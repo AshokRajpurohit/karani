@@ -218,11 +218,16 @@ public class AmazonMarch20 {
 
             @Override
             public int compareTo(Feature feature) {
-                if (this.count != feature.count) {
+                if (count != feature.count) {
                     return Long.compare(feature.count, this.count);
                 }
 
                 return name.compareToIgnoreCase(feature.name);
+            }
+
+            @Override
+            public String toString() {
+                return name + " " + count;
             }
         }
     }

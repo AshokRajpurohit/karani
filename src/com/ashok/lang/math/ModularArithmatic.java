@@ -30,6 +30,8 @@ public class ModularArithmatic {
     }
 
     public static long gcd(long a, long b) {
+        if (a == 0) return b;
+        if (b == 0) return a;
         if (a < Integer.MAX_VALUE)
             return euclid((int) a, (int) (b % a));
 
@@ -64,8 +66,8 @@ public class ModularArithmatic {
      * @return
      */
     public static long inverseModulo(long a, long mod) {
-        if (a % mod == mod - 1)
-            return mod - 1;
+        a %= mod;
+        if (a == 1 || a == mod - 1) return a;
 
         if (gcd(a, mod) > 1)
             return 0;
@@ -77,11 +79,21 @@ public class ModularArithmatic {
      * Extended Euclid's algorithm. This method is exact implementation of
      * the algorithm explained in CLRS.
      * For further read refer Alan Baker's A Comprehensive Course in Number
-     * Theory, Chapter 1
+     * Theory, Chapter 1.
+     * <br>
+     * let's say we want to calculate integer values for x and y for equation
+     * <p>
+     * ax + by = gcd(a,b)
+     * <p>
+     * and we know the solution to the following equation
+     * <p>
+     * bx + (a%b)y = gcd(a,b) which are x1 and y1.
+     * <p>
+     * It is obvious that x = y1 and y = x1 - (a/b)y1. Proof is left as an exercise.
      *
      * @param a
      * @param b
-     * @param res
+     * @param res equation gcd(a,b) = a*x + b*y where x is stored at 1st and y is stored at 2nd position.
      */
     private static void xEuclid(long a, long b, long[] res) {
         if (b == 0) {
@@ -249,6 +261,14 @@ public class ModularArithmatic {
                 res = (res * e);
 
         return res;
+    }
+
+    public static boolean checkCoprimes(int a, int b) {
+        return euclid(a, b) == 1;
+    }
+
+    public static boolean checkCoprimes(long a, long b) {
+        return gcd(a, b) == 1;
     }
 
     public static boolean checkCoprimes(int[] numbers) {

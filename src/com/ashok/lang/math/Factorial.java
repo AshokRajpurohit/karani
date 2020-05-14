@@ -94,7 +94,7 @@ public class Factorial {
      * @return the number of digits in fact(n)
      */
     public static long DigFact(long n) {
-        return (long)Math.ceil(n * (Math.log10(n / Math.E)) +
+        return (long) Math.ceil(n * (Math.log10(n / Math.E)) +
                                Math.log10(2 * Math.PI * n) / 2);
     }
 

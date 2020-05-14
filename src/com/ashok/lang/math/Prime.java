@@ -120,7 +120,7 @@ public class Prime {
                 ar[j] = true;
         }
 
-        for (int prime: primes) {
+        for (int prime : primes) {
             if (prime >= start) ar[prime - start] = false;
         }
 
@@ -192,21 +192,26 @@ public class Prime {
             return false;
 
         int p = (int) Math.sqrt(n);
-        boolean[] primes = new boolean[p + 1];
-        primes[2] = true;
+        for (int i = 5; i <= p; i += 2) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
 
-        for (int i = 3; i <= p; i++)
-            primes[i] = true;
+    public static boolean primality(long n) {
+        if (n <= 1)
+            return false;
+        if (n <= 3)
+            return true;
 
-        for (int i = 2; i <= p; i++) {
-            if (!primes[i])
-                continue;
+        if (n % 2 == 0 || n % 3 == 0)
+            return false;
 
-            if (n % i == 0)
+        int p = (int) Math.sqrt(n);
+        for (int i = 5; i <= p; i += 2) {
+            if (n % i == 0) {
                 return false;
-
-            for (int j = i << 1; j <= p; j += i)
-                primes[j] = false;
+            }
         }
         return true;
     }
@@ -228,7 +233,33 @@ public class Prime {
                 continue;
 
             list.add(i);
+            while (n % i == 0)
+                n /= i;
+        }
 
+        if (n > 1)
+            list.add(n);
+
+        return list;
+    }
+
+    /**
+     * Returns list of prime factors for integer n.
+     *
+     * @param n
+     * @return
+     */
+    public static LinkedList<Long> primeFactors(long n) {
+        LinkedList<Long> list = new LinkedList();
+
+        if (n < 2)
+            return list;
+
+        for (long i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i != 0)
+                continue;
+
+            list.add(i);
             while (n % i == 0)
                 n /= i;
         }

@@ -225,4 +225,8 @@ public class Numbers {
         long sqrt = (long) Math.sqrt(n);
         return n == sqrt * sqrt;
     }
+
+    public static boolean divisibleBy4(long n) {
+        return (n & 3) == 0;
+    }
 }

@@ -1,0 +1,8 @@
+6
+t2 13 121 98
+r1 box ape bit
+b4 xi me nu
+br8 eat nim did
+w1 has uni gry
+f3 52 54 31
+

@@ -8,7 +8,7 @@ package com.ashok.lang.math;
  * nth term.
  * for General Recursive function, the transpose matrix is yet to be created,
  * I am working on it how to create a transpose matrix for the same.
- * Pending tasks are: Inverse Matrix, Transpose Matrix.
+ * Pending tasks are: Inverse Matrix, Transpose Matrix, Adjugate Matrix, Cofactor Matrix.
  * This class has one two dimensional array for matix representation.
  * The parameter n and m are the dimensions of matrix of size n x m.
  * n and m are for shorthand purpose only.
@@ -35,22 +35,35 @@ public class Matrix {
                 matrix[i][j] = ar[i][j];
     }
 
-    public Matrix add(Matrix a) {
-        return add(this, a);
+    public Matrix add(Matrix b) {
+        if (n != b.n || m != b.m)
+            throw new RuntimeException("matrices not of same dimensions");
+
+        long[][] ar = new long[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < b.m; j++) {
+                ar[i][j] = matrix[i][j] + b.matrix[i][j];
+            }
+        }
+        return new Matrix(ar);
     }
 
-    public static Matrix add(Matrix a, Matrix b) {
-        if (a.n != b.n || a.m != b.m)
+    public long determinant() {
+        return -1;
+    }
+
+    public Matrix subtract(Matrix matrix) {
+        if (n != matrix.n || m != matrix.m)
             throw new RuntimeException("matrices not of same dimensions");
 
         Matrix result = new Matrix();
-        result.n = a.n;
-        result.m = a.m;
+        result.n = n;
+        result.m = m;
 
-        long[][] ar = new long[a.n][a.m];
-        for (int i = 0; i < a.n; i++) {
-            for (int j = 0; j < b.m; j++) {
-                ar[i][j] = a.matrix[i][j] + b.matrix[i][j];
+        long[][] ar = new long[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < matrix.m; j++) {
+                ar[i][j] = this.matrix[i][j] - matrix.matrix[i][j];
             }
         }
 
@@ -58,45 +71,18 @@ public class Matrix {
         return result;
     }
 
-    public static Matrix subtract(Matrix a, Matrix b) {
-        if (a.n != b.n || a.m != b.m)
-            throw new RuntimeException("matrices not of same dimensions");
-
-        Matrix result = new Matrix();
-        result.n = a.n;
-        result.m = a.m;
-
-        long[][] ar = new long[a.n][a.m];
-        for (int i = 0; i < a.n; i++) {
-            for (int j = 0; j < b.m; j++) {
-                ar[i][j] = a.matrix[i][j] - b.matrix[i][j];
-            }
-        }
-
-        result.matrix = ar;
-        return result;
-    }
-
-    /**
-     * Multiplies matrix a and b, stores the result in new matrix.
-     *
-     * @param a
-     * @param b
-     * @return returns a x b matrix
-     * @throws Exception
-     */
-    public static Matrix multiply(Matrix a, Matrix b) {
-        if (a.m != b.n)
+    public Matrix multiply(Matrix matrix) {
+        if (m != matrix.n)
             throw new RuntimeException("matrices not multiplicable");
 
         Matrix result = new Matrix();
-        result.n = a.n;
-        result.m = b.m;
-        long[][] ar = new long[a.n][b.m];
-        for (int i = 0; i < a.n; i++) {
-            for (int j = 0; j < b.m; j++) {
-                for (int k = 0; k < a.m; k++)
-                    ar[i][j] += a.matrix[i][k] * b.matrix[k][j];
+        result.n = n;
+        result.m = matrix.m;
+        long[][] ar = new long[n][matrix.m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < matrix.m; j++) {
+                for (int k = 0; k < m; k++)
+                    ar[i][j] += this.matrix[i][k] * matrix.matrix[k][j];
             }
         }
         result.matrix = ar;
@@ -125,56 +111,39 @@ public class Matrix {
         }
     }
 
-    /**
-     * Calculates Matrix a raised to power n and returns a new matrix
-     *
-     * @param a
-     * @param n
-     * @param mod
-     * @return
-     * @throws Exception
-     */
-    public static Matrix pow(Matrix a, long n, long mod) {
-        if (a.n != a.m)
+    public Matrix pow(long pow, long mod) {
+        if (this.n != this.m)
             throw new RuntimeException("Matrix should be square matrix only");
-        Matrix result = new Matrix(a.matrix);
-        if (n == 1)
+        Matrix result = new Matrix(matrix);
+        if (pow == 1)
             return result;
 
-        Matrix temp = new Matrix(a.matrix), swap;
-        long r = Long.highestOneBit(n);
+        long r = Long.highestOneBit(pow);
         while (r > 1) {
             r = r >>> 1;
-            square(result, temp);
+            result = result.multiply(result);
             result.mod(mod);
-            if ((r & n) != 0) {
-                multiply(result, a, temp);
-                swap = result;
-                result = temp;
-                temp = swap;
+            if ((r & pow) != 0) {
+                result = multiply(result);
                 result.mod(mod);
             }
         }
         return result;
     }
 
-    public static Matrix pow(Matrix a, long n) {
-        if (a.n != a.m)
+    public Matrix pow(long pow) {
+        if (n != m)
             throw new RuntimeException("Matrix should be square matrix only");
-        Matrix result = new Matrix(a.matrix);
-        if (n == 1)
+        Matrix result = new Matrix(matrix);
+        if (pow == 1)
             return result;
 
-        Matrix temp = new Matrix(a.matrix), swap;
-        long r = Long.highestOneBit(n);
+        long r = Long.highestOneBit(pow);
         while (r > 1) {
             r = r >>> 1;
-            square(result, temp);
-            if ((r & n) != 0) {
-                multiply(result, a, temp);
-                swap = result;
-                result = temp;
-                temp = swap;
+            result = result.multiply(result);
+            if ((r & pow) != 0) {
+                result = multiply(result);
             }
         }
         return result;
@@ -218,24 +187,17 @@ public class Matrix {
                 matrix[i][j] = temp.matrix[i][j];
     }
 
-    /**
-     * Squaring the matrix a, storing the result temporarily in matrix b.
-     * finally the result is stored in matrix a.
-     *
-     * @param a matrix to be squared
-     * @param b temporary result storage
-     */
-    private static void square(Matrix a, Matrix b) {
-        b.reset();
-        for (int i = 0; i < a.n; i++)
-            for (int j = 0; j < a.n; j++) {
-                for (int k = 0; k < a.n; k++)
-                    b.matrix[i][j] += a.matrix[i][k] * a.matrix[k][j];
+    public boolean isIdentityMatrix() {
+        int rows = n, cols = m;
+        if (n != m) return false;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (i == j && matrix[i][j] != 1) return false;
+                if (i != j && matrix[i][j] != 0) return false;
             }
+        }
 
-        for (int i = 0; i < a.n; i++)
-            for (int j = 0; j < a.n; j++)
-                a.matrix[i][j] = b.matrix[i][j];
+        return true;
     }
 
     /**
@@ -243,11 +205,10 @@ public class Matrix {
      *
      * @throws Exception if the Matrix is not square matrix.
      */
-    public void square() {
+    public Matrix square() {
         if (this.m != this.n)
             throw new RuntimeException("Matrix should be square matrix");
-        Matrix temp = clone();
-        square(this, temp);
+        return multiply(this);
     }
 
     /**

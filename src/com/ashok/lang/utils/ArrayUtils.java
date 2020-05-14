@@ -1,6 +1,9 @@
 package com.ashok.lang.utils;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
+import java.util.concurrent.ForkJoinPool;
 import java.util.function.Predicate;
 
 /**
@@ -345,6 +348,12 @@ public class ArrayUtils {
         ar[j] = temp;
     }
 
+    public static void swap(long[] ar, int i, int j) {
+        long temp = ar[i];
+        ar[i] = ar[j];
+        ar[j] = temp;
+    }
+
     public static void swap(Object[] objects, int i, int j) {
         Object temp = objects[i];
         objects[i] = objects[j];
@@ -408,5 +417,46 @@ public class ArrayUtils {
     public static <T> int binarySearchMax(T[] ar, int fromIndex, int toIndex, Predicate<T> predicate) {
         rangeCheck(ar.length, fromIndex, toIndex);
         return binarySearchMin0(ar, fromIndex, toIndex, predicate.negate()) - 1;
+    }
+
+    public static Collection<int[]> permutations(int[] ar) {
+        Collection<int[]> permutations = new ArrayList<>();
+        permute(permutations, ar, 0);
+        return permutations;
+    }
+
+    public static void permute(Collection<int[]> permutations, int[] ref, int index) {
+        if (index >= ref.length - 1) {
+            permutations.add(ref.clone());
+            return;
+        }
+        int nextIndex = index + 1;
+        permute(permutations, ref, nextIndex);
+        for (int i = index + 1; i < ref.length; i++) {
+            swap(ref, index, i);
+            permute(permutations, ref, nextIndex);
+            swap(ref, index, i);
+        }
+    }
+
+    public static Collection<Object[]> permutations(Object[] ar) {
+        ForkJoinPool pool = new ForkJoinPool();
+        Collection<Object[]> permutations = new ArrayList<>();
+        permute(permutations, ar, 0);
+        return permutations;
+    }
+
+    public static void permute(Collection<Object[]> permutations, Object[] ref, int index) {
+        if (index >= ref.length - 1) {
+            permutations.add(ref.clone());
+            return;
+        }
+        int nextIndex = index + 1;
+        permute(permutations, ref, nextIndex);
+        for (int i = index + 1; i < ref.length; i++) {
+            swap(ref, index, i);
+            permute(permutations, ref, nextIndex);
+            swap(ref, index, i);
+        }
     }
 }

@@ -73,12 +73,12 @@ public class Fibonacci {
     }
 
     private static long termMatrix(long n) {
-        Matrix res = Matrix.pow(base, n - 1);
+        Matrix res = base.pow(n - 1);
         return res.get(0, 0);
     }
 
     private static long termMatrix(long n, long mod) {
-        Matrix res = Matrix.pow(base, n - 1, mod);
+        Matrix res = base.pow(n - 1, mod);
         return res.get(0, 0);
     }
 

@@ -1,9 +1,13 @@
 <component name="ArtifactManager">
-  <artifact build-on-make="true" name="lang:jar">
+  <artifact type="jar" build-on-make="true" name="lang:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/lang_jar</output-path>
-    <root id="root">
+    <root id="archive" name="lang_jar.jar">
       <element id="dir-copy" path="$PROJECT_DIR$/src/com/ashok/lang" />
-      <element id="archive" name="lang.jar" />
+      <element id="archive" name="lang.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
       <element id="dir-copy" path="$PROJECT_DIR$/src/com/ashok/semaphore" />
       <element id="archive" name="archive.jar" />
     </root>
