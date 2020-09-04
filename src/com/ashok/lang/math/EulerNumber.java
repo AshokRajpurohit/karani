@@ -19,4 +19,8 @@ public enum EulerNumber implements ContinuedFraction {
     public ContinuedFraction nextFraction() {
         return this;
     }
+
+    public Fraction toFraction() {
+        return new Fraction(1, 1);
+    }
 }

@@ -357,11 +357,12 @@ public class PureMath {
 
     /**
      * Returns true with high probability. But the compositness is with surity.
+     * TODO: this function is returning false even for sure primes.
      *
      * @param n number need to check if is prime number
      * @return true if number is prime (probably) or composite (surely)
      */
-    private static boolean primalityCheckRabinMiller(long n) {
+    public static boolean primalityCheckRabinMiller(long n) {
         if (n < 1000) return Prime.primality(n);
         long m = n - 1;
         int trailingZeroes = Long.numberOfTrailingZeros(m);

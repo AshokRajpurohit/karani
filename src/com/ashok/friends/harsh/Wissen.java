@@ -3,9 +3,14 @@
  * ASHOK PROPRIETARY/CONFIDENTIAL. Use is subject to license terms, But you are free to use it :).
  *
  */
-package com.ashok.lang.template;
+package com.ashok.friends.harsh;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * Problem Name:
@@ -16,7 +21,7 @@ import java.io.*;
  *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
-public class ContestTemplate {
+public class Wissen {
     private static PrintWriter out = new PrintWriter(System.out);
     private static InputReader in = new InputReader();
 
@@ -27,6 +32,10 @@ public class ContestTemplate {
     }
 
     private static void solve() throws IOException {
+        int[][] ar = new int[2][3];
+        Integer[] times = Arrays.stream(ar).flatMap(v -> Stream.of(v[0], -v[1]))
+                .toArray(t -> new Integer[t]);
+        Arrays.sort(times, (a, b) -> a == -b ? b - a : a - b);
         int t = in.readInt();
         while (t > 0) {
             t--;

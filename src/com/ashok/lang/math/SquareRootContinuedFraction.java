@@ -59,18 +59,6 @@ public class SquareRootContinuedFraction implements ContinuedFraction {
         return new SquareRootContinuedFraction(denominator, b, newC, newD / denominator);
     }
 
-    public static BigFraction evaluate(List<SquareRootContinuedFraction> list) {
-        LinkedList<SquareRootContinuedFraction> copy = new LinkedList<>(list);
-        BigFraction value = new BigFraction(copy.removeLast().toFraction());
-        int size = copy.size();
-
-        for (int i = 0; i < size; i++) {
-            value = value.toInverse().add(new BigFraction(copy.removeLast().toFraction()));
-        }
-
-        return value;
-    }
-
     public Fraction toFraction() {
         return new Fraction(d, 1);
     }

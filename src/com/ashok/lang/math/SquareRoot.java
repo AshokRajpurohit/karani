@@ -9,18 +9,18 @@ import java.util.LinkedList;
  */
 public class SquareRoot {
     public static String sqrt(long n, int precision) {
-        SquareRootContinuedFraction fraction = new SquareRootContinuedFraction(n);
-        LinkedList<SquareRootContinuedFraction> fractionList = new LinkedList<>();
+        ContinuedFraction continuedFraction = new SquareRootContinuedFraction(n);
+        LinkedList<Fraction> fractionList = new LinkedList<>();
         BigInteger base = new BigInteger(String.valueOf(n));
 
         while (true) {
-            fractionList.addLast(fraction);
-            BigFraction f = SquareRootContinuedFraction.evaluate(fractionList);
+            fractionList.addLast(continuedFraction.toFraction());
+            BigFraction f = ContinuedFraction.evaluate(fractionList);
             if (f.denominator.toString().length() > precision) {
                 return divide(f.numerator, f.denominator, precision);
             }
 
-            fraction = fraction.nextFraction();
+            continuedFraction = continuedFraction.nextFraction();
         }
     }
 

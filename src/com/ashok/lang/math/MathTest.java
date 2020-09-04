@@ -5,21 +5,14 @@
  */
 package com.ashok.lang.math;
 
-import com.ashok.lang.encryption.EncryptionUtil;
-import com.ashok.lang.encryption.MessageDecoder;
-import com.ashok.lang.encryption.MessageEncoder;
 import com.ashok.lang.inputs.InputReader;
 import com.ashok.lang.inputs.Output;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.IntFunction;
-import java.util.function.Predicate;
-import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * This class is for the book
@@ -44,67 +37,32 @@ public class MathTest {
     }
 
     private void solve() throws IOException {
-        int start = 10000000, end = start + 2000;
-        out.print(Prime.primesInRange(start, end));
+        GuassianInteger ca = GuassianInteger.of(8, 38), cb = GuassianInteger.of(9, 59);
+        System.out.println(ModularArithmatic.gcd(ca.norm, cb.norm));
+        List<GuassianInteger> gcds = Arrays.asList(GuassianInteger.of(1, 1)
+                , GuassianInteger.of(2, 3), GuassianInteger.of(1, 5));
+
+        gcds = gcds.stream().flatMap(c -> Stream.of(c, c.conjugate)).collect(Collectors.toList());
+
+//        gcds.forEach(c -> {
+//            out.println();
+//            out.println(c, c.norm);
+//            boolean divisibility = ca.checkDivisability(c) && cb.checkDivisability(c);
+//            out.println(divisibility);
+//            if (!divisibility) return;
+//            out.println(ca.divide(c), cb.divide(c));
+//            out.println(Arrays.asList(ca.multiply(c), ca.multiply(c.conjugate)).toString());
+//            out.println(Arrays.asList(cb.multiply(c), cb.multiply(c.conjugate)).toString());
+//        });
         out.flush();
-        out.println(PureMath.smallestPrimitiveRoot(1000000007));
-        out.flush();
-        Function<int[], long[][]> matrixArGenerator = ar -> IntStream.range(0, ar.length)
-                .mapToObj(i -> {
-                    long[] row = new long[ar.length];
-                    row[ar[i]] = 1;
-                    return row;
-                }).toArray(t -> new long[t][]);
 
-        Function<int[], Matrix> matrixFunction = ar -> new Matrix(matrixArGenerator.apply(ar));
-        Predicate<int[]> hasZero = ar -> Arrays.stream(ar).anyMatch(e -> e == 0);
-        IntFunction<int[]> rootIndexFunction = n -> {
-            int[] ar = new int[n - 1];
-            int r = 2;
-            while (hasZero.test(ar)) {
-                for (int i = 1, j = r; i < n; i++) {
-                    ar[j - 1] = i;
-                    j = j * r % n;
-                }
-                r++;
-            }
-            return ar;
-        };
-
-        ToIntFunction<Matrix> identityPowerFunction = m -> {
-            if (m.isIdentityMatrix()) return 1;
-            Matrix res = m.clone();
-            int power = 1;
-            while (!res.isIdentityMatrix()) {
-                res = res.multiply(m);
-                power++;
-            }
-
-            return power;
-        };
-
-        Function<List<Long>, String> toStringFunc = list -> list.stream().reduce("", (a, b) -> a + b, (a, b) -> a + b);
-        EncryptionUtil.RSAPrivateKey key = new EncryptionUtil.RSAPrivateKey(10139, 10259, 10007);
-        MessageEncoder<Long> encoder = EncryptionUtil.getRSAEncoder(key.publicKey);
-        MessageDecoder<Long> decoder = EncryptionUtil.getRSADecoder(key);
         while (true) {
-            String s = in.readLine();
-            long time = System.currentTimeMillis();
-            List<Long> encoded = EncryptionUtil.encodeMessage(s);
-            String decoded = EncryptionUtil.decodeMessage(encoded);
-            out.println("endcoded: ", encoded);
-            out.println("decoded: ", decoded);
-            List<List<Long>> encrypted = encoded.stream().map(m -> encoder.encode(Long.valueOf(m))).collect(Collectors.toList());
-            out.println(encoded);
-            out.println(encrypted);
-            List<Long> decrypted = encrypted.stream().map(m -> decoder.decode(m)).collect(Collectors.toList());
-            out.println(decrypted);
-            out.println(toStringFunc.apply(decrypted));
-            decoded = EncryptionUtil.decodeMessage(decrypted);
-            out.println(decoded);
-            out.println("time taken in millis is " + (System.currentTimeMillis() - time));
+            GuassianInteger alpha = GuassianInteger.of(in.readInt(), in.readInt());
+            GuassianInteger beta = GuassianInteger.of(in.readInt(), in.readInt());
+            out.println(GuassianInteger.gcd(alpha, beta));
             out.flush();
         }
+
     }
 
     private static long process(int a, int b) {
