@@ -11,50 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="919b91fd-3e17-4687-9aeb-ed1e34df3014" name="Default" comment="July 2019 Long Challenge">
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codechef/marathon/may20/BinaryLand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codechef/marathon/may20/BuyingANewString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codechef/marathon/may20/ChefAndBitwiseProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codechef/marathon/may20/ChefAndRainbowRoad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codechef/marathon/may20/SortingVases.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codechef/marathon/may20/TripleSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codeforces/C1342Div2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codeforces/Contest637Div2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codeforces/c1343/AlternatingSubsequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codeforces/c1343/BalancedArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codeforces/c1343/Candies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codeforces/c1343/ConstantPalindromeSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codejam/cj20/r1B/BlindFold.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/codejam/cj20/r1C/oneC2020.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/algorithms/BoyerMooreStringSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/algorithms/StringSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/encryption/CharDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/encryption/CharEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/encryption/ElGammalEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/encryption/EncryptionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/encryption/MessageDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/encryption/MessageEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/encryption/RSAMessageDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/encryption/RSAMessageEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/math/PureMath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ashok/lang/silverman/Silverman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/lang_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/lang_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karani.iml" beforeDir="false" afterPath="$PROJECT_DIR$/karani.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/friends/harsh/AmazonApril5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/friends/harsh/AmazonApril5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/hiring/amazon/AmazonMarch20.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/hiring/amazon/AmazonMarch20.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/math/Factorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/math/Factorial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/math/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/math/Fraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/math/MathTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/math/MathTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/math/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/math/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/math/ModularArithmatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/math/ModularArithmatic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/math/Numbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/math/Numbers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/math/Prime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/math/Prime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/problems/Fibonacci.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/problems/Fibonacci.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/problems/Hanoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/problems/Hanoi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ashok/lang/utils/ArrayUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ashok/lang/utils/ArrayUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,6 +227,7 @@
       <recent name="C:\Projects\others\karani\src\com\ashok\lang\concurrency" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.ashok.lang.math.ContinuedFraction" />
       <recent name="com.ashok.lang.utils.ArrayUtils" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -285,17 +243,17 @@
       <recent name="C:\Projects\others\karani\src\com\ashok\codejam\codejam17\qualification" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ashok.codechef.marathon.sept2020" />
+      <recent name="com.ashok.friends.harsh" />
+      <recent name="com.ashok.codechef.marathon.june20" />
       <recent name="com.ashok.codechef.marathon.may20" />
       <recent name="com.ashok.codece" />
-      <recent name="com.ashok.codejam.cj20.r1C" />
-      <recent name="com.ashok.codeforces" />
-      <recent name="com.ashok.codeforces.c1343" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.ashok.lang.annotation" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SortingVases">
+  <component name="RunManager" selected="Application.ChefAndTrumpCards">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -558,13 +516,13 @@
       <envs />
       <method />
     </configuration>
-    <configuration name="AmazonApril5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ashok.friends.harsh.AmazonApril5" />
+    <configuration name="AdaMatrix" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ashok.codechef.marathon.sept2020.AdaMatrix" />
       <module name="karani" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ashok.friends.harsh.*" />
+          <option name="PATTERN" value="com.ashok.codechef.marathon.sept2020.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -572,13 +530,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BinaryLand" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ashok.codechef.marathon.may20.BinaryLand" />
+    <configuration name="ChefAndTrumpCards" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ashok.codechef.marathon.sept2020.ChefAndTrumpCards" />
       <module name="karani" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ashok.codechef.marathon.may20.*" />
+          <option name="PATTERN" value="com.ashok.codechef.marathon.sept2020.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -586,13 +544,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BuyingANewString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ashok.codechef.marathon.may20.BuyingANewString" />
+    <configuration name="ChefinaAndSwap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ashok.codechef.marathon.sept2020.ChefinaAndSwap" />
       <module name="karani" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ashok.codechef.marathon.may20.*" />
+          <option name="PATTERN" value="com.ashok.codechef.marathon.sept2020.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -600,13 +558,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SortingVases" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ashok.codechef.marathon.may20.SortingVases" />
+    <configuration name="ConvenientAirports" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ashok.codechef.marathon.june20.ConvenientAirports" />
       <module name="karani" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ashok.codechef.marathon.may20.*" />
+          <option name="PATTERN" value="com.ashok.codechef.marathon.june20.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -614,13 +572,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TripleSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ashok.codechef.marathon.may20.TripleSort" />
+    <configuration name="FindXOR" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ashok.codechef.marathon.sept2020.FindXOR" />
       <module name="karani" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ashok.codechef.marathon.may20.*" />
+          <option name="PATTERN" value="com.ashok.codechef.marathon.sept2020.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -694,19 +652,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TripleSort" />
-      <item itemvalue="Application.BuyingANewString" />
-      <item itemvalue="Application.SortingVases" />
-      <item itemvalue="Application.AmazonApril5" />
-      <item itemvalue="Application.BinaryLand" />
+      <item itemvalue="Application.ConvenientAirports" />
+      <item itemvalue="Application.AdaMatrix" />
+      <item itemvalue="Application.FindXOR" />
+      <item itemvalue="Application.ChefinaAndSwap" />
+      <item itemvalue="Application.ChefAndTrumpCards" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SortingVases" />
-        <item itemvalue="Application.BinaryLand" />
-        <item itemvalue="Application.BuyingANewString" />
-        <item itemvalue="Application.AmazonApril5" />
-        <item itemvalue="Application.TripleSort" />
+        <item itemvalue="Application.ChefAndTrumpCards" />
+        <item itemvalue="Application.ChefinaAndSwap" />
+        <item itemvalue="Application.FindXOR" />
+        <item itemvalue="Application.AdaMatrix" />
+        <item itemvalue="Application.ConvenientAirports" />
       </list>
     </recent_temporary>
   </component>
@@ -1083,138 +1041,69 @@
     <option name="LAST_COMMIT_MESSAGE" value="July 2019 Long Challenge" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="132" key="#com.intellij.ide.util.MemberChooser" timestamp="1589011006277">
+    <state x="718" y="167" key="#com.intellij.ide.util.MemberChooser" timestamp="1599290537591">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="574" y="132" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1591977892512" />
+    <state x="718" y="167" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599290537591" />
+    <state x="619" y="343" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1591958382948">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="132" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589011006277" />
-    <state x="528" y="203" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1587240094378">
+    <state x="619" y="343" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1591958382948" />
+    <state x="375" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591512030395">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="528" y="203" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1587240094378" />
-    <state x="571" y="305" width="428" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1588425167692">
+    <state x="375" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1591512030395" />
+    <state x="1159" y="149" width="1520" height="464" key="#xdebugger.evaluate" timestamp="1599310770180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="16" y="360" width="1520" height="464" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1591631473474" />
+    <state x="1159" y="149" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1599310770180" />
+    <state width="1403" height="654" key="DebuggerActiveHint" timestamp="1599310784966">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1122" height="686" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1592062727706" />
+    <state width="1403" height="654" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1599310784966" />
+    <state width="1899" height="376" key="GridCell.Tab.0.bottom" timestamp="1599732611792">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1515" height="281" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592064368931" />
+    <state width="1899" height="376" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599732611792" />
+    <state width="1899" height="376" key="GridCell.Tab.0.center" timestamp="1599732611792">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1515" height="281" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592064368931" />
+    <state width="1899" height="376" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599732611792" />
+    <state width="1899" height="376" key="GridCell.Tab.0.left" timestamp="1599732611792">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1515" height="281" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592064368930" />
+    <state width="1899" height="376" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599732611792" />
+    <state width="1899" height="376" key="GridCell.Tab.0.right" timestamp="1599732611792">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1515" height="281" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592064368931" />
+    <state width="1899" height="376" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599732611792" />
+    <state x="490" y="154" width="540" height="524" key="StructurePopup" timestamp="1591981718606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="571" y="305" width="428" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1588425167692" />
-    <state x="487" y="120" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1588498532533">
+    <state x="490" y="154" width="540" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1591981718606" />
+    <state x="474" y="46" width="711" height="732" key="find.popup" timestamp="1591468108957">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="487" y="120" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1536.824@0.0.1536.824" timestamp="1588498532533" />
-    <state x="375" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588862701470">
+    <state x="474" y="46" width="711" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1591468108957" />
+    <state width="823" height="599" key="javadoc.popup.new" timestamp="1591468298917">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="375" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1588862701470" />
-    <state x="499" y="163" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1588234320985">
+    <state width="823" height="599" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1591468298917" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1599304998098">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599304998098" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1591981707791">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="163" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588234320985" />
-    <state x="16" y="360" width="1520" height="464" key="#xdebugger.evaluate" timestamp="1588668640631">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="16" y="360" width="1520" height="464" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1588668640631" />
-    <state width="450" height="466" key="DebuggerActiveHint" timestamp="1589029167862">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="450" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1589029167862" />
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1588340834860">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1588340834860" />
-    <state x="549" y="171" key="FileChooserDialogImpl" timestamp="1587808818309">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587808818309" />
-    <state width="1515" height="252" key="GridCell.Tab.-1.bottom" timestamp="1587278363584">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="252" key="GridCell.Tab.-1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587278363584" />
-    <state width="1515" height="252" key="GridCell.Tab.-1.center" timestamp="1587278363584">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="252" key="GridCell.Tab.-1.center/0.0.1536.824@0.0.1536.824" timestamp="1587278363584" />
-    <state width="1515" height="252" key="GridCell.Tab.-1.left" timestamp="1587278363584">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="252" key="GridCell.Tab.-1.left/0.0.1536.824@0.0.1536.824" timestamp="1587278363584" />
-    <state width="1515" height="252" key="GridCell.Tab.-1.right" timestamp="1587278363584">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="252" key="GridCell.Tab.-1.right/0.0.1536.824@0.0.1536.824" timestamp="1587278363584" />
-    <state width="1515" height="231" key="GridCell.Tab.0.bottom" timestamp="1589403954768">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="231" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589403954768" />
-    <state width="1515" height="231" key="GridCell.Tab.0.center" timestamp="1589403954768">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="231" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589403954768" />
-    <state width="1515" height="231" key="GridCell.Tab.0.left" timestamp="1589403954768">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="231" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589403954768" />
-    <state width="1515" height="231" key="GridCell.Tab.0.right" timestamp="1589403954768">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="231" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589403954768" />
-    <state width="1515" height="517" key="GridCell.Tab.1.bottom" timestamp="1588148211048">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="517" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588148211048" />
-    <state width="1515" height="517" key="GridCell.Tab.1.center" timestamp="1588148211048">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="517" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588148211048" />
-    <state width="1515" height="517" key="GridCell.Tab.1.left" timestamp="1588148211047">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="517" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588148211047" />
-    <state width="1515" height="517" key="GridCell.Tab.1.right" timestamp="1588148211048">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="517" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588148211048" />
-    <state x="279" y="0" key="SettingsEditor" timestamp="1587368218893">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="279" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587368218893" />
-    <state x="490" y="154" width="540" height="524" key="StructurePopup" timestamp="1589131310959">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="490" y="154" width="540" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1589131310959" />
-    <state x="528" y="315" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1587238083004">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="528" y="315" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1587238083004" />
-    <state x="482" y="63" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587550034414">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="482" y="63" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1587550034414" />
-    <state x="580" y="332" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589051536715">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="580" y="332" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1589051536715" />
-    <state x="252" y="152" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1588669113254">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="252" y="152" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1588669113254" />
-    <state x="474" y="46" width="711" height="732" key="find.popup" timestamp="1589008037599">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="474" y="46" width="711" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1589008037599" />
-    <state width="823" height="599" key="javadoc.popup.new" timestamp="1588883477740">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="823" height="599" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1588883477740" />
-    <state x="511" y="39" key="refactoring.ChangeSignatureDialog" timestamp="1588616104196">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="511" y="39" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1588616104196" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1587319429276">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1587319429276" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1589130285723">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589130285723" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1591981707791" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2694,12 +2583,12 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ashok/lang/silverman/Silverman.java</url>
-          <line>102</line>
+          <line>219</line>
           <option name="timeStamp" value="1108" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ashok/lang/silverman/Silverman.java</url>
-          <line>99</line>
+          <line>216</line>
           <option name="timeStamp" value="1110" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -2719,12 +2608,12 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ashok/lang/silverman/Silverman.java</url>
-          <line>71</line>
+          <line>188</line>
           <option name="timeStamp" value="1116" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ashok/lang/silverman/Silverman.java</url>
-          <line>53</line>
+          <line>170</line>
           <option name="timeStamp" value="1117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -2773,24 +2662,9 @@
           <option name="timeStamp" value="1141" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/ashok/lang/math/PureMath.java</url>
-          <line>272</line>
-          <option name="timeStamp" value="1143" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/ashok/lang/math/PureMath.java</url>
-          <line>144</line>
-          <option name="timeStamp" value="1146" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ashok/codeforces/C1342Div2.java</url>
           <line>57</line>
           <option name="timeStamp" value="1147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/ashok/lang/math/MathTest.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="1155" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ashok/lang/encryption/EncryptionUtil.java</url>
@@ -2803,19 +2677,9 @@
           <option name="timeStamp" value="1157" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/ashok/lang/math/MathTest.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="1158" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ashok/lang/encryption/EncryptionUtil.java</url>
           <line>78</line>
           <option name="timeStamp" value="1159" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/ashok/lang/math/MathTest.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="1161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/may20/TripleSort.java</url>
@@ -2841,6 +2705,71 @@
           <url>file://$PROJECT_DIR$/src/com/ashok/friends/harsh/AmazonApril5.java</url>
           <line>167</line>
           <option name="timeStamp" value="1208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/lang/math/GuassianInteger.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="1213" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/lang/silverman/Silverman.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="1215" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/june20/OperationsOnTuple.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="1219" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/june20/OperationsOnTuple.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="1220" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/june20/OperationsOnTuple.java</url>
+          <line>149</line>
+          <option name="timeStamp" value="1223" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/june20/OperationsOnTuple.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="1224" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/june20/OperationsOnTuple.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="1225" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/june20/OperationsOnTuple.java</url>
+          <line>176</line>
+          <option name="timeStamp" value="1227" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/june20/CovidSampling.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="1229" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/june20/CovidSampling.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="1230" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/sept2020/AdaMatrix.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="1231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/sept2020/AdaMatrix.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="1232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ashok/codechef/marathon/sept2020/FindXOR.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="1234" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
