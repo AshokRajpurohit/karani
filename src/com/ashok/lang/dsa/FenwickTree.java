@@ -72,6 +72,17 @@ public class FenwickTree {
         return result;
     }
 
+    public long query(int index) {
+        int sum = 0;
+        while(index >= 0) {
+            sum += array[index];
+            index = index & (index + 1);
+            index--;
+        }
+
+        return sum;
+    }
+
     /**
      * This method finds the parent and update the same with this node value.
      *

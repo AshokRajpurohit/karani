@@ -115,6 +115,15 @@ public class InputReader {
         return ar;
     }
 
+    public int[][] readIntArrays(int n) throws IOException {
+        int[][] ar = new int[n][];
+        for (int i = 0; i < n; i++) {
+            ar[i] = readIntArray(readInt());
+        }
+
+        return ar;
+    }
+
     public int[] readIntArray(int n, int d) throws IOException {
         int[] ar = new int[n];
         for (int i = 0; i < n; i++)

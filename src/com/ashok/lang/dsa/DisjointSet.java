@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class DisjointSet<K> {
     private static final Node NIL = new Node();
-    private static Node root;
+    private Node root;
     private int size = 1;
     private HashMap<K, Node> map = new HashMap<K, Node>();
 
@@ -19,8 +19,12 @@ public class DisjointSet<K> {
     }
 
     public void merge(DisjointSet<K> dset) {
-        dset.root.parent = this.root;
-        this.size += dset.size;
+        if (dset.size > this.size) {
+            dset.merge(this);
+            return;
+        }
+        dset.root.parent = root;
+        size += dset.size;
 
         map.putAll(dset.map);
     }

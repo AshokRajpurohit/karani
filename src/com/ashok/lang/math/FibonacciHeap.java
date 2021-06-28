@@ -9,6 +9,8 @@ import java.util.*;
  * For Reference please follow Fibonacci Heaps from Introduction
  * to Algorithms by CLRS.
  *
+ * WARNING: INCORRECT IMPLEMENTATION.
+ *
  * @author Ashok Rajpurohit (ashok1113@gmail.com)
  */
 public class FibonacciHeap<K, V> {
